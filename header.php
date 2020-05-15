@@ -21,7 +21,7 @@
   <body>
     <div class="center header">
       <img src="images/epis.png" alt="epis" />
-      <a href="index.php" class="black-text" title="accueil"><h1>Gîte de Kerhéré</h1></a>
+      <a href="index.php" class="black-text" title="accueil"><h1>Gîte de Kerhéré - new site</h1></a>
       <h2 class="header-subtitle">Gîte avec piscine intérieure en Bretagne</h2>
     </div>
     <div class="container row col l12 s12 m12">
