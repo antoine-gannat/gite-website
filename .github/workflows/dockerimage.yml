@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to Azure Docker Registry
+      run: docker login antoinegannatregistry.azurecr.io --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+      env:
+        DOCKER_USERNAME: ${{ secrets.AZURE_DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.AZURE_DOCKER_PASSWORD }}
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile -t gite-kerhere
+    - name: Push the Docker image
+      run: |
+        docker tag gite-kerhere antoinegannatregistry.azurecr.io/gite-kerhere
+        docker push antoinegannatregistry.azurecr.io/gite-kerhere
