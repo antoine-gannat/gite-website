@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Location de vacances avec piscine intérieure chauffée en bretagne. Gite 6 personnes."
+    />
+    <meta name="author" content="Antoine Gannat" />
+    <link rel="icon" href="%PUBLIC_URL%/images/GDF_logo.png" />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="style/style.css"
+      media="screen,projection"
+    />
+    <link type="text/css" rel="stylesheet" href="style/header.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="materialize/css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link href="materialize/css/google_icon.css" rel="stylesheet" />
+
+    <title>Kerhéré, gite avec piscine interieure en bretagne</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      function next() {
+        $(".slider").slider("pause");
+        $(".slider").slider("start");
+        $(".slider").slider("next");
+      }
+      function prev() {
+        $(".slider").slider("pause");
+        $(".slider").slider("start");
+        $(".slider").slider("prev");
+      }
+    </script>
+    <script type="text/javascript" src="materialize/js/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="materialize/js/materialize.min.js"
+    ></script>
+    <script type="text/javascript" src="materialize/js/init.js"></script>
+  </body>
+</html>
