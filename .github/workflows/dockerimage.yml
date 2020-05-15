@@ -20,7 +20,7 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.AZURE_DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.AZURE_DOCKER_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile -t gite-kerhere
+      run: docker build . -t gite-kerhere
     - name: Push the Docker image
       run: |
         docker tag gite-kerhere antoinegannatregistry.azurecr.io/gite-kerhere
