@@ -1,0 +1,32 @@
+.homeImageContainer {
+  /* The image used */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/images/exterieur/picture_8.jpg");
+
+  /* Set a specific height */
+  height: 80vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homeImageContainer .centeredTitles {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.homeImageContainer .centeredTitles h1 {
+  font-size: 75px;
+}
+
+.homeImageContainer .centeredTitles h2 {
+  font-size: 30px;
+}
