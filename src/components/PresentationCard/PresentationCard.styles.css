@@ -1,8 +1,8 @@
-.presentationCardContainer {
+.presentation-card-container {
   position: relative;
 }
 
-.presentationCardContainer > div {
+.presentation-card-container > div {
   padding: 0;
   position: absolute;
   top: -100px;
@@ -12,6 +12,6 @@
   box-shadow: 0px 0px 44px -29px rgba(0, 0, 0, 0.75);
 }
 
-.presentationCardContainer > div > img {
-  padding: 0;
+.presentation-card-container > div > img {
+  padding: 5px 0 0 5px;
 }

@@ -1,4 +1,4 @@
-.homeImageContainer {
+.home-image-container {
   /* The image used */
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("/images/exterieur/picture_8.jpg");
@@ -13,7 +13,7 @@
   background-size: cover;
 }
 
-.homeImageContainer .centeredTitles {
+.home-image-container .centered-titles {
   position: absolute;
   left: 50%;
   top: 40%;
@@ -23,10 +23,64 @@
   text-align: center;
 }
 
-.homeImageContainer .centeredTitles h1 {
+.home-image-container .centered-titles h1 {
   font-size: 75px;
 }
 
-.homeImageContainer .centeredTitles h2 {
-  font-size: 30px;
+.home-image-container .centered-titles h2 {
+  font-size: 40px;
+}
+
+/* Fade in animation */
+
+.fade-in {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

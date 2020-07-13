@@ -1,3 +1,14 @@
 .nav {
   background: rgba(0, 0, 0, 0.3);
 }
+
+.nav .flag {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.nav .selected {
+  opacity: 1;
+}

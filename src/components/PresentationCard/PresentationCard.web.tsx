@@ -1,18 +1,32 @@
 import * as React from "react";
 import "./PresentationCard.styles.css";
+import strings from "./PresentationCard.string.json";
+import { translateComponent } from "../Translation/Translator";
+import { DefaultPropsWithTranslation } from "../../types/props";
 
-export default function PresentationCard(): JSX.Element {
+function PresentationCard({
+  translate,
+}: DefaultPropsWithTranslation): JSX.Element {
   return (
-    <section className="presentationCardContainer col-12 offset-lg-1">
-      <div className="row col-lg-10 col-12">
+    <section className="presentation-card-container">
+      <div className="row col-12">
         <img
           src="/images/piscine/picture_1.jpg"
           className="col-lg-6 col-md-6 col-sm-6"
+          alt={translate("poolImgAlt")}
         />
-        <div className="col-lg-6 col-md-6 col-sm-6">
-          <h3>Présentation</h3>
+        <div className="col-lg-6 col-md-6 col-sm-6 presentation-card">
+          <h3>{translate("presentationTitle")}</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
+            voluptatum? Laborum animi nesciunt alias ducimus corporis quos vero
+            ratione fuga beatae exercit ationem magnam, porro illum in aliquid
+            odit maiores nulla?
+          </p>
         </div>
       </div>
     </section>
   );
 }
+
+export default translateComponent(PresentationCard, strings);
