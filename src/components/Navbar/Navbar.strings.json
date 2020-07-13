@@ -1,0 +1,18 @@
+{
+  "FR": {
+    "galery": "Photos",
+    "environment": "Environment",
+    "booking": "Réservation",
+    "home": "Accueil",
+    "ENFlagAlt": "Drapeau Français",
+    "FRFlagAlt": "Drapeau Anglais"
+  },
+  "EN": {
+    "galery": "Galery",
+    "environment": "Environment",
+    "booking": "Booking",
+    "home": "Home",
+    "ENFlagAlt": "England flag",
+    "FRFlagAlt": "French flag"
+  }
+}

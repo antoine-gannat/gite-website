@@ -1,9 +1,14 @@
 import * as React from "react";
 import "./Navbar.styles.css";
-import { DefaultProps } from "../../types/props";
+import { DefaultPropsWithTranslation } from "../../types/props";
 import { TranslateLanguage } from "../../types/translate";
+import { translateComponent } from "../Translation/Translator";
+import strings from "./Navbar.strings.json";
 
-export default function Navbar(props: DefaultProps): JSX.Element {
+function Navbar({
+  translate,
+  language,
+}: DefaultPropsWithTranslation): JSX.Element {
   function setLanguage(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
     window.location.reload();
@@ -29,22 +34,22 @@ export default function Navbar(props: DefaultProps): JSX.Element {
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
           <li className="nav-item active">
             <a className="nav-link" href="#home">
-              Accueil
+              {translate("home")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#photos">
-              Photos
+              {translate("galery")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#environment">
-              Environment
+              {translate("environment")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#reservation">
-              Réservation
+              {translate("booking")}
             </a>
           </li>
           <li className="nav-item">
@@ -52,10 +57,10 @@ export default function Navbar(props: DefaultProps): JSX.Element {
               role="button"
               onClick={() => setLanguage("FR")}
               className={
-                "nav-link flag" + (props.language === "FR" ? " selected" : "")
+                "nav-link flag" + (language === "FR" ? " selected" : "")
               }
               src="/images/fr_flag.png"
-              alt="France flag"
+              alt={translate("FRFlagAlt")}
             />
           </li>
           <li className="nav-item">
@@ -63,10 +68,10 @@ export default function Navbar(props: DefaultProps): JSX.Element {
               role="button"
               onClick={() => setLanguage("EN")}
               className={
-                "nav-link flag" + (props.language === "EN" ? " selected" : "")
+                "nav-link flag" + (language === "EN" ? " selected" : "")
               }
               src="/images/uk_flag.png"
-              alt="England flag"
+              alt={translate("ENFlagAlt")}
             />
           </li>
         </ul>
@@ -74,3 +79,5 @@ export default function Navbar(props: DefaultProps): JSX.Element {
     </nav>
   );
 }
+
+export default translateComponent(Navbar, strings);
