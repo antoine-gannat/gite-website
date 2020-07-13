@@ -1,0 +1,9 @@
+.galery {
+  display: flex;
+  height: 500px;
+}
+
+.galery .vertical-img {
+  height: 100%;
+  width: 50%;
+}

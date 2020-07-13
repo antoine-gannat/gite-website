@@ -17,12 +17,32 @@ function PresentationCard({
         />
         <div className="col-lg-6 col-md-6 col-sm-6 presentation-card">
           <h3>{translate("presentationTitle")}</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
-            voluptatum? Laborum animi nesciunt alias ducimus corporis quos vero
-            ratione fuga beatae exercit ationem magnam, porro illum in aliquid
-            odit maiores nulla?
-          </p>
+          <hr />
+          <p>{translate("presentationText")}</p>
+          <div className="description-table">
+            <ul className="col-12 row">
+              <li className="col-6">
+                <span>
+                  {translate("capacity")} : 6 {translate("peoples")}
+                </span>
+              </li>
+              <li className="col-6">
+                <span>{translate("wifi")} </span>
+              </li>
+              <li className="col-6">
+                <span>{translate("surface")} : 95m² </span>
+              </li>
+              <li className="col-6">
+                <span>{translate("capacity")} : 6 </span>
+              </li>
+              <li className="col-6">
+                <span>{translate("bedrooms")} : 3 </span>
+              </li>
+              <li className="col-6">
+                <span>{translate("sheetsIncluded")}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

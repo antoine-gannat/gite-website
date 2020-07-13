@@ -12,3 +12,12 @@
 .nav .selected {
   opacity: 1;
 }
+
+.nav button {
+  background: none;
+  border: none;
+}
+
+.nav button:focus {
+  outline: none;
+}

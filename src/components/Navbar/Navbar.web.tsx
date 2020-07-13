@@ -9,9 +9,22 @@ function Navbar({
   translate,
   language,
 }: DefaultPropsWithTranslation): JSX.Element {
+  const [selectedHash, setSelectedHash] = React.useState(
+    window.location.hash.replace("#", "") || "home"
+  );
+
   function setLanguage(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
     window.location.reload();
+  }
+  function scrollTo(id: string): void {
+    setSelectedHash(id);
+    document.getElementById(id)?.scrollIntoView();
+    window.location.hash = id;
+  }
+
+  function isActive(id: string): boolean {
+    return selectedHash === id;
   }
 
   return (
@@ -32,25 +45,35 @@ function Navbar({
       </button>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li className="nav-item active">
-            <a className="nav-link" href="#home">
+          <li className={"nav-item" + (isActive("home") ? " active" : "")}>
+            <button className="nav-link" onClick={() => scrollTo("home")}>
               {translate("home")}
-            </a>
+            </button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#photos">
+          <li className={"nav-item" + (isActive("galery") ? " active" : "")}>
+            <button className="nav-link" onClick={() => scrollTo("galery")}>
               {translate("galery")}
-            </a>
+            </button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#environment">
+          <li
+            className={"nav-item" + (isActive("environment") ? " active" : "")}
+          >
+            <button
+              className="nav-link"
+              onClick={() => scrollTo("environment")}
+            >
               {translate("environment")}
-            </a>
+            </button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#reservation">
+          <li
+            className={"nav-item" + (isActive("reservation") ? " active" : "")}
+          >
+            <button
+              className="nav-link"
+              onClick={() => scrollTo("reservation")}
+            >
               {translate("booking")}
-            </a>
+            </button>
           </li>
           <li className="nav-item">
             <img

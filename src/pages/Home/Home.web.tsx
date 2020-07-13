@@ -5,6 +5,7 @@ import PresentationCard from "../../components/PresentationCard/PresentationCard
 import { DefaultPropsWithTranslation } from "../../types/props";
 import strings from "./Home.strings.json";
 import { translateComponent } from "../../components/Translation/Translator";
+import Galery from "../../components/Galery/Galery.web";
 
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   return (
@@ -16,8 +17,9 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
           <h2 className="fade-in">{props.translate("subtitle")}</h2>
         </div>
       </div>
-      <div className="col-8 offset-2">
+      <div className="col-8 offset-2 page-content">
         <PresentationCard {...props} />
+        <Galery {...props} />
       </div>
     </main>
   );
