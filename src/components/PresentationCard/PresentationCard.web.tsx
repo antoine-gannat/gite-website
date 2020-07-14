@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./PresentationCard.styles.css";
 import strings from "./PresentationCard.string.json";
+import globalStrings from "../../index.strings.json";
 import { translateComponent } from "../Translation/Translator";
 import { DefaultPropsWithTranslation } from "../../types/props";
 
@@ -13,7 +14,7 @@ function PresentationCard({
         <img
           src="/images/pool/picture_1.jpg"
           className="col-lg-6 col-md-6 col-sm-6"
-          alt={translate("poolImgAlt")}
+          alt={translate("poolAlt")}
         />
         <div className="col-lg-6 col-md-6 col-sm-6 presentation-card">
           <h3>{translate("presentationTitle")}</h3>
@@ -49,4 +50,4 @@ function PresentationCard({
   );
 }
 
-export default translateComponent(PresentationCard, strings);
+export default translateComponent(PresentationCard, [strings, globalStrings]);

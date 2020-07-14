@@ -1,0 +1,20 @@
+{
+  "FR": {
+    "poolAlt": "Piscine",
+    "diningRoomAlt": "Séjour",
+    "bedrooms": "Chambres",
+    "bedroomAlt": "Chambre",
+    "outdoorAlt": "Exterieur",
+    "kitchenAlt": "Cuisine",
+    "environmentAlt": "Environnement"
+  },
+  "EN": {
+    "poolAlt": "Swimming Pool",
+    "diningRoomAlt": "Dining room",
+    "bedrooms": "Bedrooms",
+    "bedroomAlt": "Bedroom",
+    "outdoorAlt": "Outdoor",
+    "kitchenAlt": "Kitchen",
+    "environmentAlt": "Environment"
+  }
+}

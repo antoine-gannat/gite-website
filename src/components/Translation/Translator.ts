@@ -21,8 +21,13 @@ class Translator {
 
 export function translateComponent(
   Component: (p: DefaultPropsWithTranslation) => JSX.Element,
-  strings: StringsObject
+  stringsArr: StringsObject[]
 ) {
+  let strings = { EN: {}, FR: {} };
+  stringsArr.forEach((string) => {
+    Object.assign(strings["FR"], string.FR);
+    Object.assign(strings["EN"], string.EN);
+  });
   return function translatedComponent(props: DefaultProps): JSX.Element {
     const translator = new Translator(props.language, strings);
     return Component({

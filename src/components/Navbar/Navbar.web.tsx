@@ -103,4 +103,4 @@ function Navbar({
   );
 }
 
-export default translateComponent(Navbar, strings);
+export default translateComponent(Navbar, [strings]);

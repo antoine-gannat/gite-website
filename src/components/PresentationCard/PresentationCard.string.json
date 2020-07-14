@@ -2,22 +2,18 @@
   "FR": {
     "presentationTitle": "Gite avec piscine interieure en Bretagne",
     "presentationText": "Gîte indépendant avec piscine intérieure, exposé sud, situé entre Quimper et Châteaulin. Idéal pour une remise en forme dans un cadre verdoyant et vallonné, au pied des Montagnes Noires.",
-    "poolImgAlt": "Piscine",
     "capacity": "Capacité",
     "wifi": "Wifi",
     "surface": "Superficie",
-    "bedrooms": "Chambres",
     "sheetsIncluded": "Serviettes et draps inclus",
     "peoples": "personnes"
   },
   "EN": {
     "presentationTitle": "Cottage with indoor pool in Brittany",
     "presentationText": "Independant Cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
-    "poolImgAlt": "Swimming Pool",
     "capacity": "Capacity",
     "wifi": "Wifi",
     "surface": "Surface",
-    "bedrooms": "Bedrooms",
     "sheetsIncluded": "Bed sheets and towels included",
     "peoples": "peoples"
   }

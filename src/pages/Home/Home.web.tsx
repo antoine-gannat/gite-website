@@ -28,4 +28,4 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
   );
 }
 
-export default translateComponent(Home, strings);
+export default translateComponent(Home, [strings]);
