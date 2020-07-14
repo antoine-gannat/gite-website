@@ -4,3 +4,8 @@ body {
   scroll-behavior: smooth;
   margin-bottom: 300px;
 }
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}

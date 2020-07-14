@@ -1,4 +1,8 @@
 {
-  "FR": {},
-  "EN": {}
+  "FR": {
+    "more": "Plus"
+  },
+  "EN": {
+    "more": "More"
+  }
 }

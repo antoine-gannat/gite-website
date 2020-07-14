@@ -34,9 +34,6 @@ function PresentationCard({
                 <span>{translate("surface")} : 95m² </span>
               </li>
               <li className="col-6">
-                <span>{translate("capacity")} : 6 </span>
-              </li>
-              <li className="col-6">
                 <span>{translate("bedrooms")} : 3 </span>
               </li>
               <li className="col-6">

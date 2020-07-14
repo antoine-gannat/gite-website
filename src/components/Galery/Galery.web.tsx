@@ -4,16 +4,20 @@ import defaultStrings from "../../index.strings.json";
 import * as React from "react";
 import { translateComponent } from "../Translation/Translator";
 import "./Galery.styles.css";
+import SlideShow from "./SlideShow/SlideShow.web";
 
-const expandButton = (
-  <button className="expand-button">
-    <i className="fas fa-expand-alt fa-2x"></i>Plus ..
-  </button>
-);
-
-function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
+function Galery(props: DefaultPropsWithTranslation): JSX.Element {
+  const translate = props.translate;
   const [page, setPage] = React.useState(0);
+  const [slide, setSlide] = React.useState<string | null>(null);
   const nbPages = 2;
+  const expandButton = (
+    <button className="expand-button">
+      <i className="fas fa-expand-alt fa-2x"></i>
+      {translate("more")} ..
+    </button>
+  );
+
   const pages: JSX.Element[] = [
     <div key="galery-page-1" className="page-container row">
       <div className="vertical-img left col-5">
@@ -21,6 +25,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
           src="/images/pool/picture_1.jpg"
           role="button"
           alt={translate("poolAlt")}
+          onClick={() => setSlide("pool")}
         />
         {expandButton}
       </div>
@@ -30,6 +35,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
             src="/images/bedrooms/picture_6.jpg"
             role="button"
             alt={translate("bedroomAlt")}
+            onClick={() => setSlide("bedrooms")}
           />
           {expandButton}
         </div>
@@ -38,6 +44,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
             src="/images/outdoor/picture_3.jpg"
             role="button"
             alt={translate("outdoorAlt")}
+            onClick={() => setSlide("outdoor")}
           />
           {expandButton}
         </div>
@@ -50,6 +57,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
             src="/images/kitchen/picture_1.jpg"
             role="button"
             alt={translate("kitchenAlt")}
+            onClick={() => setSlide("kitchen")}
           />
           {expandButton}
         </div>
@@ -58,6 +66,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
             src="/images/environment/picture_1.jpg"
             role="button"
             alt={translate("environmentAlt")}
+            onClick={() => setSlide("environment")}
           />
           {expandButton}
         </div>
@@ -67,6 +76,7 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
           src="/images/dining-room/picture_1.jpg"
           role="button"
           alt={translate("diningRoomAlt")}
+          onClick={() => setSlide("dining-room")}
         />
         {expandButton}
       </div>
@@ -74,7 +84,10 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
   ];
 
   return (
-    <section id="galery" className="col-10 offset-1">
+    <section
+      id="galery"
+      className="col-sm-12 col-lg-10 col-md-10 offset-lg-1 offset-md-1"
+    >
       <div className="galery row col-12">
         <button
           className="prev"
@@ -91,9 +104,13 @@ function Galery({ translate }: DefaultPropsWithTranslation): JSX.Element {
         >
           <i className="fas fa-chevron-right fa-2x"></i>
         </button>
+        {slide && <SlideShow {...props} imagesUrl={slide} />}
       </div>
     </section>
   );
 }
 
-export default translateComponent(Galery, [strings, defaultStrings]);
+export default translateComponent<DefaultPropsWithTranslation>(Galery, [
+  strings,
+  defaultStrings,
+]);

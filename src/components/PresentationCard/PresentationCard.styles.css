@@ -1,11 +1,12 @@
 .presentation-card-container {
   position: relative;
-  height: 400px;
+  height: auto;
+  width: auto;
 }
 
 .presentation-card-container > div {
   padding: 0;
-  position: absolute;
+  position: relative;
   top: -100px;
   background-color: rgb(255, 255, 255);
   -webkit-box-shadow: 0px 0px 44px -29px rgba(0, 0, 0, 0.75);

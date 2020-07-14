@@ -1,5 +1,5 @@
 import { StringsObject, TranslateLanguage } from "../../types/translate";
-import { DefaultProps, DefaultPropsWithTranslation } from "../../types/props";
+import { DefaultProps, TranslationProps } from "../../types/props";
 
 class Translator {
   language: TranslateLanguage;
@@ -19,8 +19,8 @@ class Translator {
   }
 }
 
-export function translateComponent(
-  Component: (p: DefaultPropsWithTranslation) => JSX.Element,
+export function translateComponent<T>(
+  Component: (p: T & TranslationProps) => JSX.Element,
   stringsArr: StringsObject[]
 ) {
   let strings = { EN: {}, FR: {} };
@@ -28,7 +28,7 @@ export function translateComponent(
     Object.assign(strings["FR"], string.FR);
     Object.assign(strings["EN"], string.EN);
   });
-  return function translatedComponent(props: DefaultProps): JSX.Element {
+  return function translatedComponent(props: T & DefaultProps): JSX.Element {
     const translator = new Translator(props.language, strings);
     return Component({
       ...props,
