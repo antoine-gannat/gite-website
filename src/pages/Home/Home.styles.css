@@ -1,7 +1,7 @@
 .home-image-container {
   /* The image used */
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("/images/exterieur/picture_8.jpg");
+    url("/images/outdoor/picture_8.jpg");
 
   /* Set a specific height */
   height: 80vh;
@@ -29,6 +29,12 @@
 
 .home-image-container .centered-titles h2 {
   font-size: 40px;
+}
+
+.home-image-container .centered-titles a {
+  margin-top: 15px;
+  background: rgb(231, 191, 159);
+  border: red solid black;
 }
 
 .page-content {

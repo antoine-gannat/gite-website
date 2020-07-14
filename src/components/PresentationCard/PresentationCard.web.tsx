@@ -8,10 +8,10 @@ function PresentationCard({
   translate,
 }: DefaultPropsWithTranslation): JSX.Element {
   return (
-    <section className="presentation-card-container">
+    <section className="presentation-card-container col-lg-8 col-md-8 col-sm-12 offset-lg-2 offset-md-2">
       <div className="row col-12">
         <img
-          src="/images/piscine/picture_1.jpg"
+          src="/images/pool/picture_1.jpg"
           className="col-lg-6 col-md-6 col-sm-6"
           alt={translate("poolImgAlt")}
         />

@@ -1,10 +1,12 @@
 {
   "FR": {
     "title": "Gîte Kerhéré",
-    "subtitle": "Entre Terre et Mer"
+    "subtitle": "Entre Terre et Mer",
+    "booking": "Réserver un sejour"
   },
   "EN": {
     "title": "Gîte Kerhéré",
-    "subtitle": "Between Land an Sea"
+    "subtitle": "Between Land an Sea",
+    "booking": "Book a stay"
   }
 }
