@@ -104,8 +104,8 @@ function Galery(props: DefaultPropsWithTranslation): JSX.Element {
         >
           <i className="fas fa-chevron-right fa-2x"></i>
         </button>
-        {slide && <SlideShow {...props} imagesUrl={slide} />}
       </div>
+      {slide && <SlideShow {...props} imagesUrl={slide} />}
     </section>
   );
 }
