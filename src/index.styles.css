@@ -2,9 +2,12 @@ html,
 body {
   font-family: "Roboto", serif;
   scroll-behavior: smooth;
-  margin-bottom: 300px;
+  min-height: 100%;
 }
 
+body {
+  padding-bottom: 300px;
+}
 .row {
   margin-left: 0;
   margin-right: 0;

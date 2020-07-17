@@ -1,7 +1,6 @@
 import * as React from "react";
 import "./PresentationCard.styles.css";
 import strings from "./PresentationCard.string.json";
-import globalStrings from "../../index.strings.json";
 import { translateComponent } from "../Translation/Translator";
 import { DefaultPropsWithTranslation } from "../../types/props";
 
@@ -36,9 +35,6 @@ function PresentationCard({
               <li className="col-6">
                 <span>{translate("bedrooms")} : 3 </span>
               </li>
-              <li className="col-6">
-                <span>{translate("sheetsIncluded")}</span>
-              </li>
             </ul>
           </div>
         </div>
@@ -47,4 +43,4 @@ function PresentationCard({
   );
 }
 
-export default translateComponent(PresentationCard, [strings, globalStrings]);
+export default translateComponent(PresentationCard, strings);

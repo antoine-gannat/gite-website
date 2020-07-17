@@ -7,7 +7,8 @@
     "outdoorAlt": "Exterieur",
     "kitchenAlt": "Cuisine",
     "environmentAlt": "Environnement",
-    "gallery": "Photos"
+    "gallery": "Photos",
+    "booking": "Réserver un sejour"
   },
   "EN": {
     "poolAlt": "Swimming Pool",
@@ -17,6 +18,7 @@
     "outdoorAlt": "Outdoor",
     "kitchenAlt": "Kitchen",
     "environmentAlt": "Environment",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "booking": "Book a stay"
   }
 }

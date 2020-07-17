@@ -1,5 +1,6 @@
 import { StringsObject, TranslateLanguage } from "../../types/translate";
 import { DefaultProps, TranslationProps } from "../../types/props";
+import defaultStrings from "../../index.strings.json";
 
 class Translator {
   language: TranslateLanguage;
@@ -21,15 +22,25 @@ class Translator {
 
 export function translateComponent<T>(
   Component: (p: T & TranslationProps) => JSX.Element,
-  stringsArr: StringsObject[]
+  strings?: StringsObject
 ) {
-  let strings = { EN: {}, FR: {} };
-  stringsArr.forEach((string) => {
-    Object.assign(strings["FR"], string.FR);
-    Object.assign(strings["EN"], string.EN);
-  });
+  // Merge the parameter strings with the default strings
+  function mergeWithDefaultStrings(): StringsObject {
+    let resultStrings = { EN: {}, FR: {} };
+    Object.assign(resultStrings["FR"], defaultStrings.FR);
+    Object.assign(resultStrings["EN"], defaultStrings.EN);
+    if (strings) {
+      Object.assign(resultStrings["FR"], strings.FR);
+      Object.assign(resultStrings["EN"], strings.EN);
+    }
+    return resultStrings;
+  }
+
   return function translatedComponent(props: T & DefaultProps): JSX.Element {
-    const translator = new Translator(props.language, strings);
+    const translator = new Translator(
+      props.language,
+      mergeWithDefaultStrings()
+    );
     return Component({
       ...props,
       translate: translator.translate.bind(translator),

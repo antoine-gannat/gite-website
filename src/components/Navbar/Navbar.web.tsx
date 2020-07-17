@@ -8,7 +8,7 @@ import strings from "./Navbar.strings.json";
 function Navbar({
   translate,
   language,
-  setLanguage
+  setLanguage,
 }: DefaultPropsWithTranslation): JSX.Element {
   const [selectedHash, setSelectedHash] = React.useState(
     window.location.hash.replace("#", "") || "home"
@@ -84,7 +84,7 @@ function Navbar({
               className={
                 "nav-link flag" + (language === "FR" ? " selected" : "")
               }
-              src="/images/fr_flag.png"
+              src="/images/flags/fr_flag.png"
               alt={translate("FRFlagAlt")}
             />
           </li>
@@ -95,7 +95,7 @@ function Navbar({
               className={
                 "nav-link flag" + (language === "EN" ? " selected" : "")
               }
-              src="/images/uk_flag.png"
+              src="/images/flags/uk_flag.png"
               alt={translate("ENFlagAlt")}
             />
           </li>
@@ -105,4 +105,4 @@ function Navbar({
   );
 }
 
-export default translateComponent(Navbar, [strings]);
+export default translateComponent(Navbar, strings);

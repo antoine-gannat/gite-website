@@ -1,10 +1,10 @@
 import { DefaultPropsWithTranslation } from "../../types/props";
 import strings from "./Gallery.strings.json";
-import defaultStrings from "../../index.strings.json";
 import * as React from "react";
 import { translateComponent } from "../Translation/Translator";
 import "./Gallery.styles.css";
 import SlideShow from "./SlideShow/SlideShow.web";
+import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 
 function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const translate = props.translate;
@@ -88,7 +88,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
       id="gallery"
       className="col-sm-12 col-lg-10 col-md-10 offset-lg-1 offset-md-1"
     >
-      <h2>{translate("gallery")}</h2>
+      <CategoryTitle title={translate("gallery")} />
       <div className="gallery row col-12">
         <button
           className="prev"
@@ -111,7 +111,4 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   );
 }
 
-export default translateComponent<DefaultPropsWithTranslation>(Gallery, [
-  strings,
-  defaultStrings,
-]);
+export default translateComponent(Gallery, strings);
