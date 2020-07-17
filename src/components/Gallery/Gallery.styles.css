@@ -1,65 +1,65 @@
-.galery {
+.gallery {
   height: 800px;
 }
 
-.galery img {
+.gallery img {
   object-fit: cover;
 }
 
 /* Common vertical/horizontal images */
-.galery .vertical-img,
-.galery .horizontal-img {
+.gallery .vertical-img,
+.gallery .horizontal-img {
   position: relative;
 }
 
-.galery .horizontal-img img,
-.galery .vertical-img img {
+.gallery .horizontal-img img,
+.gallery .vertical-img img {
   height: 100%;
   width: 100%;
 }
 
 /* Horizontal images */
 
-.galery .horizontal-img {
+.gallery .horizontal-img {
   height: 50%;
 }
-.galery .horizontal-img:nth-child(odd) {
+.gallery .horizontal-img:nth-child(odd) {
   padding-bottom: 5px;
 }
 
-.galery .horizontal-img:nth-child(even) {
+.gallery .horizontal-img:nth-child(even) {
   padding-top: 5px;
 }
 
-.galery .horizontal-container {
+.gallery .horizontal-container {
   height: 100%;
 }
 
 /* Vertical images */
 
-.galery .vertical-img {
+.gallery .vertical-img {
   height: 100%;
 }
 
-.galery .vertical-img.right {
+.gallery .vertical-img.right {
   padding-left: 10px;
   padding-right: 0;
 }
 
-.galery .vertical-img.left {
+.gallery .vertical-img.left {
   padding-right: 10px;
   padding-left: 0;
 }
 
-.galery .next i,
-.galery .prev i {
+.gallery .next i,
+.gallery .prev i {
   position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 10px);
 }
 
-.galery .next,
-.galery .prev {
+.gallery .next,
+.gallery .prev {
   -webkit-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 10px -8px rgba(0, 0, 0, 0.75);
@@ -72,11 +72,11 @@
   background-color: white;
 }
 
-.galery .next {
+.gallery .next {
   right: 0;
 }
 
-.galery .prev {
+.gallery .prev {
   left: 0px;
 }
 
@@ -84,7 +84,7 @@
   height: 100%;
 }
 
-.galery .expand-button {
+.gallery .expand-button {
   position: absolute;
   background: none;
   border: none;
@@ -93,11 +93,11 @@
   color: black;
 }
 
-.galery .expand-button i {
+.gallery .expand-button i {
   color: white;
   -webkit-text-stroke: 1px #000;
 }
 
-.galery .expand-button:focus {
+.gallery .expand-button:focus {
   outline: none;
 }

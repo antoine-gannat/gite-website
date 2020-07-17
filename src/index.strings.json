@@ -6,7 +6,8 @@
     "bedroomAlt": "Chambre",
     "outdoorAlt": "Exterieur",
     "kitchenAlt": "Cuisine",
-    "environmentAlt": "Environnement"
+    "environmentAlt": "Environnement",
+    "gallery": "Photos"
   },
   "EN": {
     "poolAlt": "Swimming Pool",
@@ -15,6 +16,7 @@
     "bedroomAlt": "Bedroom",
     "outdoorAlt": "Outdoor",
     "kitchenAlt": "Kitchen",
-    "environmentAlt": "Environment"
+    "environmentAlt": "Environment",
+    "gallery": "Gallery"
   }
 }

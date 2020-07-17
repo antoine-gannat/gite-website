@@ -1,6 +1,6 @@
 {
   "FR": {
-    "galery": "Photos",
+    "gallery": "Photos",
     "environment": "Environment",
     "booking": "Réservation",
     "home": "Accueil",
@@ -8,7 +8,7 @@
     "FRFlagAlt": "Drapeau Anglais"
   },
   "EN": {
-    "galery": "Galery",
+    "gallery": "Gallery",
     "environment": "Environment",
     "booking": "Booking",
     "home": "Home",

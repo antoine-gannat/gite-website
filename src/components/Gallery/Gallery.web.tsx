@@ -1,12 +1,12 @@
 import { DefaultPropsWithTranslation } from "../../types/props";
-import strings from "./Galery.strings.json";
+import strings from "./Gallery.strings.json";
 import defaultStrings from "../../index.strings.json";
 import * as React from "react";
 import { translateComponent } from "../Translation/Translator";
-import "./Galery.styles.css";
+import "./Gallery.styles.css";
 import SlideShow from "./SlideShow/SlideShow.web";
 
-function Galery(props: DefaultPropsWithTranslation): JSX.Element {
+function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const translate = props.translate;
   const [page, setPage] = React.useState(0);
   const [slide, setSlide] = React.useState<string | null>(null);
@@ -19,7 +19,7 @@ function Galery(props: DefaultPropsWithTranslation): JSX.Element {
   );
 
   const pages: JSX.Element[] = [
-    <div key="galery-page-1" className="page-container row">
+    <div key="gallery-page-1" className="page-container row">
       <div className="vertical-img left col-5">
         <img
           src="/images/pool/picture_1.jpg"
@@ -50,7 +50,7 @@ function Galery(props: DefaultPropsWithTranslation): JSX.Element {
         </div>
       </div>
     </div>,
-    <div key="galery-page-2" className="page-container row">
+    <div key="gallery-page-2" className="page-container row">
       <div className="row col-7 horizontal-container">
         <div className="horizontal-img">
           <img
@@ -85,10 +85,11 @@ function Galery(props: DefaultPropsWithTranslation): JSX.Element {
 
   return (
     <section
-      id="galery"
+      id="gallery"
       className="col-sm-12 col-lg-10 col-md-10 offset-lg-1 offset-md-1"
     >
-      <div className="galery row col-12">
+      <h2>{translate("gallery")}</h2>
+      <div className="gallery row col-12">
         <button
           className="prev"
           hidden={page - 1 < 0}
@@ -105,12 +106,12 @@ function Galery(props: DefaultPropsWithTranslation): JSX.Element {
           <i className="fas fa-chevron-right fa-2x"></i>
         </button>
       </div>
-      {slide && <SlideShow {...props} imagesUrl={slide} />}
+      {slide && <SlideShow {...props} imagesUrl={slide} setSlide={setSlide} />}
     </section>
   );
 }
 
-export default translateComponent<DefaultPropsWithTranslation>(Galery, [
+export default translateComponent<DefaultPropsWithTranslation>(Gallery, [
   strings,
   defaultStrings,
 ]);

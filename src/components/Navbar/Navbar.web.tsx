@@ -8,15 +8,17 @@ import strings from "./Navbar.strings.json";
 function Navbar({
   translate,
   language,
+  setLanguage
 }: DefaultPropsWithTranslation): JSX.Element {
   const [selectedHash, setSelectedHash] = React.useState(
     window.location.hash.replace("#", "") || "home"
   );
 
-  function setLanguage(language: TranslateLanguage) {
+  function onFlagClick(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
-    window.location.reload();
+    setLanguage(language);
   }
+
   function scrollTo(id: string): void {
     setSelectedHash(id);
     document.getElementById(id)?.scrollIntoView();
@@ -50,9 +52,9 @@ function Navbar({
               {translate("home")}
             </button>
           </li>
-          <li className={"nav-item" + (isActive("galery") ? " active" : "")}>
-            <button className="nav-link" onClick={() => scrollTo("galery")}>
-              {translate("galery")}
+          <li className={"nav-item" + (isActive("gallery") ? " active" : "")}>
+            <button className="nav-link" onClick={() => scrollTo("gallery")}>
+              {translate("gallery")}
             </button>
           </li>
           <li
@@ -78,7 +80,7 @@ function Navbar({
           <li className="nav-item">
             <img
               role="button"
-              onClick={() => setLanguage("FR")}
+              onClick={() => onFlagClick("FR")}
               className={
                 "nav-link flag" + (language === "FR" ? " selected" : "")
               }
@@ -89,7 +91,7 @@ function Navbar({
           <li className="nav-item">
             <img
               role="button"
-              onClick={() => setLanguage("EN")}
+              onClick={() => onFlagClick("EN")}
               className={
                 "nav-link flag" + (language === "EN" ? " selected" : "")
               }

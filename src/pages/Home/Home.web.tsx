@@ -5,7 +5,7 @@ import PresentationCard from "../../components/PresentationCard/PresentationCard
 import { DefaultPropsWithTranslation } from "../../types/props";
 import strings from "./Home.strings.json";
 import { translateComponent } from "../../components/Translation/Translator";
-import Galery from "../../components/Galery/Galery.web";
+import Gallery from "../../components/Gallery/Gallery.web";
 
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   return (
@@ -22,7 +22,7 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
       </div>
       <div className="page-content">
         <PresentationCard {...props} />
-        <Galery {...props} />
+        <Gallery {...props} />
       </div>
     </main>
   );
