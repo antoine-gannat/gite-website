@@ -67,13 +67,8 @@ function Navbar({
               {translate("environment")}
             </button>
           </li>
-          <li
-            className={"nav-item" + (isActive("reservation") ? " active" : "")}
-          >
-            <button
-              className="nav-link"
-              onClick={() => scrollTo("reservation")}
-            >
+          <li className={"nav-item" + (isActive("booking") ? " active" : "")}>
+            <button className="nav-link" onClick={() => scrollTo("booking")}>
               {translate("booking")}
             </button>
           </li>

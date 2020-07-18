@@ -103,14 +103,14 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     <section id="booking" className="booking mt-5">
       <CategoryTitle title={translate("booking")} />
       <ul>
-        {weeks.map((week, index) => (
+        {/* {weeks.map((week, index) => (
           <li key={`week-${index}`}>
             <h3>
               {week.from.getDate()} - {week.to.getDate()}
             </h3>
             <span>{week.price}</span>
           </li>
-        ))}
+        ))} */}
       </ul>
     </section>
   );
