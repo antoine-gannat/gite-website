@@ -20,6 +20,7 @@ type ReservationWeek = {
   to: Date;
   price: Price;
   link: string;
+  available: boolean;
 };
 
 function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
@@ -60,7 +61,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       );
 
       const priceAsNumber = price.replace(/\D/g, "");
-      return priceAsNumber.length > 0 ? priceAsNumber : price;
+      return priceAsNumber.length > 0 ? Number.parseInt(priceAsNumber) : price;
     }
 
     // parse the string to an HTML element
@@ -87,10 +88,14 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
         to,
         price,
         link: "www",
+        available: typeof price === "number",
       });
     });
 
     return results;
+  }
+  function formatDateForDisplay(date: Date): string {
+    return `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
   }
 
   const [weeks, setWeeks] = React.useState<ReservationWeek[]>([]);
@@ -103,14 +108,28 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     <section id="booking" className="booking mt-5">
       <CategoryTitle title={translate("booking")} />
       <ul>
-        {/* {weeks.map((week, index) => (
-          <li key={`week-${index}`}>
-            <h3>
-              {week.from.getDate()} - {week.to.getDate()}
-            </h3>
-            <span>{week.price}</span>
-          </li>
-        ))} */}
+        {weeks.map((week, index) => (
+          <div key={`week-${index}`}>
+            {(index === 0 ||
+              weeks[index - 1].from.getMonth() !== week.from.getMonth() ||
+              weeks[index - 1].from.getMonth() !== week.to.getMonth()) && (
+              <h2>Nouveau mois</h2>
+            )}
+            <li className="week">
+              <h3 className="date">
+                {formatDateForDisplay(week.from)} -{" "}
+                {formatDateForDisplay(week.to)}
+              </h3>
+              <p
+                className={
+                  "price" + (week.available ? " available" : " not-available")
+                }
+              >
+                {week.price} {week.available ? "€" : ""}
+              </p>
+            </li>
+          </div>
+        ))}
       </ul>
     </section>
   );
