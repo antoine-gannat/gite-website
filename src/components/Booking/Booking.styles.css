@@ -1,10 +1,18 @@
-.booking ul {
+.booking div ul {
   width: 100%;
+}
+
+.booking div h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.booking div ul {
+  display: inline-block;
 }
 
 .booking .week {
   width: 250px;
-  display: inline-block;
   list-style: none;
   border: 1px solid black;
 }

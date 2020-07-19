@@ -94,6 +94,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
 
     return results;
   }
+
   function formatDateForDisplay(date: Date): string {
     return `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
   }
@@ -107,14 +108,10 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
   return (
     <section id="booking" className="booking mt-5">
       <CategoryTitle title={translate("booking")} />
-      <ul>
-        {weeks.map((week, index) => (
-          <div key={`week-${index}`}>
-            {(index === 0 ||
-              weeks[index - 1].from.getMonth() !== week.from.getMonth() ||
-              weeks[index - 1].from.getMonth() !== week.to.getMonth()) && (
-              <h2>Nouveau mois</h2>
-            )}
+      {weeks.map((week, index) => (
+        <div key={`week-${index}`}>
+          {week.from.getDate() < 7 && <h2>Nouveau mois</h2>}
+          <ul>
             <li className="week">
               <h3 className="date">
                 {formatDateForDisplay(week.from)} -{" "}
@@ -128,9 +125,9 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
                 {week.price} {week.available ? "€" : ""}
               </p>
             </li>
-          </div>
-        ))}
-      </ul>
+          </ul>
+        </div>
+      ))}
     </section>
   );
 }
