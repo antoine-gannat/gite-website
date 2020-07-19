@@ -7,12 +7,10 @@
   text-align: center;
 }
 
-.booking div ul {
-  display: inline-block;
-}
-
 .booking .week {
+  display: inline-block;
   width: 250px;
+  height: 150px;
   list-style: none;
   border: 1px solid black;
 }
