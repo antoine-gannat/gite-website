@@ -8,7 +8,7 @@ function PresentationCard({
   translate,
 }: DefaultPropsWithTranslation): JSX.Element {
   return (
-    <section className="presentation-card-container col-lg-8 col-md-8 col-sm-12 offset-lg-2 offset-md-2">
+    <div className="presentation-card-container col-lg-8 col-md-8 col-sm-12 offset-lg-2 offset-md-2">
       <div className="row col-12">
         <img
           src="/images/pool/picture_1.jpg"
@@ -39,7 +39,7 @@ function PresentationCard({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

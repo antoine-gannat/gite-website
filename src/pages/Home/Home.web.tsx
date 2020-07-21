@@ -11,11 +11,35 @@ import Map from "../../components/Map/Map.web";
 import Booking from "../../components/Booking/Booking.web";
 
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
+  React.useEffect(() => {
+    const sectionsPosition: any = {};
+
+    setTimeout(() => {
+      document.querySelectorAll("section").forEach((section) => {
+        sectionsPosition[section.id] = section.offsetTop;
+      });
+      window.onscroll = function () {
+        const scrollPosition =
+          document.documentElement.scrollTop || document.body.scrollTop;
+
+        for (const key in sectionsPosition) {
+          if (sectionsPosition[key] <= scrollPosition) {
+            document
+              .querySelector(".active")
+              ?.setAttribute("class", "nav-link");
+            document
+              .querySelector("button[data-scrollto*=" + key + "]")
+              ?.setAttribute("class", "nav-link active");
+          }
+        }
+      };
+    }, 1000);
+  });
   return (
     <div>
-      <main data-spy="scroll" data-target="#navbar" data-offset="0">
+      <main>
         <Navbar {...props} />
-        <div className="home-image-container" id="home">
+        <section className="home-image-container" id="home">
           <div className="centered-titles">
             <h1>{props.translate("title")}</h1>
             <h2 className="fade-in">{props.translate("subtitle")}</h2>
@@ -23,7 +47,7 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
               {props.translate("booking")}
             </a>
           </div>
-        </div>
+        </section>
         <div className="page-content">
           <PresentationCard {...props} />
           <Gallery {...props} />

@@ -6,7 +6,7 @@ import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 
 function Map({ translate }: DefaultPropsWithTranslation): JSX.Element {
   return (
-    <section className="col-12 mt-5" id="location">
+    <section className="col-12 mt-5" id="directions">
       <CategoryTitle title={translate("directions")} />
       <iframe
         className="col-lg-6 col-md-10 col-sm-12 offset-lg-3 offset-md-1"

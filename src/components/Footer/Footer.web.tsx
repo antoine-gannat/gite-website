@@ -3,11 +3,12 @@ import "./Footer.styles.css";
 import { DefaultPropsWithTranslation } from "../../types/props";
 import { translateComponent } from "../Translation/Translator";
 import strings from "./Footer.strings.json";
+import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 
 function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
   return (
     <footer className="footer" id="contact">
-      <h2>{translate("contact_info")}</h2>
+      <CategoryTitle title={translate("contact_info")} />
       <ul className="row col-12">
         <li className="col-lg-6 col-md-6 col-sm-12">
           Jean Claude & Françoise GANNAT
