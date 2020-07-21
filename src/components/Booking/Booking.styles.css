@@ -1,3 +1,14 @@
+.booking .btn-more:hover {
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+}
+
+.booking .btn-more:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
 .booking div ul {
   width: 100%;
 }
@@ -5,6 +16,12 @@
 .booking div h2 {
   width: 100%;
   text-align: center;
+}
+
+.booking .week:hover {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .booking .week {

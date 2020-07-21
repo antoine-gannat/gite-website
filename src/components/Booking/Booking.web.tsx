@@ -23,6 +23,12 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     }
     return <>{week.price} €</>;
   }
+
+  function changeMonthsToDisplay(newValue: number) {
+    setMonthsToDisplay(newValue);
+    document.getElementById("booking")?.scrollIntoView();
+  }
+
   const monthsNames = [
     translate("january"),
     translate("february"),
@@ -51,42 +57,54 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       className="booking mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
     >
       <CategoryTitle title={translate("booking")} />
-      {bookingMonths.slice(0, monthsToDisplay).map((month, monthIndex) => (
-        <div key={`month-${monthIndex}`}>
-          <h2>
-            {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
-          </h2>
-          <ul className="row col-12">
-            {month.weeks.map((week, weekIndex) => (
-              <li
-                className="week col-lg-3 col-md-4 col-sm-6 col-12"
-                role="button"
-                onClick={() => window.open(week.url)}
-                key={`month-${month.nb}-week-${weekIndex}`}
-              >
-                <h3 className="date">
-                  {formatDateForDisplay(week.from)} -{" "}
-                  {formatDateForDisplay(week.to)}
-                </h3>
-                <p
-                  className={
-                    "price" + (week.available ? " available" : " not-available")
-                  }
+      <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
+        <button
+          className="btn btn-more col-6"
+          disabled={monthsToDisplay <= 3}
+          onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
+        >
+          <i className="fas fa-chevron-left"></i> {translate("prev")}
+        </button>
+        <button
+          className="btn btn-more col-6"
+          disabled={monthsToDisplay >= bookingMonths.length}
+          onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
+        >
+          {translate("next")} <i className="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      {bookingMonths
+        .slice(monthsToDisplay - 3, monthsToDisplay)
+        .map((month, monthIndex) => (
+          <div key={`month-${monthIndex}`}>
+            <h2>
+              {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
+            </h2>
+            <ul className="row col-12">
+              {month.weeks.map((week, weekIndex) => (
+                <li
+                  className="week col-lg-3 col-md-4 col-sm-6 col-12"
+                  role="button"
+                  onClick={() => week.available && window.open(week.url)}
+                  key={`month-${month.nb}-week-${weekIndex}`}
                 >
-                  {displayPrice(week)}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-      <button
-        className="btn btn-primary"
-        disabled={monthsToDisplay >= bookingMonths.length}
-        onClick={() => setMonthsToDisplay(monthsToDisplay + 3)}
-      >
-        More
-      </button>
+                  <h3 className="date">
+                    {formatDateForDisplay(week.from)} -{" "}
+                    {formatDateForDisplay(week.to)}
+                  </h3>
+                  <p
+                    className={
+                      "price" +
+                      (week.available ? " available" : " not-available")
+                    }
+                  >
+                    {displayPrice(week)}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
     </section>
   );
 }

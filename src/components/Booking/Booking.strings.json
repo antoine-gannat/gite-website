@@ -13,7 +13,9 @@
     "november": "Novembre",
     "december": "Décembre",
     "fortnight_only": "Quinzaine uniquement",
-    "unavailable": "Indisponible"
+    "unavailable": "Indisponible",
+    "next": "Suivant",
+    "prev": "Précedent"
   },
   "EN": {
     "january": "January",
@@ -29,6 +31,8 @@
     "november": "November",
     "december": "December",
     "fortnight_only": "Fortnight only",
-    "unavailable": "Not available"
+    "unavailable": "Not available",
+    "next": "Next",
+    "prev": "Previous"
   }
 }

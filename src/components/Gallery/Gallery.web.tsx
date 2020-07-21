@@ -84,29 +84,30 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   ];
 
   return (
-    <section
-      id="gallery"
-      className="col-sm-12 col-lg-10 col-md-10 offset-lg-1 offset-md-1"
-    >
-      <CategoryTitle title={translate("gallery")} />
-      <div className="gallery row col-12">
-        <button
-          className="prev"
-          hidden={page - 1 < 0}
-          onClick={() => setPage(page - 1)}
-        >
-          <i className="fas fa-chevron-left fa-2x"></i>
-        </button>
-        {pages[page]}
-        <button
-          className="next"
-          hidden={page + 1 >= nbPages}
-          onClick={() => setPage(page + 1)}
-        >
-          <i className="fas fa-chevron-right fa-2x"></i>
-        </button>
+    <section id="gallery">
+      <div className="col-12">
+        <CategoryTitle title={translate("gallery")} />
+        <div className="gallery row col-12">
+          <button
+            className="prev"
+            hidden={page - 1 < 0}
+            onClick={() => setPage(page - 1)}
+          >
+            <i className="fas fa-chevron-left fa-2x"></i>
+          </button>
+          {pages[page]}
+          <button
+            className="next"
+            hidden={page + 1 >= nbPages}
+            onClick={() => setPage(page + 1)}
+          >
+            <i className="fas fa-chevron-right fa-2x"></i>
+          </button>
+        </div>
+        {slide && (
+          <SlideShow {...props} imagesUrl={slide} setSlide={setSlide} />
+        )}
       </div>
-      {slide && <SlideShow {...props} imagesUrl={slide} setSlide={setSlide} />}
     </section>
   );
 }

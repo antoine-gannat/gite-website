@@ -30,7 +30,10 @@ function Navbar({
   }
 
   return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-dark nav">
+    <nav
+      id="navbar"
+      className="navbar fixed-top navbar-expand-lg navbar-dark nav"
+    >
       <a className="navbar-brand" href="#home">
         Gîte Kerhéré
       </a>
@@ -57,19 +60,14 @@ function Navbar({
               {translate("gallery")}
             </button>
           </li>
-          <li
-            className={"nav-item" + (isActive("environment") ? " active" : "")}
-          >
-            <button
-              className="nav-link"
-              onClick={() => scrollTo("environment")}
-            >
-              {translate("environment")}
-            </button>
-          </li>
           <li className={"nav-item" + (isActive("booking") ? " active" : "")}>
             <button className="nav-link" onClick={() => scrollTo("booking")}>
               {translate("booking")}
+            </button>
+          </li>
+          <li className={"nav-item" + (isActive("contact") ? " active" : "")}>
+            <button className="nav-link" onClick={() => scrollTo("contact")}>
+              {translate("contact_info")}
             </button>
           </li>
           <li className="nav-item">

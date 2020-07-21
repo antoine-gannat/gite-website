@@ -1,9 +1,15 @@
+#gallery {
+  padding-bottom: 90px;
+  padding-top: 20px;
+}
+
 .gallery {
   height: 800px;
 }
 
 .gallery img {
   object-fit: cover;
+  border: 2px solid black;
 }
 
 /* Common vertical/horizontal images */

@@ -13,7 +13,7 @@ import Booking from "../../components/Booking/Booking.web";
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   return (
     <div>
-      <main>
+      <main data-spy="scroll" data-target="#navbar" data-offset="0">
         <Navbar {...props} />
         <div className="home-image-container" id="home">
           <div className="centered-titles">

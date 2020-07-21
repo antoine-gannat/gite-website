@@ -12,6 +12,9 @@ export type BookingMonth = {
   nb: number;
 };
 
+// Months where the gite is closed
+const closedMonths = [1, 2, 3, 11, 12];
+
 export default class BookingParser {
   dataAsElement: Document;
   constructor(rawData: string) {
@@ -86,6 +89,10 @@ export default class BookingParser {
     let currentMonth: BookingMonth = { nb: -1, weeks: [] };
     weeks.forEach((week) => {
       const weekMonth = week.from.getMonth();
+      // Remove the week if the cotage is closed during this month
+      if (closedMonths.includes(weekMonth + 1)) {
+        return;
+      }
       if (weekMonth !== currentMonth.nb) {
         if (currentMonth.weeks.length > 0) {
           months.push({
