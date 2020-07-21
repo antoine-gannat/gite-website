@@ -1,9 +1,10 @@
-type BookingWeek = {
+export type BookingWeek = {
   from: Date;
   to: Date;
   price: number;
-  link: string;
+  url: string;
   available: boolean;
+  fortnightOnly: boolean;
 };
 
 export type BookingMonth = {
@@ -22,42 +23,48 @@ export default class BookingParser {
   }
 
   parseDate(date: string): Date {
-    const dateAsArray = date
+    const dateAsArray: number[] = date
       .replace(/\\\//g, " ")
       .split(" ")
       .map((el) => Number(el));
-    return new Date(dateAsArray[2], dateAsArray[1], dateAsArray[0]);
+    return new Date(dateAsArray[2], dateAsArray[1] - 1, dateAsArray[0]);
   }
 
   parseWeek(week: Element): BookingWeek | null {
-    const availability = week.getAttribute("class");
+    const className = week.getAttribute("class");
     const price = week.getAttribute("data-prix");
     const numberOfDays = week.getAttribute("data-nbj");
     const startDate = week.getAttribute("data-deb");
-    const link = "";
-
     if (
       !price ||
       !startDate ||
       !numberOfDays ||
-      !availability ||
+      !className ||
       Number(numberOfDays) !== 7
     ) {
       return null;
     }
 
     const parsedStartDate = this.parseDate(startDate);
-    const endDate = new Date();
-    endDate.setDate(parsedStartDate.getDate() + Number(numberOfDays));
+    const endDate = new Date(
+      parsedStartDate.getFullYear(),
+      parsedStartDate.getMonth(),
+      parsedStartDate.getDate() + Number(numberOfDays)
+    );
+    const fortnightOnly = className === "indisponible partiellementDispo";
+    const url = `https://reservation.itea.fr/resa/etape1.php?ident=gites29_b${parsedStartDate.getFullYear()}.1.29G17250.G&exe=${parsedStartDate.getFullYear()}&dep=29&jour=${parsedStartDate.getDate()}&mois=${
+      parsedStartDate.getMonth() + 1
+    }&annee=${parsedStartDate.getFullYear()}&duree=${
+      fortnightOnly ? Number(numberOfDays) * 2 : numberOfDays
+    }&referer=www.google.fr&OPE=WFNGF`;
 
     return {
       price: Number(price),
       from: parsedStartDate,
       to: endDate,
-      available:
-        availability === "libre" ||
-        availability === "indisponible partiellementDispo",
-      link,
+      available: className === "libre" || fortnightOnly,
+      url,
+      fortnightOnly,
     };
   }
 
