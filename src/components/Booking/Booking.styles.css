@@ -1,7 +1,13 @@
+.booking .btn-more {
+  color: rgb(185, 2, 17);
+}
+
 .booking .btn-more:hover {
   -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  background: rgb(185, 2, 17);
+  color: white;
 }
 
 .booking .btn-more:focus {
