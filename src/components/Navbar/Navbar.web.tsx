@@ -10,25 +10,15 @@ function Navbar({
   language,
   setLanguage,
 }: DefaultPropsWithTranslation): JSX.Element {
-  const [selectedHash, setSelectedHash] = React.useState(
-    window.location.hash.replace("#", "") || "home"
-  );
-
   function onFlagClick(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
     setLanguage(language);
   }
 
   function scrollTo(id: string): void {
-    setSelectedHash(id);
     document.getElementById(id)?.scrollIntoView();
     window.location.hash = id;
   }
-
-  function isActive(id: string): boolean {
-    return selectedHash === id;
-  }
-
   return (
     <nav className="nav navbar fixed-top navbar-expand-lg navbar-dark nav">
       <a className="navbar-brand" href="#home">

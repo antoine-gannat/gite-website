@@ -18,12 +18,6 @@
   text-align: center;
 }
 
-.booking .week:hover {
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-}
-
 .booking .week {
   display: inline-block;
   text-align: center;
@@ -50,10 +44,20 @@
   font-size: 25px;
 }
 
-.booking .week .available {
+.booking .week.available:hover {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.booking .week.available .price {
   color: green;
 }
 
-.booking .week .not-available {
+.booking .week.not-available .price {
   color: red;
+}
+
+.booking .week.not-available:hover {
+  cursor: default;
 }

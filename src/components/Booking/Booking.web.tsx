@@ -5,6 +5,7 @@ import { translateComponent } from "../Translation/Translator";
 import strings from "./Booking.strings.json";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
+import { cssMerge } from "../Miscs/styles";
 
 const gdfReservationsUrl =
   "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=prix&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250&codeProd=&iframe=&sansCss=0&ope=&height=&width=&periode=&affichage=&numChambre=&clicsurcalendrier=&nbMois=1&photo=&prix=&text=&affichequenoteglobale=&bureauitea=&avecPrix=&_=1548135152075";
@@ -83,7 +84,10 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
             <ul className="row col-12">
               {month.weeks.map((week, weekIndex) => (
                 <li
-                  className="week col-lg-3 col-md-4 col-sm-6 col-12"
+                  className={cssMerge(
+                    "week col-lg-3 col-md-4 col-sm-6 col-12",
+                    week.available ? "available" : "not-available"
+                  )}
                   role="button"
                   onClick={() => week.available && window.open(week.url)}
                   key={`month-${month.nb}-week-${weekIndex}`}
@@ -92,14 +96,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
                     {formatDateForDisplay(week.from)} -{" "}
                     {formatDateForDisplay(week.to)}
                   </h3>
-                  <p
-                    className={
-                      "price" +
-                      (week.available ? " available" : " not-available")
-                    }
-                  >
-                    {displayPrice(week)}
-                  </p>
+                  <p className="price">{displayPrice(week)}</p>
                 </li>
               ))}
             </ul>
