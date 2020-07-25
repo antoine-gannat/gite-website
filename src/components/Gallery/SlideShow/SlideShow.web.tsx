@@ -35,11 +35,33 @@ function SlideShow(
   return (
     <div>
       <div className="slideshow">
-        <img
-          className="displayed-image col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1"
-          src={images[selectedImage]}
-          alt={props.imagesUrl}
-        />
+        <div className="display-container col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+          <button
+            className="nav-button"
+            onClick={() =>
+              setSelectedImage(
+                selectedImage === 0 ? images.length - 1 : selectedImage - 1
+              )
+            }
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <img
+            className="displayed-image"
+            src={images[selectedImage]}
+            alt={props.imagesUrl}
+          />
+          <button
+            className="nav-button"
+            onClick={() =>
+              setSelectedImage(
+                selectedImage + 1 >= images.length ? 0 : selectedImage + 1
+              )
+            }
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
         <nav>
           <ul>
             {images.map((img, index) => (
