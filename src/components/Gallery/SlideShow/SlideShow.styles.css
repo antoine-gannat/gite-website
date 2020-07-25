@@ -67,20 +67,23 @@
 }
 
 .slideshow nav ul {
-  overflow-x: scroll;
-  overflow-y: hidden;
   margin: 0 auto;
   width: fit-content;
   width: -moz-fit-content;
   width: -webkit-fit-content;
+  width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   bottom: 10px;
+  height: 90px;
+  white-space: nowrap;
 }
 
 .slideshow nav ul li {
-  float: left;
   list-style: none;
-  padding: 2px;
+  margin: 2px;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .slideshow nav ul li.selected {

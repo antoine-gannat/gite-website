@@ -19,7 +19,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const [slide, setSlide] = React.useState<string | null>(null);
   const nbPages = 2;
   const expandButton = (
-    <button className="expand-button">
+    <button className="expand-button" tabIndex={-1}>
       <i className="fas fa-expand-alt fa-2x"></i>
       {translate("more")} ..
     </button>
@@ -91,7 +91,6 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
               <img
-                tabIndex={-1}
                 src="/images/kitchen/picture_1.jpg"
                 role="button"
                 alt={translate("kitchenAlt")}
@@ -101,7 +100,6 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             </div>
             <div className="horizontal-img">
               <img
-                tabIndex={-1}
                 src="/images/environment/picture_1.jpg"
                 role="button"
                 alt={translate("environmentAlt")}
@@ -112,7 +110,6 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           </div>
           <div className="vertical-img right col-5">
             <img
-              tabIndex={-1}
               src="/images/dining-room/picture_1.jpg"
               role="button"
               alt={translate("diningRoomAlt")}

@@ -8,9 +8,18 @@ type SlideShowProps = {
   setSlide: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
+enum Keys {
+  Escape = 27,
+  Left = 37,
+  Right = 39,
+}
+
 function SlideShow(
   props: SlideShowProps & DefaultPropsWithTranslation
 ): JSX.Element {
+  const [selectedImage, setSelectedImage] = React.useState(0);
+  const images = findImages();
+
   function doesFileExists(url: string) {
     var http = new XMLHttpRequest();
     http.open("HEAD", url, false);
@@ -33,18 +42,23 @@ function SlideShow(
   React.useEffect(() => {
     function onKeyDown(this: Document, ev: KeyboardEvent) {
       // If escape is pressed, leave
-      if (ev.keyCode === 27) {
+      if (ev.keyCode === Keys.Escape) {
         props.setSlide(null);
+      } else if (ev.keyCode === Keys.Left) {
+        setSelectedImage(
+          selectedImage === 0 ? images.length - 1 : selectedImage - 1
+        );
+      } else if (ev.keyCode === Keys.Right) {
+        setSelectedImage(
+          selectedImage + 1 >= images.length ? 0 : selectedImage + 1
+        );
       }
     }
     document.addEventListener("keydown", onKeyDown, false);
     return () => {
       document.removeEventListener("keydown", onKeyDown, false);
     };
-  }, [props]);
-
-  const [selectedImage, setSelectedImage] = React.useState(0);
-  const images = findImages();
+  }, [props, images.length, selectedImage]);
 
   return (
     <div>
