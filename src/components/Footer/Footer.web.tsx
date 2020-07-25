@@ -33,6 +33,7 @@ function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
           </a>
         </li>
       </ul>
+      <p>© 2020, Antoine GANNAT</p>
     </footer>
   );
 }

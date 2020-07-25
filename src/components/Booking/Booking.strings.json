@@ -12,10 +12,11 @@
     "october": "Octobre",
     "november": "Novembre",
     "december": "Décembre",
-    "fortnight_only": "Quinzaine uniquement",
+    "fortnightOnly": "Quinzaine uniquement",
     "unavailable": "Indisponible",
     "next": "Suivant",
-    "prev": "Précedent"
+    "prev": "Précedent",
+    "nextMonthsTip": "Pour voir plus de mois, utiliser les boutons plus haut"
   },
   "EN": {
     "january": "January",
@@ -30,9 +31,10 @@
     "october": "October",
     "november": "November",
     "december": "December",
-    "fortnight_only": "Fortnight only",
+    "fortnightOnly": "Fortnight only",
     "unavailable": "Not available",
     "next": "Next",
-    "prev": "Previous"
+    "prev": "Previous",
+    "nextMonthsTip": "To display more months, use the top buttons"
   }
 }

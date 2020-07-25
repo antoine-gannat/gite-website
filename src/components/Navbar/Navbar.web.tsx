@@ -16,9 +16,35 @@ function Navbar({
   }
 
   function scrollTo(id: string): void {
+    // Scroll to the location
     document.getElementById(id)?.scrollIntoView();
     window.location.hash = id;
+    // Close the nav-tray if visible (small screens only)
+    const navbarToggler = document.getElementById("navbar-toggler");
+    if (
+      navbarToggler &&
+      navbarToggler.getAttribute("aria-expanded") === "true"
+    ) {
+      navbarToggler.click();
+    }
   }
+  function createLinkBtn(linkName: string): JSX.Element {
+    return (
+      <li className="nav-item">
+        <button
+          data-scrollto={linkName}
+          className="nav-link"
+          aria-label={`${translate("scrollTo")} ${translate(linkName)}`}
+          onClick={() => scrollTo(linkName)}
+        >
+          {translate(linkName)}
+        </button>
+      </li>
+    );
+  }
+
+  const links = ["home", "gallery", "booking", "directions"];
+
   return (
     <nav className="nav navbar fixed-top navbar-expand-lg navbar-dark nav">
       <a className="navbar-brand" href="#home">
@@ -26,6 +52,7 @@ function Navbar({
       </a>
       <button
         className="navbar-toggler"
+        id="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarTogglerDemo01"
@@ -37,54 +64,12 @@ function Navbar({
       </button>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li className={"nav-item"}>
-            <button
-              data-scrollto="home"
-              className="nav-link"
-              onClick={() => scrollTo("home")}
-            >
-              {translate("home")}
-            </button>
-          </li>
-          <li className={"nav-item"}>
-            <button
-              data-scrollto="gallery"
-              className="nav-link"
-              onClick={() => scrollTo("gallery")}
-            >
-              {translate("gallery")}
-            </button>
-          </li>
-          <li className={"nav-item"}>
-            <button
-              data-scrollto="booking"
-              className="nav-link"
-              onClick={() => scrollTo("booking")}
-            >
-              {translate("booking")}
-            </button>
-          </li>
-          <li className={"nav-item"}>
-            <button
-              data-scrollto="directions"
-              className="nav-link"
-              onClick={() => scrollTo("directions")}
-            >
-              {translate("directions")}
-            </button>
-          </li>
-          <li className={"nav-item"}>
-            <button
-              data-scrollto="contact"
-              className="nav-link"
-              onClick={() => scrollTo("contact")}
-            >
-              {translate("contact_info")}
-            </button>
-          </li>
+          {links.map((link) => createLinkBtn(link))}
           <li className="nav-item">
             <img
+              tabIndex={0}
               role="button"
+              aria-label="Traduire en Français"
               onClick={() => onFlagClick("FR")}
               className={
                 "nav-link flag" + (language === "FR" ? " selected" : "")
@@ -95,7 +80,9 @@ function Navbar({
           </li>
           <li className="nav-item">
             <img
+              tabIndex={0}
               role="button"
+              aria-label="Translate to english"
               onClick={() => onFlagClick("EN")}
               className={
                 "nav-link flag" + (language === "EN" ? " selected" : "")

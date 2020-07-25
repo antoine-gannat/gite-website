@@ -20,7 +20,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       return <>{translate("unavailable")}</>;
     }
     if (week.price === 0) {
-      return <>{translate("fortnight_only")}</>;
+      return <>{translate("fortnightOnly")}</>;
     }
     return <>{week.price} €</>;
   }
@@ -104,6 +104,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
           <i className="fas fa-chevron-left"></i> {translate("prev")}
         </button>
         <button
+          id="next-months-btn"
           className="btn btn-more col-6"
           disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
           onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
@@ -112,6 +113,9 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
         </button>
       </div>
       {displayBooking()}
+      <a href="#booking">
+        <small>{translate("nextMonthsTip")}</small>
+      </a>
     </section>
   );
 }

@@ -38,6 +38,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
         </button>
         <div
           key="gallery-page-1"
+          aria-hidden={page !== 0}
           className={cssMerge(
             "page-container row",
             page !== 0
@@ -79,6 +80,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
         </div>
         <div
           key="gallery-page-2"
+          aria-hidden={page !== 1}
           className={cssMerge(
             "page-container row",
             page !== 1

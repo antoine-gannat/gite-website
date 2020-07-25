@@ -1,6 +1,6 @@
 .footer {
   position: absolute;
-  background: rgb(216, 216, 216);
+  background: rgb(238, 238, 238);
   width: 100%;
   height: 300px;
   padding-top: 50px;
@@ -17,4 +17,10 @@
 }
 .footer ul li {
   font-size: 20px;
+}
+
+.footer p {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
