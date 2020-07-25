@@ -30,7 +30,7 @@ function Navbar({
   }
   function createLinkBtn(linkName: string): JSX.Element {
     return (
-      <li className="nav-item">
+      <li className="nav-item" key={linkName}>
         <button
           data-scrollto={linkName}
           className="nav-link"
@@ -74,7 +74,7 @@ function Navbar({
               className={
                 "nav-link flag" + (language === "FR" ? " selected" : "")
               }
-              src="/images/flags/fr_flag.png"
+              src="/images/flags/fr_flag.webp"
               alt={translate("FRFlagAlt")}
             />
           </li>
@@ -87,7 +87,7 @@ function Navbar({
               className={
                 "nav-link flag" + (language === "EN" ? " selected" : "")
               }
-              src="/images/flags/uk_flag.png"
+              src="/images/flags/uk_flag.webp"
               alt={translate("ENFlagAlt")}
             />
           </li>

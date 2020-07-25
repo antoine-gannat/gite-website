@@ -19,10 +19,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const [slide, setSlide] = React.useState<string | null>(null);
   const nbPages = 2;
   const expandButton = (
-    <button className="expand-button" tabIndex={-1}>
+    <div className="expand-button" tabIndex={-1}>
       <i className="fas fa-expand-alt fa-2x"></i>
       {translate("more")} ..
-    </button>
+    </div>
   );
 
   return (
@@ -30,6 +30,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
       <CategoryTitle title={translate("gallery")} />
       <div className="gallery row col-12">
         <button
+          aria-label={translate("prevPage")}
           className="prev"
           hidden={page - 1 < 0}
           onClick={() => changePage(page - 1)}
@@ -50,6 +51,8 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
         >
           <div className="vertical-img left col-5">
             <img
+              tabIndex={page !== 0 ? -1 : 0}
+              aria-label={`${translate("poolAlt")} ${translate("slideshow")}`}
               src="/images/pool/picture_1.jpg"
               role="button"
               alt={translate("poolAlt")}
@@ -60,6 +63,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
               <img
+                tabIndex={page !== 0 ? -1 : 0}
+                aria-label={`${translate("bedrooms")} ${translate(
+                  "slideshow"
+                )}`}
                 src="/images/bedrooms/picture_1.jpg"
                 role="button"
                 alt={translate("bedroomAlt")}
@@ -69,6 +76,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             </div>
             <div className="horizontal-img">
               <img
+                tabIndex={page !== 0 ? -1 : 0}
+                aria-label={`${translate("outdoorAlt")} ${translate(
+                  "slideshow"
+                )}`}
                 src="/images/outdoor/picture_1.jpg"
                 role="button"
                 alt={translate("outdoorAlt")}
@@ -93,6 +104,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
               <img
+                tabIndex={page !== 1 ? -1 : 0}
+                aria-label={`${translate("kitchenAlt")} ${translate(
+                  "slideshow"
+                )}`}
                 src="/images/kitchen/picture_1.jpg"
                 role="button"
                 alt={translate("kitchenAlt")}
@@ -102,6 +117,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             </div>
             <div className="horizontal-img">
               <img
+                tabIndex={page !== 1 ? -1 : 0}
+                aria-label={`${translate("environmentAlt")} ${translate(
+                  "slideshow"
+                )}`}
                 src="/images/environment/picture_1.jpg"
                 role="button"
                 alt={translate("environmentAlt")}
@@ -112,6 +131,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           </div>
           <div className="vertical-img right col-5">
             <img
+              tabIndex={page !== 1 ? -1 : 0}
+              aria-label={`${translate("diningRoomAlt")} ${translate(
+                "slideshow"
+              )}`}
               src="/images/dining-room/picture_1.jpg"
               role="button"
               alt={translate("diningRoomAlt")}
@@ -122,6 +145,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
         </div>
         <button
           className="next"
+          aria-label={translate("nextPage")}
           hidden={page + 1 >= nbPages}
           onClick={() => changePage(page + 1)}
         >

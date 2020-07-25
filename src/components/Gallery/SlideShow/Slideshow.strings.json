@@ -1,0 +1,14 @@
+{
+  "FR": {
+    "quitSlideshow": "Quitter le diaporama",
+    "picture": "photo",
+    "nextPicture": "Photo suivante",
+    "prevPicture": "Photo précédente"
+  },
+  "EN": {
+    "quitSlideshow": "Leave the slideshow",
+    "picture": "picture",
+    "nextPicture": "Next picture",
+    "prevPicture": "Previous picture"
+  }
+}

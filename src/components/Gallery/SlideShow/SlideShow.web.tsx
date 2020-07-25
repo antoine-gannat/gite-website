@@ -1,6 +1,7 @@
 import { DefaultPropsWithTranslation } from "../../../types/props";
 import * as React from "react";
 import { translateComponent } from "../../Translation/Translator";
+import strings from "./Slideshow.strings.json";
 import "./SlideShow.styles.css";
 
 type SlideShowProps = {
@@ -66,6 +67,7 @@ function SlideShow(
         <div className="display-container col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
           <button
             className="nav-button"
+            aria-label={props.translate("prevPicture")}
             onClick={() =>
               setSelectedImage(
                 selectedImage === 0 ? images.length - 1 : selectedImage - 1
@@ -81,6 +83,7 @@ function SlideShow(
           />
           <button
             className="nav-button"
+            aria-label={props.translate("nextPicture")}
             onClick={() =>
               setSelectedImage(
                 selectedImage + 1 >= images.length ? 0 : selectedImage + 1
@@ -94,6 +97,8 @@ function SlideShow(
           <ul>
             {images.map((img, index) => (
               <li
+                tabIndex={0}
+                aria-label={`${props.translate("picture")} ${index}`}
                 key={`slideshow-img-${index}`}
                 role="button"
                 onClick={() => setSelectedImage(index)}
@@ -107,6 +112,7 @@ function SlideShow(
         <button
           className="btn close-slide-btn"
           onClick={() => props.setSlide(null)}
+          aria-label={props.translate("quitSlideshow")}
         >
           <i className="fas fa-times"></i>
         </button>
@@ -117,5 +123,6 @@ function SlideShow(
 }
 
 export default translateComponent<SlideShowProps & DefaultPropsWithTranslation>(
-  SlideShow
+  SlideShow,
+  strings
 );
