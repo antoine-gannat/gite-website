@@ -59,7 +59,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
               <img
-                src="/images/bedrooms/picture_6.jpg"
+                src="/images/bedrooms/picture_1.jpg"
                 role="button"
                 alt={translate("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
@@ -68,7 +68,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             </div>
             <div className="horizontal-img">
               <img
-                src="/images/outdoor/picture_3.jpg"
+                src="/images/outdoor/picture_1.jpg"
                 role="button"
                 alt={translate("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}

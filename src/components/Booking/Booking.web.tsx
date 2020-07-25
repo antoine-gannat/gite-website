@@ -30,6 +30,41 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     document.getElementById("booking")?.scrollIntoView();
   }
 
+  function displayBooking(): JSX.Element[] | JSX.Element {
+    if (bookingMonths === undefined) {
+      return <h3>Loading..</h3>;
+    }
+
+    return bookingMonths
+      .slice(monthsToDisplay - 3, monthsToDisplay)
+      .map((month, monthIndex) => (
+        <div key={`month-${monthIndex}`}>
+          <h2>
+            {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
+          </h2>
+          <ul className="row col-12">
+            {month.weeks.map((week, weekIndex) => (
+              <li
+                className={cssMerge(
+                  "week col-lg-3 col-md-4 col-sm-6 col-12",
+                  week.available ? "available" : "not-available"
+                )}
+                role="button"
+                onClick={() => week.available && window.open(week.url)}
+                key={`month-${month.nb}-week-${weekIndex}`}
+              >
+                <h3 className="date">
+                  {formatDateForDisplay(week.from)} -{" "}
+                  {formatDateForDisplay(week.to)}
+                </h3>
+                <p className="price">{displayPrice(week)}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ));
+  }
+
   const monthsNames = [
     translate("january"),
     translate("february"),
@@ -44,7 +79,9 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     translate("november"),
     translate("december"),
   ];
-  const [bookingMonths, setBookingMonths] = React.useState<BookingMonth[]>([]);
+  const [bookingMonths, setBookingMonths] = React.useState<
+    BookingMonth[] | undefined
+  >(undefined);
   const [monthsToDisplay, setMonthsToDisplay] = React.useState<number>(3);
   React.useEffect(() => {
     fetch(gdfReservationsUrl).then(async (data) => {
@@ -68,40 +105,13 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
         </button>
         <button
           className="btn btn-more col-6"
-          disabled={monthsToDisplay >= bookingMonths.length}
+          disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
           onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
         >
           {translate("next")} <i className="fas fa-chevron-right"></i>
         </button>
       </div>
-      {bookingMonths
-        .slice(monthsToDisplay - 3, monthsToDisplay)
-        .map((month, monthIndex) => (
-          <div key={`month-${monthIndex}`}>
-            <h2>
-              {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
-            </h2>
-            <ul className="row col-12">
-              {month.weeks.map((week, weekIndex) => (
-                <li
-                  className={cssMerge(
-                    "week col-lg-3 col-md-4 col-sm-6 col-12",
-                    week.available ? "available" : "not-available"
-                  )}
-                  role="button"
-                  onClick={() => week.available && window.open(week.url)}
-                  key={`month-${month.nb}-week-${weekIndex}`}
-                >
-                  <h3 className="date">
-                    {formatDateForDisplay(week.from)} -{" "}
-                    {formatDateForDisplay(week.to)}
-                  </h3>
-                  <p className="price">{displayPrice(week)}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      {displayBooking()}
     </section>
   );
 }

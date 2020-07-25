@@ -16,7 +16,7 @@
 
 .presentation-card-container > div > img {
   object-fit: cover;
-  padding: 5px 0 0 5px;
+  padding: 5px;
 }
 
 .presentation-card-container .presentation-card h3 {

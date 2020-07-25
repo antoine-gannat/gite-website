@@ -23,12 +23,26 @@
   text-align: center;
 }
 
-.home-image-container .centered-titles h1 {
-  font-size: 75px;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .home-image-container .centered-titles h1 {
+    font-size: 45px;
+  }
+
+  .home-image-container .centered-titles h2 {
+    font-size: 30px;
+  }
 }
 
-.home-image-container .centered-titles h2 {
-  font-size: 40px;
+/* Classic devices */
+@media (min-width: 768px) {
+  .home-image-container .centered-titles h1 {
+    font-size: 75px;
+  }
+
+  .home-image-container .centered-titles h2 {
+    font-size: 40px;
+  }
 }
 
 .home-image-container .centered-titles a {

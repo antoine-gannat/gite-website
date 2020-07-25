@@ -29,6 +29,20 @@ function SlideShow(
     }
     return images;
   }
+  // Add event listener on mount
+  React.useEffect(() => {
+    function onKeyDown(this: Document, ev: KeyboardEvent) {
+      // If escape is pressed, leave
+      if (ev.keyCode === 27) {
+        props.setSlide(null);
+      }
+    }
+    document.addEventListener("keydown", onKeyDown, false);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown, false);
+    };
+  }, [props]);
+
   const [selectedImage, setSelectedImage] = React.useState(0);
   const images = findImages();
 
@@ -44,7 +58,7 @@ function SlideShow(
               )
             }
           >
-            <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left fa-3x"></i>
           </button>
           <img
             className="displayed-image"
@@ -59,7 +73,7 @@ function SlideShow(
               )
             }
           >
-            <i className="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right fa-3x"></i>
           </button>
         </div>
         <nav>
@@ -69,6 +83,7 @@ function SlideShow(
                 key={`slideshow-img-${index}`}
                 role="button"
                 onClick={() => setSelectedImage(index)}
+                className={index === selectedImage ? "selected" : ""}
               >
                 <img src={img} alt={props.imagesUrl} />
               </li>
@@ -76,7 +91,7 @@ function SlideShow(
           </ul>
         </nav>
         <button
-          className="btn btn-primary close-slide-btn"
+          className="btn close-slide-btn"
           onClick={() => props.setSlide(null)}
         >
           <i className="fas fa-times"></i>
