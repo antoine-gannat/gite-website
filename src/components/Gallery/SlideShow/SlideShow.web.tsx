@@ -15,30 +15,20 @@ enum Keys {
   Right = 39,
 }
 
+const nbPicturesPerFolder: { [folderName: string]: number } = {
+  bedrooms: 10,
+  "dining-room": 5,
+  environment: 7,
+  kitchen: 5,
+  outdoor: 13,
+  pool: 10,
+};
+
 function SlideShow(
   props: SlideShowProps & DefaultPropsWithTranslation
 ): JSX.Element {
   const [selectedImage, setSelectedImage] = React.useState(0);
-  const images = findImages();
-
-  function doesFileExists(url: string) {
-    var http = new XMLHttpRequest();
-    http.open("HEAD", url, false);
-    http.send();
-    return http.status !== 404;
-  }
-
-  // find all images in a folder
-  function findImages() {
-    let images: string[] = [];
-    let i = 1;
-    const baseUrl = `/images/${props.imagesUrl}/picture_`;
-    while (doesFileExists(`${baseUrl}${i}.jpg`)) {
-      images.push(`${baseUrl}${i}.jpg`);
-      i++;
-    }
-    return images;
-  }
+  let images: string[] = [];
   // Add event listener on mount
   React.useEffect(() => {
     function onKeyDown(this: Document, ev: KeyboardEvent) {
@@ -60,6 +50,14 @@ function SlideShow(
       document.removeEventListener("keydown", onKeyDown, false);
     };
   }, [props, images.length, selectedImage]);
+
+  if (!nbPicturesPerFolder[props.imagesUrl]) {
+    props.setSlide(null);
+  }
+  // Set the images url in an array
+  for (let i = 1; i <= nbPicturesPerFolder[props.imagesUrl]; i++) {
+    images.push(`/images/${props.imagesUrl}/picture_${i}.jpg`);
+  }
 
   return (
     <div>
