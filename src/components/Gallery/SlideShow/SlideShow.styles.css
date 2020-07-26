@@ -12,7 +12,7 @@
 @media (max-width: 768px) {
   .slideshow .display-container {
     position: relative;
-    height: 40%;
+    height: 70vh;
     padding: 0;
   }
 }
