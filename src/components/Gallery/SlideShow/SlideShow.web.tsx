@@ -3,6 +3,7 @@ import * as React from "react";
 import { translateComponent } from "../../Translation/Translator";
 import strings from "./Slideshow.strings.json";
 import "./SlideShow.styles.css";
+import { cssMerge } from "../../Miscs/styles";
 
 type SlideShowProps = {
   imagesUrl: string;
@@ -62,51 +63,56 @@ function SlideShow(
   return (
     <div>
       <div className="slideshow">
-        <div className="display-container col-sm-12 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
-          <button
-            className="nav-button"
-            aria-label={props.translate("prevPicture")}
-            onClick={() =>
-              setSelectedImage(
-                selectedImage === 0 ? images.length - 1 : selectedImage - 1
-              )
-            }
-          >
-            <i className="fas fa-chevron-left fa-3x"></i>
-          </button>
-          <img
-            className="displayed-image"
-            src={images[selectedImage]}
-            alt={props.imagesUrl}
-          />
-          <button
-            className="nav-button"
-            aria-label={props.translate("nextPicture")}
-            onClick={() =>
-              setSelectedImage(
-                selectedImage + 1 >= images.length ? 0 : selectedImage + 1
-              )
-            }
-          >
-            <i className="fas fa-chevron-right fa-3x"></i>
-          </button>
-        </div>
-        <nav>
-          <ul>
-            {images.map((img, index) => (
+        <div id="slideshow" className="carousel slide" data-interval="false">
+          <ol className="carousel-indicators">
+            {images.map((image, index) => (
               <li
-                tabIndex={0}
-                aria-label={`${props.translate("picture")} ${index}`}
-                key={`slideshow-img-${index}`}
-                role="button"
-                onClick={() => setSelectedImage(index)}
-                className={index === selectedImage ? "selected" : ""}
-              >
-                <img src={img} alt={props.imagesUrl} />
-              </li>
+                key={`slideshow-nav-${index}`}
+                data-target="#slideshow"
+                data-slide-to={index}
+                className={index === 0 ? "active" : ""}
+              ></li>
             ))}
-          </ul>
-        </nav>
+          </ol>
+          <div className="carousel-inner">
+            {images.map((image, index) => (
+              <div
+                className={cssMerge(
+                  "carousel-item",
+                  index === 0 ? "active" : ""
+                )}
+                key={`slideshow-img-${index}`}
+              >
+                <img className="d-block w-100" src={image} alt="First slide" />
+              </div>
+            ))}
+          </div>
+          <a
+            className="carousel-control-prev"
+            href="#slideshow"
+            role="button"
+            data-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a
+            className="carousel-control-next"
+            href="#slideshow"
+            role="button"
+            data-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="sr-only">Next</span>
+          </a>
+        </div>
+
         <button
           className="btn close-slide-btn"
           onClick={() => props.setSlide(null)}
