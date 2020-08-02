@@ -8,8 +8,13 @@
   height: 100%;
 }
 
-.slideshow .carousel {
-  height: 100%;
+.slideshow .carousel .carousel-item {
+  max-height: 100vh;
+}
+
+.slideshow .carousel .carousel-item img {
+  max-height: 100vh;
+  object-fit: cover;
 }
 
 .darkener {
@@ -24,11 +29,21 @@
 
 .slideshow .close-slide-btn {
   position: absolute;
-  width: 50px;
   top: 0;
   right: 0;
   margin: 1em;
   color: black;
   background-color: white;
   z-index: 1034;
+}
+
+.slideshow .close-slide-btn span {
+  opacity: 0;
+  position: absolute;
+}
+
+.slideshow .close-slide-btn:hover span {
+  transition: opacity 0.5s;
+  position: relative;
+  opacity: 1;
 }

@@ -118,6 +118,7 @@ function SlideShow(
           onClick={() => props.setSlide(null)}
           aria-label={props.translate("quitSlideshow")}
         >
+          <span>{props.translate("quitSlideshow")} </span>
           <i className="fas fa-times"></i>
         </button>
       </div>
