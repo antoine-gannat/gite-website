@@ -17,8 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose HTTP and HTTPS port
-EXPOSE 80
-EXPOSE 443
+EXPOSE 5000
 
 # serve the build folder
-CMD [ "serve", "--listen", "80", "/app/build", "--ssl-cert", "/ssl-keys/${URL}/cert.pem", "--ssl-key", "/ssl-keys/${URL}/privkey.pem"]
+CMD [ "serve", "--listen", "5000", "/app/build", "--ssl-cert", "/ssl-keys/${URL}/cert.pem", "--ssl-key", "/ssl-keys/${URL}/privkey.pem"]

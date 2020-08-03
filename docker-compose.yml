@@ -13,9 +13,6 @@ services:
     volumes:
       - letsencrypt-challenge:/config/.well-known
       - letsencrypt-keys:/config/live
-    ports:
-      - 443:443
-      - 80:80
     restart: always
 
   gite-website:
@@ -28,8 +25,7 @@ services:
     environment:
       - URL=gite-piscine.com
     ports:
-      - 443:443
-      - 80:80
+      - 80:5000
     restart: always
     volumes:
       - letsencrypt-challenge:/app/build/.well-known
