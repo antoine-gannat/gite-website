@@ -11,6 +11,22 @@ const gdfReservationsUrl =
   "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=prix&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250&codeProd=&iframe=&sansCss=0&ope=&height=&width=&periode=&affichage=&numChambre=&clicsurcalendrier=&nbMois=1&photo=&prix=&text=&affichequenoteglobale=&bureauitea=&avecPrix=&_=1548135152075";
 
 function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
+  const [bookingMonths, setBookingMonths] = React.useState<
+    BookingMonth[] | undefined | null
+  >(undefined);
+  const [monthsToDisplay, setMonthsToDisplay] = React.useState<number>(3);
+
+  React.useEffect(() => {
+    fetch(gdfReservationsUrl)
+      .then(async (data) => {
+        const parser = new BookingParser(await data.text());
+        setBookingMonths(parser.getBookings());
+      })
+      .catch(() => {
+        setBookingMonths(null);
+      });
+  }, []);
+
   function formatDateForDisplay(date: Date): string {
     return `${date.getDate()} ${monthsNames[date.getMonth()].slice(0, 3)}`;
   }
@@ -32,7 +48,21 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
 
   function displayBooking(): JSX.Element[] | JSX.Element {
     if (bookingMonths === undefined) {
-      return <h3>Loading..</h3>;
+      return <h4>{translate("loading")}...</h4>;
+    }
+    if (bookingMonths === null) {
+      return (
+        <h4>
+          <a
+            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={translate("booking")}
+          >
+            {translate("GDFWebsite")}
+          </a>
+        </h4>
+      );
     }
 
     return bookingMonths
@@ -79,43 +109,37 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
     translate("november"),
     translate("december"),
   ];
-  const [bookingMonths, setBookingMonths] = React.useState<
-    BookingMonth[] | undefined
-  >(undefined);
-  const [monthsToDisplay, setMonthsToDisplay] = React.useState<number>(3);
-  React.useEffect(() => {
-    fetch(gdfReservationsUrl).then(async (data) => {
-      const parser = new BookingParser(await data.text());
-      setBookingMonths(parser.getBookings());
-    });
-  }, []);
   return (
     <section
       id="booking"
       className="booking mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
     >
       <CategoryTitle title={translate("booking")} />
-      <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
-        <button
-          className="btn btn-more col-6"
-          disabled={monthsToDisplay <= 3}
-          onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
-        >
-          <i className="fas fa-chevron-left"></i> {translate("prev")}
-        </button>
-        <button
-          id="next-months-btn"
-          className="btn btn-more col-6"
-          disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
-          onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
-        >
-          {translate("next")} <i className="fas fa-chevron-right"></i>
-        </button>
-      </div>
+      {bookingMonths && (
+        <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
+          <button
+            className="btn btn-more col-6"
+            disabled={monthsToDisplay <= 3}
+            onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
+          >
+            <i className="fas fa-chevron-left"></i> {translate("prev")}
+          </button>
+          <button
+            id="next-months-btn"
+            className="btn btn-more col-6"
+            disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
+            onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
+          >
+            {translate("next")} <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      )}
       {displayBooking()}
-      <a href="#booking">
-        <small>{translate("nextMonthsTip")}</small>
-      </a>
+      {bookingMonths && (
+        <a href="#booking">
+          <small>{translate("nextMonthsTip")}</small>
+        </a>
+      )}
     </section>
   );
 }

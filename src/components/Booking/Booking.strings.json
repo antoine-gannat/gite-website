@@ -16,7 +16,9 @@
     "unavailable": "Indisponible",
     "next": "Suivant",
     "prev": "Précedent",
-    "nextMonthsTip": "Pour voir plus de mois, utiliser les boutons plus haut"
+    "nextMonthsTip": "Pour voir plus de mois, utiliser les boutons plus haut",
+    "loading": "Chargement",
+    "GDFWebsite": "Site de Gîte de France"
   },
   "EN": {
     "january": "January",
@@ -35,6 +37,8 @@
     "unavailable": "Not available",
     "next": "Next",
     "prev": "Previous",
-    "nextMonthsTip": "To display more months, use the top buttons"
+    "nextMonthsTip": "To display more months, use the top buttons",
+    "loading": "Loading",
+    "GDFWebsite": "Gîte de France website"
   }
 }

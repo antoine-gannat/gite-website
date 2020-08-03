@@ -68,3 +68,7 @@
 .booking .week.not-available:hover {
   cursor: default;
 }
+
+.booking h4 {
+  text-align: center;
+}

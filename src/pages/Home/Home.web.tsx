@@ -13,6 +13,14 @@ import Booking from "../../components/Booking/Booking.web";
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   React.useEffect(() => {
     const sectionsPosition: any = {};
+    // Change the page title and description
+    document.title = props.translate("pageTitle");
+    let metaDescriptionEl = document
+      .getElementsByTagName("meta")
+      .namedItem("description");
+    if (metaDescriptionEl) {
+      metaDescriptionEl.content = props.translate("pageDescription");
+    }
 
     setTimeout(() => {
       document.querySelectorAll("section").forEach((section) => {

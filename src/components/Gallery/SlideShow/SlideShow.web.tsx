@@ -92,24 +92,18 @@ function SlideShow(
             href="#slideshow"
             role="button"
             data-slide="prev"
+            aria-label={props.translate("prevPicture")}
           >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Previous</span>
+            <span className="carousel-control-prev-icon"></span>
           </a>
           <a
             className="carousel-control-next"
             href="#slideshow"
             role="button"
             data-slide="next"
+            aria-label={props.translate("nextPicture")}
           >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Next</span>
+            <span className="carousel-control-next-icon"></span>
           </a>
         </div>
 
