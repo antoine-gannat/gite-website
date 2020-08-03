@@ -13,6 +13,11 @@ import Booking from "../../components/Booking/Booking.web";
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   React.useEffect(() => {
     const sectionsPosition: any = {};
+
+    // change html tag "lang" to use FR or EN based on the language
+    document
+      .getElementsByTagName("html")[0]
+      ?.setAttribute("lang", props.language);
     // Change the page title and description
     document.title = props.translate("pageTitle");
     let metaDescriptionEl = document
