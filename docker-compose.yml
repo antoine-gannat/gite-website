@@ -1,0 +1,40 @@
+version: "2.1"
+services:
+  letsencrypt:
+    image: linuxserver/letsencrypt
+    container_name: letsencrypt
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - TZ=Europe/London
+      - URL=gite-piscine.com
+      - SUBDOMAINS=www,
+      - EMAIL=antoine.gannat@gmail.com
+    volumes:
+      - letsencrypt-challenge:/config/.well-known
+      - letsencrypt-keys:/config/live
+    ports:
+      - 443:443
+      - 80:80
+    restart: always
+
+  gite-website:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    container_name: gite-website
+    depends_on:
+      - letsencrypt
+    environment:
+      - URL=gite-piscine.com
+    ports:
+      - 443:443
+      - 80:80
+    restart: always
+    volumes:
+      - letsencrypt-challenge:/app/build/.well-known
+      - letsencrypt-keys:/ssl-keys
+
+volumes:
+  letsencrypt-keys:
+  letsencrypt-challenge:
