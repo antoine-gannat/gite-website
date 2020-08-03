@@ -13,12 +13,10 @@ function Navbar({
   function onFlagClick(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
     setLanguage(language);
+    hideExtendedNavbar();
   }
 
-  function scrollTo(id: string): void {
-    // Scroll to the location
-    document.getElementById(id)?.scrollIntoView();
-    window.location.hash = id;
+  function hideExtendedNavbar() {
     // Close the nav-tray if visible (small screens only)
     const navbarToggler = document.getElementById("navbar-toggler");
     if (
@@ -28,6 +26,14 @@ function Navbar({
       navbarToggler.click();
     }
   }
+
+  function scrollTo(id: string): void {
+    // Scroll to the location
+    document.getElementById(id)?.scrollIntoView();
+    window.location.hash = id;
+    hideExtendedNavbar();
+  }
+
   function createLinkBtn(linkName: string): JSX.Element {
     return (
       <li className="nav-item" key={linkName}>

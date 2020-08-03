@@ -19,10 +19,10 @@ enum Keys {
 const nbPicturesPerFolder: { [folderName: string]: number } = {
   bedrooms: 10,
   "dining-room": 5,
-  environment: 7,
+  environment: 5,
   kitchen: 5,
   outdoor: 13,
-  pool: 10,
+  pool: 8,
 };
 
 function SlideShow(

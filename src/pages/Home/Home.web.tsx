@@ -51,7 +51,7 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="centered-titles">
             <h1>{props.translate("title")}</h1>
             <h2 className="fade-in">{props.translate("subtitle")}</h2>
-            <a className="btn" href="#booking">
+            <a data-scrollto="booking" className="btn" href="#booking">
               {props.translate("booking")}
             </a>
           </div>

@@ -118,15 +118,22 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       {bookingMonths && (
         <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
           <button
-            className="btn btn-more col-6"
+            className={cssMerge(
+              "btn booking-nav-btn col-6",
+              monthsToDisplay <= 3 ? "hidden" : ""
+            )}
             disabled={monthsToDisplay <= 3}
             onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
           >
             <i className="fas fa-chevron-left"></i> {translate("prev")}
           </button>
           <button
-            id="next-months-btn"
-            className="btn btn-more col-6"
+            className={cssMerge(
+              "btn booking-nav-btn col-6",
+              !bookingMonths || monthsToDisplay >= bookingMonths.length
+                ? "hidden"
+                : ""
+            )}
             disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
             onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
           >
