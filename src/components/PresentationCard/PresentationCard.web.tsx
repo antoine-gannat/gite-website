@@ -35,6 +35,26 @@ function PresentationCard({
               <li className="col-6">
                 <span>{translate("bedrooms")} : 3 </span>
               </li>
+              <li className="col-6">
+                <a
+                  href="https://www.facebook.com/gitepiscineinterieurebretagne"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={translate("gotoFb")}
+                >
+                  <i className="fab fa-facebook fa-2x"></i>
+                </a>{" "}
+              </li>
+              <li className="col-6">
+                <a
+                  href="https://www.instagram.com/gitepiscine/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={translate("gotoInsta")}
+                >
+                  <i className="fab fa-instagram fa-2x"></i>
+                </a>{" "}
+              </li>
             </ul>
           </div>
           <div className="row">
@@ -47,38 +67,11 @@ function PresentationCard({
             >
               <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
             </a>
-            <a
-              href="https://www.gites-de-france.com/fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gdf-link col"
-              title={translate("gotoGdf")}
-            >
-              <img
-                src="/images/meuble-de-tourisme.jpg"
-                alt={translate("gite4epis")}
-              />
-            </a>
-          </div>
-          <div className="media-links">
-            <div>
-              <a
-                href="https://www.facebook.com/gitepiscineinterieurebretagne"
-                target="_blank"
-                rel="noopener noreferrer"
-                title={translate("gotoFb")}
-              >
-                <i className="fab fa-facebook fa-2x"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/gitepiscine/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title={translate("gotoInsta")}
-              >
-                <i className="fab fa-instagram fa-2x"></i>
-              </a>
-            </div>
+            <img
+              className="col"
+              src="/images/meuble-de-tourisme.jpg"
+              alt={translate("gite4epis")}
+            />
           </div>
         </div>
       </div>
