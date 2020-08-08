@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gite-piscine.com/sitemap.xml

@@ -1,0 +1,20 @@
+{
+  "FR": {
+    "environment": "Environment",
+    "booking": "Réservation",
+    "home": "Accueil",
+    "directions": "Itineraire",
+    "ENFlagAlt": "Drapeau Français",
+    "FRFlagAlt": "Drapeau Anglais",
+    "scrollTo": "Navigué vers"
+  },
+  "EN": {
+    "environment": "Environment",
+    "booking": "Booking",
+    "home": "Home",
+    "directions": "Directions",
+    "ENFlagAlt": "England flag",
+    "FRFlagAlt": "French flag",
+    "scrollTo": "Go to"
+  }
+}
