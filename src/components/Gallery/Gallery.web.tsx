@@ -18,10 +18,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const [page, setPage] = React.useState(0);
   const [slide, setSlide] = React.useState<string | null>(null);
   const nbPages = 2;
-  const expandButton = (
+  const expandButton = (text: string) => (
     <div className="expand-button" tabIndex={-1}>
       <i className="fas fa-expand-alt fa-2x"></i>
-      {translate("more")} ..
+      <span>{text}</span>
     </div>
   );
 
@@ -58,7 +58,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
               alt={translate("poolAlt")}
               onClick={() => setSlide("pool")}
             />
-            {expandButton}
+            {expandButton(translate("poolAlt"))}
           </div>
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
@@ -72,7 +72,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 alt={translate("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
               />
-              {expandButton}
+              {expandButton(translate("bedroomAlt"))}
             </div>
             <div className="horizontal-img">
               <img
@@ -85,7 +85,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 alt={translate("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}
               />
-              {expandButton}
+              {expandButton(translate("outdoorAlt"))}
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 alt={translate("kitchenAlt")}
                 onClick={() => setSlide("kitchen")}
               />
-              {expandButton}
+              {expandButton(translate("kitchenAlt"))}
             </div>
             <div className="horizontal-img">
               <img
@@ -126,7 +126,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 alt={translate("environmentAlt")}
                 onClick={() => setSlide("environment")}
               />
-              {expandButton}
+              {expandButton(translate("environmentAlt"))}
             </div>
           </div>
           <div className="vertical-img right col-5">
@@ -140,7 +140,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
               alt={translate("diningRoomAlt")}
               onClick={() => setSlide("dining-room")}
             />
-            {expandButton}
+            {expandButton(translate("diningRoomAlt"))}
           </div>
         </div>
         <button

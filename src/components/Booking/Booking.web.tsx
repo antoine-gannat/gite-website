@@ -95,6 +95,38 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       ));
   }
 
+  function navButtons() {
+    if (!bookingMonths) {
+      return null;
+    }
+    return (
+      <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
+        <button
+          className={cssMerge(
+            "btn booking-nav-btn col-6",
+            monthsToDisplay <= 3 ? "hidden" : ""
+          )}
+          disabled={monthsToDisplay <= 3}
+          onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
+        >
+          <i className="fas fa-chevron-left"></i> {translate("prev")}
+        </button>
+        <button
+          className={cssMerge(
+            "btn booking-nav-btn col-6",
+            !bookingMonths || monthsToDisplay >= bookingMonths.length
+              ? "hidden"
+              : ""
+          )}
+          disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
+          onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
+        >
+          {translate("next")} <i className="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    );
+  }
+
   const monthsNames = [
     translate("january"),
     translate("february"),
@@ -115,38 +147,9 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       className="booking mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
     >
       <CategoryTitle title={translate("booking")} />
-      {bookingMonths && (
-        <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
-          <button
-            className={cssMerge(
-              "btn booking-nav-btn col-6",
-              monthsToDisplay <= 3 ? "hidden" : ""
-            )}
-            disabled={monthsToDisplay <= 3}
-            onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
-          >
-            <i className="fas fa-chevron-left"></i> {translate("prev")}
-          </button>
-          <button
-            className={cssMerge(
-              "btn booking-nav-btn col-6",
-              !bookingMonths || monthsToDisplay >= bookingMonths.length
-                ? "hidden"
-                : ""
-            )}
-            disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
-            onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
-          >
-            {translate("next")} <i className="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      )}
+      {navButtons()}
       {displayBooking()}
-      {bookingMonths && (
-        <a href="#booking">
-          <small>{translate("nextMonthsTip")}</small>
-        </a>
-      )}
+      {navButtons()}
     </section>
   );
 }

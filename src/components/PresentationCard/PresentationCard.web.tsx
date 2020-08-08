@@ -37,6 +37,37 @@ function PresentationCard({
               </li>
             </ul>
           </div>
+          <div>
+            <a
+              href="https://www.gites-de-france.com/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gdf-link"
+              title={translate("gotoGdf")}
+            >
+              <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
+            </a>
+          </div>
+          <div className="media-links">
+            <div>
+              <a
+                href="https://www.facebook.com/gitepiscineinterieurebretagne"
+                target="_blank"
+                rel="noopener noreferrer"
+                title={translate("gotoFb")}
+              >
+                <i className="fab fa-facebook fa-2x"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/gitepiscine/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title={translate("gotoInsta")}
+              >
+                <i className="fab fa-instagram fa-2x"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

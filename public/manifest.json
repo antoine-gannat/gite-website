@@ -1,6 +1,7 @@
 {
   "name": "Gite Kerhéré",
-  "theme_color": "#888888",
+  "short_name": "Gite Kerhéré",
+  "theme_color": "#b90211",
   "background_color": "#ffffff",
   "display": "browser",
   "orientation": "portrait",

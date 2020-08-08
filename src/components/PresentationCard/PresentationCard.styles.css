@@ -19,6 +19,10 @@
   padding: 5px;
 }
 
+.presentation-card-container .presentation-card {
+  padding-bottom: 5px;
+}
+
 .presentation-card-container .presentation-card h3 {
   text-align: center;
   padding-top: 1em;
@@ -49,4 +53,23 @@
 
 .presentation-card-container .presentation-card .description-table span {
   font-size: 20px;
+}
+
+.presentation-card .gdf-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.presentation-card .gdf-link img {
+  max-width: 80%;
+}
+
+.presentation-card .media-links {
+  width: 100%;
+  text-align: center;
+}
+
+.presentation-card .media-links a {
+  margin: 0 3px;
 }

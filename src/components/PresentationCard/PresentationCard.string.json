@@ -1,20 +1,28 @@
 {
   "FR": {
-    "presentationTitle": "Gite avec piscine interieure en Bretagne",
+    "presentationTitle": "Gîte avec piscine intérieure en Bretagne",
     "presentationText": "Gîte indépendant avec piscine intérieure, exposé sud, situé entre Quimper et Châteaulin. Idéal pour une remise en forme dans un cadre verdoyant et vallonné, au pied des Montagnes Noires.",
     "capacity": "Capacité",
     "wifi": "Wifi inclus",
     "surface": "Superficie",
     "sheetsIncluded": "Serviettes et draps inclus",
-    "peoples": "personnes"
+    "peoples": "personnes",
+    "gite4epis": "Gîte 4 epis",
+    "gotoGdf": "Naviguer vers le site de Gîte de France.",
+    "gotoFb": "Notre page Facebook",
+    "gotoInsta": "Notre compte Instagram"
   },
   "EN": {
     "presentationTitle": "Cottage with indoor pool in Brittany",
-    "presentationText": "Independant Cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
+    "presentationText": "Independant cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
     "capacity": "Capacity",
     "wifi": "Wifi included",
     "surface": "Surface",
     "sheetsIncluded": "Bed sheets and towels included",
-    "peoples": "peoples"
+    "peoples": "peoples",
+    "gite4epis": "4 cob cottage",
+    "gotoGdf": "Go to Gîte de France website.",
+    "gotoFb": "Our Facebook page",
+    "gotoInsta": "Our Instagram account"
   }
 }
