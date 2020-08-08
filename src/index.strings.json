@@ -9,7 +9,9 @@
     "environmentAlt": "Environnement",
     "gallery": "Photos",
     "booking": "Réserver un sejour",
-    "contact_info": "Contactez nous"
+    "contact_info": "Contactez nous",
+    "reviews": "Avis",
+    "loading": "Chargement"
   },
   "EN": {
     "poolAlt": "Swimming Pool",
@@ -21,6 +23,8 @@
     "environmentAlt": "Environment",
     "gallery": "Pictures",
     "booking": "Book a stay",
-    "contact_info": "Contact us"
+    "contact_info": "Contact us",
+    "reviews": "Reviews",
+    "loading": "Loading"
   }
 }

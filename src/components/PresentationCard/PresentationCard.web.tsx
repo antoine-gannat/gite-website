@@ -37,15 +37,27 @@ function PresentationCard({
               </li>
             </ul>
           </div>
-          <div>
+          <div className="row">
             <a
               href="https://www.gites-de-france.com/fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="gdf-link"
+              className="gdf-link col"
               title={translate("gotoGdf")}
             >
               <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
+            </a>
+            <a
+              href="https://www.gites-de-france.com/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gdf-link col"
+              title={translate("gotoGdf")}
+            >
+              <img
+                src="/images/meuble-de-tourisme.jpg"
+                alt={translate("gite4epis")}
+              />
             </a>
           </div>
           <div className="media-links">

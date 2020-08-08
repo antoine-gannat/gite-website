@@ -9,6 +9,7 @@ import Gallery from "../../components/Gallery/Gallery.web";
 import Footer from "../../components/Footer/Footer.web";
 import Map from "../../components/Map/Map.web";
 import Booking from "../../components/Booking/Booking.web";
+import Reviews from "../../components/Reviews/Reviews.web";
 
 function Home(props: DefaultPropsWithTranslation): JSX.Element {
   React.useEffect(() => {
@@ -65,6 +66,7 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
           <PresentationCard {...props} />
           <Gallery {...props} />
           <Booking {...props} />
+          <Reviews {...props} />
           <Map {...props} />
         </div>
       </main>

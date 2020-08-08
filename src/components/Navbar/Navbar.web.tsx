@@ -49,11 +49,11 @@ function Navbar({
     );
   }
 
-  const links = ["home", "gallery", "booking", "directions"];
+  const links = ["home", "gallery", "booking", "reviews", "directions"];
 
   return (
     <nav className="nav navbar fixed-top navbar-expand-lg navbar-dark nav">
-      <a className="navbar-brand" href="#home">
+      <a className="navbar-brand" href="#home" tabIndex={-1}>
         Gîte Kerhéré
       </a>
       <button
