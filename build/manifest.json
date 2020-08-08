@@ -4,6 +4,7 @@
   "theme_color": "#b90211",
   "background_color": "#ffffff",
   "orientation": "portrait",
+  "display": "minimal-ui",
   "Scope": "/",
   "start_url": "/",
   "icons": [
