@@ -3,6 +3,7 @@ export type Review = {
   reviewer: string;
   title: string;
   rating: number;
+  date: string;
 };
 
 export type RawReview = {
@@ -16,6 +17,7 @@ export type RawReview = {
     "@type": string;
     ratingValue: number;
   };
+  date: string;
 };
 
 export default class ReviewParser {
@@ -35,6 +37,7 @@ export default class ReviewParser {
   }
 
   getParsedContent(): RawReview[] {
+    const endReviewElement = '</p><p class="p_widget_itea_avis_noteGlobale">';
     let scriptElement = this.dataAsElement.getElementsByTagName("script")[0];
     if (!scriptElement) {
       return [];
@@ -47,15 +50,19 @@ export default class ReviewParser {
     let result: RawReview[] = [];
     while (
       (startIndex = content.indexOf('"reviewRating')) >= 0 &&
-      (endIndex = content.indexOf("</script>")) >= 0
+      (endIndex = content.indexOf(endReviewElement)) >= 0
     ) {
       try {
-        const jsonContent = JSON.parse(
-          "{" + content.slice(startIndex, endIndex)
+        let jsonContent = JSON.parse(
+          "{" + content.slice(startIndex, content.indexOf("</script>"))
+        );
+        jsonContent.date = content.slice(
+          content.indexOf("Published on") + "Published on".length,
+          content.indexOf(endReviewElement)
         );
         result.push(jsonContent);
       } catch (err) {}
-      content = content.slice(endIndex + "</script>".length);
+      content = content.slice(endIndex + endReviewElement.length);
     }
     return result;
   }
@@ -66,6 +73,7 @@ export default class ReviewParser {
       reviewer: this.decodeHtmlString(rawReview.author.name),
       title: this.decodeHtmlString(rawReview.name),
       rating: rawReview.reviewRating.ratingValue,
+      date: rawReview.date,
     }));
   }
 }

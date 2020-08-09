@@ -46,9 +46,13 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
     return reviews.slice(0, nbDisplayed).map((review, index) => (
       <div className="review" key={`review-${index}`} id={`review-${index}`}>
         <h4>{review.title}</h4>
-        <div>
+        <div className="review-info">
           <b>{review.reviewer}</b>
           {displayRating(review.rating, review.title)}
+          <small>
+            {translate("on")}
+            {review.date}
+          </small>
         </div>
         <cite>{review.text || "-"}</cite>
         <hr className="w-50" />

@@ -2,6 +2,16 @@
   margin-bottom: 20px;
 }
 
+.review .review-info {
+  position: relative;
+}
+
+.review small {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
 .review h4 {
   text-align: center;
 }
@@ -18,5 +28,5 @@
 }
 
 .review .rating {
-  color: gold;
+  color: rgb(151, 1, 14);
 }

@@ -1,8 +1,10 @@
 {
   "FR": {
-    "more": "Plus"
+    "more": "Plus",
+    "on": "Publié le"
   },
   "EN": {
-    "more": "More"
+    "more": "More",
+    "on": "Published on"
   }
 }
