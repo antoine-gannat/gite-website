@@ -11,7 +11,7 @@ function PresentationCard({
     <div className="presentation-card-container col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1">
       <div className="row col-12">
         <img
-          src="/images/pool/picture_1.jpg"
+          src="/images/gallery-preview/pool.jpg"
           className="col-lg-6 col-md-6 col-sm-6"
           alt={translate("poolAlt")}
         />

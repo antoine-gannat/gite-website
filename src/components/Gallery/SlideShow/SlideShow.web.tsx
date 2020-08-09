@@ -21,7 +21,7 @@ const nbPicturesPerFolder: { [folderName: string]: number } = {
   "dining-room": 5,
   environment: 5,
   kitchen: 5,
-  outdoor: 13,
+  outdoor: 14,
   pool: 8,
 };
 

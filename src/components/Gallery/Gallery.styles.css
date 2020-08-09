@@ -76,6 +76,7 @@
 .gallery .vertical-img,
 .gallery .horizontal-img {
   position: relative;
+  width: 100%;
 }
 
 .gallery .horizontal-img img,
