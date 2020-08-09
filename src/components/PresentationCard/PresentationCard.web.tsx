@@ -11,7 +11,7 @@ function PresentationCard({
     <div className="presentation-card-container col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1">
       <div className="row col-12">
         <img
-          src="/images/gallery-preview/pool.jpg"
+          src="/images/gallery-preview/pool.webp"
           className="col-lg-6 col-md-6 col-sm-6"
           alt={translate("poolAlt")}
         />
@@ -65,11 +65,11 @@ function PresentationCard({
               className="gdf-link col"
               title={translate("gotoGdf")}
             >
-              <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
+              <img src="/images/4-epis-gdf.webp" alt={translate("gite4epis")} />
             </a>
             <img
               className="col"
-              src="/images/meuble-de-tourisme.jpg"
+              src="/images/meuble-de-tourisme.webp"
               alt={translate("gite4epis")}
             />
           </div>

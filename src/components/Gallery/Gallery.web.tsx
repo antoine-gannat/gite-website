@@ -53,7 +53,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             <img
               tabIndex={page !== 0 ? -1 : 0}
               aria-label={`${translate("poolAlt")} ${translate("slideshow")}`}
-              src="/images/gallery-preview/pool.jpg"
+              src="/images/gallery-preview/pool.webp"
               role="button"
               alt={translate("poolAlt")}
               onClick={() => setSlide("pool")}
@@ -67,7 +67,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("bedrooms")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/bedroom.jpg"
+                src="/images/gallery-preview/bedroom.webp"
                 role="button"
                 alt={translate("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
@@ -80,7 +80,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("outdoorAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/outdoor.jpg"
+                src="/images/gallery-preview/outdoor.webp"
                 role="button"
                 alt={translate("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}
@@ -108,7 +108,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("kitchenAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/kitchen.jpg"
+                src="/images/gallery-preview/kitchen.webp"
                 role="button"
                 alt={translate("kitchenAlt")}
                 onClick={() => setSlide("kitchen")}
@@ -121,7 +121,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("environmentAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/environment.jpg"
+                src="/images/gallery-preview/environment.webp"
                 role="button"
                 alt={translate("environmentAlt")}
                 onClick={() => setSlide("environment")}
@@ -135,7 +135,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
               aria-label={`${translate("diningRoomAlt")} ${translate(
                 "slideshow"
               )}`}
-              src="/images/gallery-preview/dining-room.jpg"
+              src="/images/gallery-preview/dining-room.webp"
               role="button"
               alt={translate("diningRoomAlt")}
               onClick={() => setSlide("dining-room")}
