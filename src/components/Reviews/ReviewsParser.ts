@@ -38,8 +38,6 @@ export default class ReviewParser {
 
   getParsedContent(): RawReview[] {
     const endReviewElement = '</p><p class="p_widget_itea_avis_noteGlobale">';
-    const beginReview =
-      '<p class="p_widget_itea_avis_datesSejourAvis dateDepotAvis">';
     let scriptElement = this.dataAsElement.getElementsByTagName("script")[0];
     if (!scriptElement) {
       return [];
