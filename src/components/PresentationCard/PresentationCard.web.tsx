@@ -65,7 +65,7 @@ function PresentationCard({
               className="gdf-link col"
               title={translate("gotoGdf")}
             >
-              <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
+              <img src="/images/4-epis-gdf.jpg" alt={translate("gite4epis")} />
             </a>
             <img
               className="col"
