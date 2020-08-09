@@ -38,6 +38,8 @@ export default class ReviewParser {
 
   getParsedContent(): RawReview[] {
     const endReviewElement = '</p><p class="p_widget_itea_avis_noteGlobale">';
+    const beginReview =
+      '<p class="p_widget_itea_avis_datesSejourAvis dateDepotAvis">';
     let scriptElement = this.dataAsElement.getElementsByTagName("script")[0];
     if (!scriptElement) {
       return [];
@@ -56,10 +58,7 @@ export default class ReviewParser {
         let jsonContent = JSON.parse(
           "{" + content.slice(startIndex, content.indexOf("</script>"))
         );
-        jsonContent.date = content.slice(
-          content.indexOf("Published on") + "Published on".length,
-          content.indexOf(endReviewElement)
-        );
+        jsonContent.date = content.slice(endIndex - 11, endIndex);
         result.push(jsonContent);
       } catch (err) {}
       content = content.slice(endIndex + endReviewElement.length);
