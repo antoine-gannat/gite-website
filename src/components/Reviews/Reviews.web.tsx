@@ -36,7 +36,7 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
         );
       }
     }
-    return <div>{stars}</div>;
+    return <div className="rating">{stars}</div>;
   }
 
   function displayReviews() {
@@ -44,16 +44,24 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
       return <h4>{translate("loading")}</h4>;
     }
     return reviews.slice(0, nbDisplayed).map((review, index) => (
-      <div className="review" key={`review-${index}`}>
+      <div className="review" key={`review-${index}`} id={`review-${index}`}>
         <h4>{review.title}</h4>
-        <p>
+        <div>
           <b>{review.reviewer}</b>
           {displayRating(review.rating, review.title)}
-        </p>
-        <cite>{review.text}</cite>
+        </div>
+        <cite>{review.text || "-"}</cite>
         <hr className="w-50" />
       </div>
     ));
+  }
+
+  function showMoreReview() {
+    setNbDisplayed(nbDisplayed + 5);
+    // Scroll to the previous review
+    setTimeout(() => {
+      document.getElementById("review-" + (nbDisplayed - 1))?.scrollIntoView();
+    }, 10);
   }
 
   return (
@@ -64,9 +72,9 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
       <CategoryTitle title={translate("reviews")} />
       {displayReviews()}
       <button
-        className="btn more-btn"
+        className="btn more-btn col-lg-4 col-md-6 col-sm-6 offset-lg-4 offset-md-3 offset-sm-3"
         hidden={!reviews || nbDisplayed >= reviews?.length}
-        onClick={() => setNbDisplayed(nbDisplayed + 5)}
+        onClick={() => showMoreReview()}
       >
         {translate("more")} ..
       </button>

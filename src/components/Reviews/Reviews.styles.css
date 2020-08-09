@@ -16,3 +16,7 @@
 .more-btn:hover {
   color: rgb(233, 233, 233);
 }
+
+.review .rating {
+  color: gold;
+}
