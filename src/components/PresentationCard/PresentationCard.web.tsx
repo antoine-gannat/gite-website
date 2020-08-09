@@ -65,15 +65,11 @@ function PresentationCard({
               className="gdf-link col"
               title={translate("gotoGdf")}
             >
-<<<<<<< HEAD
-              <img src="/images/4-epis-gdf.jpg" alt={translate("gite4epis")} />
-=======
-              <img src="/images/4-epis-gdf.webp" alt={translate("gite4epis")} />
->>>>>>> 6a75821e04bc761238cc80ff8b4dd47adb385768
+              <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
             </a>
             <img
               className="col"
-              src="/images/meuble-de-tourisme.webp"
+              src="/images/meuble-de-tourisme.jpg"
               alt={translate("gite4epis")}
             />
           </div>
