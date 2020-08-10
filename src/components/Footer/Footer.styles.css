@@ -25,3 +25,7 @@
   bottom: 5px;
   margin: 0;
 }
+
+.footer a {
+  color: rgb(185, 2, 17);
+}

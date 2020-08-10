@@ -39,6 +39,12 @@
   border: 1px solid black;
 }
 
+.booking .week div{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+
 .booking .week .date {
   width: 100%;
   text-align: center;
@@ -69,7 +75,7 @@
   color: red;
 }
 
-.booking .week.not-available:hover {
+.booking .week.not-available div:hover {
   cursor: default;
 }
 

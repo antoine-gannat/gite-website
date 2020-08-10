@@ -6,6 +6,7 @@ import "./Gallery.styles.css";
 import SlideShow from "./SlideShow/SlideShow.web";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import { cssMerge } from "../Miscs/styles";
+import WebP from "../Miscs/WebP";
 
 let lastPage = 0;
 
@@ -53,7 +54,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             <img
               tabIndex={page !== 0 ? -1 : 0}
               aria-label={`${translate("poolAlt")} ${translate("slideshow")}`}
-              src="/images/gallery-preview/pool.webp"
+              src={WebP("/images/gallery-preview/pool.jpg", props.webpAvailable)}
               role="button"
               alt={translate("poolAlt")}
               onClick={() => setSlide("pool")}
@@ -67,7 +68,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("bedrooms")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/bedroom.webp"
+                src={WebP("/images/gallery-preview/bedroom.jpg", props.webpAvailable)}
                 role="button"
                 alt={translate("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
@@ -80,7 +81,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("outdoorAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/outdoor.webp"
+                src={WebP("/images/gallery-preview/outdoor.jpg", props.webpAvailable)}
                 role="button"
                 alt={translate("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}
@@ -108,7 +109,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("kitchenAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/kitchen.webp"
+                src={WebP("/images/gallery-preview/kitchen.jpg", props.webpAvailable)}
                 role="button"
                 alt={translate("kitchenAlt")}
                 onClick={() => setSlide("kitchen")}
@@ -121,7 +122,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("environmentAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src="/images/gallery-preview/environment.webp"
+                src={WebP("/images/gallery-preview/environment.jpg", props.webpAvailable)}
                 role="button"
                 alt={translate("environmentAlt")}
                 onClick={() => setSlide("environment")}
@@ -135,7 +136,7 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
               aria-label={`${translate("diningRoomAlt")} ${translate(
                 "slideshow"
               )}`}
-              src="/images/gallery-preview/dining-room.webp"
+              src={WebP("/images/gallery-preview/dining-room.jpg", props.webpAvailable)}
               role="button"
               alt={translate("diningRoomAlt")}
               onClick={() => setSlide("dining-room")}

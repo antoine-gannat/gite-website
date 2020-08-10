@@ -3,15 +3,17 @@ import "./PresentationCard.styles.css";
 import strings from "./PresentationCard.string.json";
 import { translateComponent } from "../Translation/Translator";
 import { DefaultPropsWithTranslation } from "../../types/props";
+import WebP from "../Miscs/WebP";
 
 function PresentationCard({
   translate,
+  webpAvailable
 }: DefaultPropsWithTranslation): JSX.Element {
   return (
     <div className="presentation-card-container col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1">
       <div className="row col-12">
         <img
-          src="/images/gallery-preview/pool.webp"
+          src={WebP("/images/gallery-preview/pool.jpg", webpAvailable)}
           className="col-lg-6 col-md-6 col-sm-6"
           alt={translate("poolAlt")}
         />
@@ -65,11 +67,11 @@ function PresentationCard({
               className="gdf-link col"
               title={translate("gotoGdf")}
             >
-              <img src="/images/4-epis-gdf.png" alt={translate("gite4epis")} />
+              <img src={WebP("/images/4-epis-gdf.png", webpAvailable)} alt={translate("gite4epis")} />
             </a>
             <img
               className="col"
-              src="/images/meuble-de-tourisme.jpg"
+              src={WebP("/images/meuble-de-tourisme.jpg", webpAvailable)}
               alt={translate("gite4epis")}
             />
           </div>

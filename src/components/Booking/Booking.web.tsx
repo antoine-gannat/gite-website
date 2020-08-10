@@ -79,15 +79,18 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
                   "week col-lg-3 col-md-4 col-sm-6 col-12",
                   week.available ? "available" : "not-available"
                 )}
-                role="button"
-                onClick={() => week.available && window.open(week.url)}
                 key={`month-${month.nb}-week-${weekIndex}`}
               >
-                <h3 className="date">
-                  {formatDateForDisplay(week.from)} -{" "}
-                  {formatDateForDisplay(week.to)}
-                </h3>
-                <p className="price">{displayPrice(week)}</p>
+                <div
+                  role="button"
+                  onClick={() => week.available && window.open(week.url)}
+                >
+                  <h3 className="date">
+                    {formatDateForDisplay(week.from)} -{" "}
+                    {formatDateForDisplay(week.to)}
+                  </h3>
+                  <p className="price">{displayPrice(week)}</p>
+                </div>
               </li>
             ))}
           </ul>
