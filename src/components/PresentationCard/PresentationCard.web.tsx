@@ -7,7 +7,7 @@ import WebP from "../Miscs/WebP";
 
 function PresentationCard({
   translate,
-  webpAvailable
+  webpAvailable,
 }: DefaultPropsWithTranslation): JSX.Element {
   return (
     <div className="presentation-card-container col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1">
@@ -67,10 +67,13 @@ function PresentationCard({
               className="gdf-link col"
               title={translate("gotoGdf")}
             >
-              <img src={WebP("/images/4-epis-gdf.png", webpAvailable)} alt={translate("gite4epis")} />
+              <img
+                src={WebP("/images/4-epis-gdf.png", webpAvailable)}
+                alt={translate("gite4epis")}
+              />
             </a>
             <img
-              className="col"
+              className="col meuble-tourisme-img"
               src={WebP("/images/meuble-de-tourisme.jpg", webpAvailable)}
               alt={translate("gite4epis")}
             />

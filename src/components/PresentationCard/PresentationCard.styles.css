@@ -62,3 +62,8 @@
 .presentation-card .gdf-link img {
   max-width: 100%;
 }
+
+.presentation-card .meuble-tourisme-img {
+  width: 100%;
+  height: auto;
+}
