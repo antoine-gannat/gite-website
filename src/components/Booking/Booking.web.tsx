@@ -57,7 +57,7 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
             href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={translate("booking")}
+            aria-label={translate("GDFWebsite")}
           >
             {translate("GDFWebsite")}
           </a>
@@ -149,7 +149,24 @@ function Booking({ translate }: DefaultPropsWithTranslation): JSX.Element {
       id="booking"
       className="booking mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
     >
-      <CategoryTitle title={translate("booking")} />
+      <CategoryTitle
+        title={translate("booking")}
+        subTitle={
+          <a
+            style={{
+              color: "rgb(185, 2, 17)",
+              fontSize: "15px",
+              textDecoration: "underline",
+            }}
+            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={translate("GDFWebsite")}
+          >
+            {translate("GDFWebsite")}
+          </a>
+        }
+      />
       {navButtons()}
       {displayBooking()}
       {navButtons()}

@@ -30,3 +30,7 @@
 .review .rating {
   color: rgb(151, 1, 14);
 }
+
+.review-title {
+  font-size: 22px;
+}
