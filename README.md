@@ -1,6 +1,6 @@
 # Project for a cotage in Brittany, France.
 
-[Live website](gite-piscine.com)
+[Live website](https://gite-piscine.com)
 
 ## Requirements
 
