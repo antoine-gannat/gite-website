@@ -159,6 +159,7 @@
 
 .gallery .page-container {
   height: 100%;
+  margin: 0 auto;
 }
 
 .gallery .expand-button {
