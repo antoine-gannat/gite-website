@@ -89,9 +89,9 @@ export default class BookingParser {
     let currentMonth: BookingMonth = { nb: -1, weeks: [] };
     weeks.forEach((week) => {
       const weekMonth = week.from.getMonth();
-      // Remove the week if the cotage is closed during this month
+      // Set closed months as unavailable
       if (closedMonths.includes(weekMonth + 1)) {
-        return;
+        week.available = false;
       }
       if (weekMonth !== currentMonth.nb) {
         if (currentMonth.weeks.length > 0) {
