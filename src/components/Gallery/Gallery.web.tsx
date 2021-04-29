@@ -21,7 +21,6 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
   const nbPages = 2;
   const expandButton = (text: string) => (
     <div className="expand-button" tabIndex={-1}>
-      <i className="fas fa-expand-alt fa-2x"></i>
       <span>{text}</span>
     </div>
   );
@@ -54,7 +53,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             <img
               tabIndex={page !== 0 ? -1 : 0}
               aria-label={`${translate("poolAlt")} ${translate("slideshow")}`}
-              src={WebP("/images/gallery-preview/pool.jpg", props.webpAvailable)}
+              src={WebP(
+                "/images/gallery-preview/pool.jpg",
+                props.webpAvailable
+              )}
               role="button"
               alt={translate("poolAlt")}
               onClick={() => setSlide("pool")}
@@ -68,7 +70,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("bedrooms")} ${translate(
                   "slideshow"
                 )}`}
-                src={WebP("/images/gallery-preview/bedroom.jpg", props.webpAvailable)}
+                src={WebP(
+                  "/images/gallery-preview/bedroom.jpg",
+                  props.webpAvailable
+                )}
                 role="button"
                 alt={translate("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
@@ -81,7 +86,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("outdoorAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src={WebP("/images/gallery-preview/outdoor.jpg", props.webpAvailable)}
+                src={WebP(
+                  "/images/gallery-preview/outdoor.jpg",
+                  props.webpAvailable
+                )}
                 role="button"
                 alt={translate("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}
@@ -109,7 +117,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("kitchenAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src={WebP("/images/gallery-preview/kitchen.jpg", props.webpAvailable)}
+                src={WebP(
+                  "/images/gallery-preview/kitchen.jpg",
+                  props.webpAvailable
+                )}
                 role="button"
                 alt={translate("kitchenAlt")}
                 onClick={() => setSlide("kitchen")}
@@ -122,7 +133,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
                 aria-label={`${translate("environmentAlt")} ${translate(
                   "slideshow"
                 )}`}
-                src={WebP("/images/gallery-preview/environment.jpg", props.webpAvailable)}
+                src={WebP(
+                  "/images/gallery-preview/environment.jpg",
+                  props.webpAvailable
+                )}
                 role="button"
                 alt={translate("environmentAlt")}
                 onClick={() => setSlide("environment")}
@@ -136,7 +150,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
               aria-label={`${translate("diningRoomAlt")} ${translate(
                 "slideshow"
               )}`}
-              src={WebP("/images/gallery-preview/dining-room.jpg", props.webpAvailable)}
+              src={WebP(
+                "/images/gallery-preview/dining-room.jpg",
+                props.webpAvailable
+              )}
               role="button"
               alt={translate("diningRoomAlt")}
               onClick={() => setSlide("dining-room")}

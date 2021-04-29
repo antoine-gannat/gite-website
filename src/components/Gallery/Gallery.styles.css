@@ -166,14 +166,23 @@
   position: absolute;
   background: none;
   border: none;
-  left: 5px;
-  top: 5px;
-  color: black;
+  left: 50%;
+  bottom: 20px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  padding: 0 15px;
+  color: white;
+  font-size: 25px;
 }
 
 .gallery .expand-button i {
   color: white;
   -webkit-text-stroke: 1px #000;
+  font-size: 30px;
+  padding-right: 10px;
 }
 
 .gallery .expand-button:focus {
