@@ -13,7 +13,7 @@ export type BookingMonth = {
 };
 
 // Months where the gite is closed
-const startDate = new Date(0, 3, 3);
+const startDate = new Date(0, 3, 1);
 const endDate = new Date(0, 10, 13);
 
 export default class BookingParser {
