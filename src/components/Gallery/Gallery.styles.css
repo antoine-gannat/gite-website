@@ -188,3 +188,9 @@
 .gallery .expand-button:focus {
   outline: none;
 }
+
+@media (max-width: 768px) {
+  .gallery .expand-button {
+    font-size: 20px;
+  }
+}
