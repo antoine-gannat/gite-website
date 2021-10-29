@@ -17,7 +17,7 @@ enum Keys {
 }
 
 const nbPicturesPerFolder: { [folderName: string]: number } = {
-  bedrooms: 10,
+  bedrooms: 9,
   "dining-room": 5,
   environment: 5,
   kitchen: 5,
