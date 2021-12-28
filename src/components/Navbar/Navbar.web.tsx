@@ -2,6 +2,7 @@ import "./Navbar.styles.css";
 
 import * as React from "react";
 
+import Nav from "react-bootstrap/Navbar";
 import { DefaultProps } from "../../types/props";
 import { TranslateLanguage } from "../../types/translation";
 import strings from "./Navbar.strings.json";
@@ -52,7 +53,7 @@ export default function Navbar({ setLocale }: DefaultProps): JSX.Element {
   const links = ["home", "gallery", "booking", "reviews", "directions"];
 
   return (
-    <nav className="nav navbar fixed-top navbar-expand-lg navbar-dark nav">
+    <Nav expand="lg" bg="dark" className="nav fixed-top">
       <a className="navbar-brand" href="#home" tabIndex={-1}>
         Gîte Kerhéré
       </a>
@@ -95,6 +96,6 @@ export default function Navbar({ setLocale }: DefaultProps): JSX.Element {
           </li>
         </ul>
       </div>
-    </nav>
+    </Nav>
   );
 }
