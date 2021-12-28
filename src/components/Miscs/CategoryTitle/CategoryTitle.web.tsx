@@ -1,5 +1,6 @@
-import * as React from "react";
 import "./CategoryTitle.styles.css";
+
+import * as React from "react";
 
 type CategoryTitleProps = {
   title: string;

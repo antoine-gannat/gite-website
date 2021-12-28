@@ -1,8 +1,9 @@
 import * as React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { LocalizationProvider } from "./hooks/useLocalization";
 import Home from "./pages/Home/Home.web";
 import { DefaultProps } from "./types/props";
-import { TranslateLanguage } from "./types/translate.d";
+import { TranslateLanguage } from "./types/translation";
 
 export default function Router(): JSX.Element {
   function getBrowserLanguage(): TranslateLanguage | null {
@@ -31,16 +32,15 @@ export default function Router(): JSX.Element {
 
   // Language to use if the browser's one is unknown and none is stored
   const backupLanguage = "FR";
-  const [language, setLanguage] = React.useState(
-    localStorage.getItem("translation-language") ||
+  const [locale, setLocale] = React.useState(
+    (localStorage.getItem("translation-language") as TranslateLanguage) ||
       getBrowserLanguage() ||
       backupLanguage
   );
   const [webpAvailable, setWebpAvailable] = React.useState<boolean>(false);
 
   const props: DefaultProps = {
-    language,
-    setLanguage,
+    setLocale,
     webpAvailable,
   };
 
@@ -50,11 +50,13 @@ export default function Router(): JSX.Element {
   }, []);
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <Home {...props} />
-        </Route>
-      </Switch>
+      <LocalizationProvider locale={locale}>
+        <Switch>
+          <Route path="/">
+            <Home {...props} />
+          </Route>
+        </Switch>
+      </LocalizationProvider>
     </BrowserRouter>
   );
 }

@@ -1,18 +1,18 @@
-import * as React from "react";
 import "./Navbar.styles.css";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import { TranslateLanguage } from "../../types/translate";
-import { translateComponent } from "../Translation/Translator";
-import strings from "./Navbar.strings.json";
 
-function Navbar({
-  translate,
-  language,
-  setLanguage,
-}: DefaultPropsWithTranslation): JSX.Element {
+import * as React from "react";
+
+import { DefaultProps } from "../../types/props";
+import { TranslateLanguage } from "../../types/translation";
+import strings from "./Navbar.strings.json";
+import { useLocale, useLocalization } from "../../hooks/useLocalization";
+
+export default function Navbar({ setLocale }: DefaultProps): JSX.Element {
+  const locale = useLocale();
+  const localizer = useLocalization(strings);
   function onFlagClick(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
-    setLanguage(language);
+    setLocale(language);
     hideExtendedNavbar();
   }
 
@@ -40,10 +40,10 @@ function Navbar({
         <button
           data-scrollto={linkName}
           className="nav-link"
-          aria-label={`${translate("scrollTo")} ${translate(linkName)}`}
+          aria-label={`${localizer("scrollTo")} ${localizer(linkName)}`}
           onClick={() => scrollTo(linkName)}
         >
-          {translate(linkName)}
+          {localizer(linkName)}
         </button>
       </li>
     );
@@ -77,11 +77,9 @@ function Navbar({
               role="button"
               aria-label="Traduire en Français"
               onClick={() => onFlagClick("FR")}
-              className={
-                "nav-link flag" + (language === "FR" ? " selected" : "")
-              }
+              className={"nav-link flag" + (locale === "FR" ? " selected" : "")}
               src="/images/flags/fr_flag.webp"
-              alt={translate("FRFlagAlt")}
+              alt={localizer("FRFlagAlt")}
             />
           </li>
           <li className="nav-item">
@@ -90,11 +88,9 @@ function Navbar({
               role="button"
               aria-label="Translate to english"
               onClick={() => onFlagClick("EN")}
-              className={
-                "nav-link flag" + (language === "EN" ? " selected" : "")
-              }
+              className={"nav-link flag" + (locale === "EN" ? " selected" : "")}
               src="/images/flags/uk_flag.webp"
-              alt={translate("ENFlagAlt")}
+              alt={localizer("ENFlagAlt")}
             />
           </li>
         </ul>
@@ -102,5 +98,3 @@ function Navbar({
     </nav>
   );
 }
-
-export default translateComponent(Navbar, strings);

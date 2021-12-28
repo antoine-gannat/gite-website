@@ -1,9 +1,10 @@
-import { DefaultPropsWithTranslation } from "../../../types/props";
-import * as React from "react";
-import { translateComponent } from "../../Translation/Translator";
-import strings from "./Slideshow.strings.json";
 import "./SlideShow.styles.css";
+
+import * as React from "react";
+
 import { cssMerge } from "../../Miscs/styles";
+import strings from "./Slideshow.strings.json";
+import { useLocalization } from "../../../hooks/useLocalization";
 
 type SlideShowProps = {
   imagesUrl: string;
@@ -25,10 +26,9 @@ const nbPicturesPerFolder: { [folderName: string]: number } = {
   pool: 8,
 };
 
-function SlideShow(
-  props: SlideShowProps & DefaultPropsWithTranslation
-): JSX.Element {
+export default function SlideShow(props: SlideShowProps): JSX.Element {
   const [selectedImage, setSelectedImage] = React.useState(0);
+  const localizer = useLocalization(strings);
   let images: string[] = [];
   // Add event listener on mount
   React.useEffect(() => {
@@ -92,7 +92,7 @@ function SlideShow(
             href="#slideshow"
             role="button"
             data-slide="prev"
-            aria-label={props.translate("prevPicture")}
+            aria-label={localizer("prevPicture")}
           >
             <span className="carousel-control-prev-icon"></span>
           </a>
@@ -101,7 +101,7 @@ function SlideShow(
             href="#slideshow"
             role="button"
             data-slide="next"
-            aria-label={props.translate("nextPicture")}
+            aria-label={localizer("nextPicture")}
           >
             <span className="carousel-control-next-icon"></span>
           </a>
@@ -110,9 +110,9 @@ function SlideShow(
         <button
           className="btn close-slide-btn"
           onClick={() => props.setSlide(null)}
-          aria-label={props.translate("quitSlideshow")}
+          aria-label={localizer("quitSlideshow")}
         >
-          <span>{props.translate("quitSlideshow")} </span>
+          <span>{localizer("quitSlideshow")} </span>
           <i className="fas fa-times"></i>
         </button>
       </div>
@@ -120,8 +120,3 @@ function SlideShow(
     </div>
   );
 }
-
-export default translateComponent<SlideShowProps & DefaultPropsWithTranslation>(
-  SlideShow,
-  strings
-);

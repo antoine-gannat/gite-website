@@ -1,21 +1,23 @@
-import { DefaultPropsWithTranslation } from "../../types/props";
-import strings from "./Gallery.strings.json";
-import * as React from "react";
-import { translateComponent } from "../Translation/Translator";
 import "./Gallery.styles.css";
-import SlideShow from "./SlideShow/SlideShow.web";
+
+import * as React from "react";
+
+import { useLocalization } from "../../hooks/useLocalization";
+import { DefaultProps } from "../../types/props";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import { cssMerge } from "../Miscs/styles";
 import WebP from "../Miscs/WebP";
+import strings from "./Gallery.strings.json";
+import SlideShow from "./SlideShow/SlideShow.web";
 
 let lastPage = 0;
 
-function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
+export default function Gallery({ webpAvailable }: DefaultProps): JSX.Element {
   function changePage(newPage: number): void {
     lastPage = newPage;
     setPage(newPage);
   }
-  const translate = props.translate;
+  const localizer = useLocalization(strings);
   const [page, setPage] = React.useState(0);
   const [slide, setSlide] = React.useState<string | null>(null);
   const nbPages = 2;
@@ -27,10 +29,10 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
 
   return (
     <section id="gallery">
-      <CategoryTitle title={translate("gallery")} />
+      <CategoryTitle title={localizer("gallery")} />
       <div className="gallery row col-12">
         <button
-          aria-label={translate("prevPage")}
+          aria-label={localizer("prevPage")}
           className="prev"
           hidden={page - 1 < 0}
           onClick={() => changePage(page - 1)}
@@ -52,49 +54,40 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
           <div className="vertical-img left col-5">
             <img
               tabIndex={page !== 0 ? -1 : 0}
-              aria-label={`${translate("poolAlt")} ${translate("slideshow")}`}
-              src={WebP(
-                "/images/gallery-preview/pool.jpg",
-                props.webpAvailable
-              )}
+              aria-label={`${localizer("poolAlt")} ${localizer("slideshow")}`}
+              src={WebP("/images/gallery-preview/pool.jpg", webpAvailable)}
               role="button"
-              alt={translate("poolAlt")}
+              alt={localizer("poolAlt")}
               onClick={() => setSlide("pool")}
             />
-            {expandButton(translate("poolAlt"))}
+            {expandButton(localizer("poolAlt"))}
           </div>
           <div className="row col-7 horizontal-container">
             <div className="horizontal-img">
               <img
                 tabIndex={page !== 0 ? -1 : 0}
-                aria-label={`${translate("bedrooms")} ${translate(
+                aria-label={`${localizer("bedrooms")} ${localizer(
                   "slideshow"
                 )}`}
-                src={WebP(
-                  "/images/gallery-preview/bedroom.jpg",
-                  props.webpAvailable
-                )}
+                src={WebP("/images/gallery-preview/bedroom.jpg", webpAvailable)}
                 role="button"
-                alt={translate("bedroomAlt")}
+                alt={localizer("bedroomAlt")}
                 onClick={() => setSlide("bedrooms")}
               />
-              {expandButton(translate("bedroomAlt"))}
+              {expandButton(localizer("bedroomAlt"))}
             </div>
             <div className="horizontal-img">
               <img
                 tabIndex={page !== 0 ? -1 : 0}
-                aria-label={`${translate("outdoorAlt")} ${translate(
+                aria-label={`${localizer("outdoorAlt")} ${localizer(
                   "slideshow"
                 )}`}
-                src={WebP(
-                  "/images/gallery-preview/outdoor.jpg",
-                  props.webpAvailable
-                )}
+                src={WebP("/images/gallery-preview/outdoor.jpg", webpAvailable)}
                 role="button"
-                alt={translate("outdoorAlt")}
+                alt={localizer("outdoorAlt")}
                 onClick={() => setSlide("outdoor")}
               />
-              {expandButton(translate("outdoorAlt"))}
+              {expandButton(localizer("outdoorAlt"))}
             </div>
           </div>
         </div>
@@ -114,65 +107,60 @@ function Gallery(props: DefaultPropsWithTranslation): JSX.Element {
             <div className="horizontal-img">
               <img
                 tabIndex={page !== 1 ? -1 : 0}
-                aria-label={`${translate("kitchenAlt")} ${translate(
+                aria-label={`${localizer("kitchenAlt")} ${localizer(
                   "slideshow"
                 )}`}
-                src={WebP(
-                  "/images/gallery-preview/kitchen.jpg",
-                  props.webpAvailable
-                )}
+                src={WebP("/images/gallery-preview/kitchen.jpg", webpAvailable)}
                 role="button"
-                alt={translate("kitchenAlt")}
+                alt={localizer("kitchenAlt")}
                 onClick={() => setSlide("kitchen")}
               />
-              {expandButton(translate("kitchenAlt"))}
+              {expandButton(localizer("kitchenAlt"))}
             </div>
             <div className="horizontal-img">
               <img
                 tabIndex={page !== 1 ? -1 : 0}
-                aria-label={`${translate("environmentAlt")} ${translate(
+                aria-label={`${localizer("environmentAlt")} ${localizer(
                   "slideshow"
                 )}`}
                 src={WebP(
                   "/images/gallery-preview/environment.jpg",
-                  props.webpAvailable
+                  webpAvailable
                 )}
                 role="button"
-                alt={translate("environmentAlt")}
+                alt={localizer("environmentAlt")}
                 onClick={() => setSlide("environment")}
               />
-              {expandButton(translate("environmentAlt"))}
+              {expandButton(localizer("environmentAlt"))}
             </div>
           </div>
           <div className="vertical-img right col-5">
             <img
               tabIndex={page !== 1 ? -1 : 0}
-              aria-label={`${translate("diningRoomAlt")} ${translate(
+              aria-label={`${localizer("diningRoomAlt")} ${localizer(
                 "slideshow"
               )}`}
               src={WebP(
                 "/images/gallery-preview/dining-room.jpg",
-                props.webpAvailable
+                webpAvailable
               )}
               role="button"
-              alt={translate("diningRoomAlt")}
+              alt={localizer("diningRoomAlt")}
               onClick={() => setSlide("dining-room")}
             />
-            {expandButton(translate("diningRoomAlt"))}
+            {expandButton(localizer("diningRoomAlt"))}
           </div>
         </div>
         <button
           className="next"
-          aria-label={translate("nextPage")}
+          aria-label={localizer("nextPage")}
           hidden={page + 1 >= nbPages}
           onClick={() => changePage(page + 1)}
         >
           <i className="fas fa-chevron-right fa-2x"></i>
         </button>
       </div>
-      {slide && <SlideShow {...props} imagesUrl={slide} setSlide={setSlide} />}
+      {slide && <SlideShow imagesUrl={slide} setSlide={setSlide} />}
     </section>
   );
 }
-
-export default translateComponent(Gallery, strings);

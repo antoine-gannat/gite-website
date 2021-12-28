@@ -1,20 +1,23 @@
-import * as React from "react";
 import "./Footer.styles.css";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import { translateComponent } from "../Translation/Translator";
-import strings from "./Footer.strings.json";
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 
-function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
+import * as React from "react";
+
+import { useLocalization } from "../../hooks/useLocalization";
+import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import strings from "./Footer.strings.json";
+
+export default function Footer(): JSX.Element {
+  const localizer = useLocalization(strings);
+
   return (
     <footer className="footer" id="contact">
-      <CategoryTitle title={translate("contact_info")} />
+      <CategoryTitle title={localizer("contact_info")} />
       <ul className="row col-12">
         <li className="col-lg-6 col-md-6 col-sm-12">
           Jean Claude & Françoise GANNAT
         </li>
         <li className="col-lg-6 col-md-6 col-sm-12">
-          <a href="tel:+33 06 65 18 21 97" title={translate("click_to_call")}>
+          <a href="tel:+33 06 65 18 21 97" title={localizer("click_to_call")}>
             +33 06 65 18 21 97
           </a>
         </li>
@@ -37,5 +40,3 @@ function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
     </footer>
   );
 }
-
-export default translateComponent(Footer, strings);

@@ -1,8 +1,10 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.styles.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
-import * as serviceWorker from "./serviceWorker";
+
 import Router from "./Router";
-import "./index.styles.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +12,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-// if you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

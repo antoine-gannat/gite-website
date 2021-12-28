@@ -1,31 +1,33 @@
-import * as React from "react";
-import Navbar from "../../components/Navbar/Navbar.web";
 import "./Home.styles.css";
-import PresentationCard from "../../components/PresentationCard/PresentationCard.web";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import strings from "./Home.strings.json";
-import { translateComponent } from "../../components/Translation/Translator";
-import Gallery from "../../components/Gallery/Gallery.web";
-import Footer from "../../components/Footer/Footer.web";
-import Map from "../../components/Map/Map.web";
-import Booking from "../../components/Booking/Booking.web";
-import Reviews from "../../components/Reviews/Reviews.web";
 
-function Home(props: DefaultPropsWithTranslation): JSX.Element {
+import * as React from "react";
+
+import Booking from "../../components/Booking/Booking.web";
+import Footer from "../../components/Footer/Footer.web";
+import Gallery from "../../components/Gallery/Gallery.web";
+import Map from "../../components/Map/Map.web";
+import Navbar from "../../components/Navbar/Navbar.web";
+import PresentationCard from "../../components/PresentationCard/PresentationCard.web";
+import Reviews from "../../components/Reviews/Reviews.web";
+import { useLocale, useLocalization } from "../../hooks/useLocalization";
+import { DefaultProps } from "../../types/props";
+import strings from "./Home.strings.json";
+
+export default function Home(props: DefaultProps): JSX.Element {
+  const localizer = useLocalization(strings);
+  const locale = useLocale();
   React.useEffect(() => {
     const sectionsPosition: any = {};
 
     // change html tag "lang" to use FR or EN based on the language
-    document
-      .getElementsByTagName("html")[0]
-      ?.setAttribute("lang", props.language);
+    document.getElementsByTagName("html")[0]?.setAttribute("lang", locale);
     // Change the page title and description
-    document.title = props.translate("pageTitle");
+    document.title = localizer("pageTitle");
     let metaDescriptionEl = document
       .getElementsByTagName("meta")
       .namedItem("description");
     if (metaDescriptionEl) {
-      metaDescriptionEl.content = props.translate("pageDescription");
+      metaDescriptionEl.content = localizer("pageDescription");
     }
 
     setTimeout(() => {
@@ -55,24 +57,22 @@ function Home(props: DefaultPropsWithTranslation): JSX.Element {
         <Navbar {...props} />
         <section className="home-image-container" id="home">
           <div className="centered-titles">
-            <h1>{props.translate("title")}</h1>
-            <h2 className="fade-in">{props.translate("subtitle")}</h2>
+            <h1>{localizer("title")}</h1>
+            <h2 className="fade-in">{localizer("subtitle")}</h2>
             <a data-scrollto="booking" className="btn" href="#booking">
-              {props.translate("booking")}
+              {localizer("booking")}
             </a>
           </div>
         </section>
         <div className="page-content">
           <PresentationCard {...props} />
           <Gallery {...props} />
-          <Booking {...props} />
-          <Reviews {...props} />
-          <Map {...props} />
+          <Booking />
+          <Reviews />
+          <Map />
         </div>
       </main>
-      <Footer {...props} />
+      <Footer />
     </div>
   );
 }
-
-export default translateComponent(Home, strings);
