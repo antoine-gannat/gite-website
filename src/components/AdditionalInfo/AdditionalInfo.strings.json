@@ -1,0 +1,20 @@
+{
+  "FR": {
+    "capacity": "Capacité",
+    "included": "Inclus",
+    "surface": "Superficie",
+    "sheetsIncluded": "Serviettes et draps inclus",
+    "peoples": "personnes",
+    "beds": "Nombre de lits",
+    "additionalInformation": "Information complémentaire"
+  },
+  "EN": {
+    "capacity": "Capacity",
+    "included": "Included",
+    "surface": "Surface",
+    "sheetsIncluded": "Bed sheets and towels included",
+    "peoples": "peoples",
+    "beds": "Number of beds",
+    "additionalInformation": "Additional information"
+  }
+}

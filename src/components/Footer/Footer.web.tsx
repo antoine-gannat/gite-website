@@ -35,8 +35,28 @@ export default function Footer(): JSX.Element {
             Kerhéré, 29510 BRIEC, FRANCE
           </a>
         </li>
+        <li className="col-6">
+          <a
+            href="https://www.facebook.com/gitepiscineinterieurebretagne"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={localizer("gotoFb")}
+          >
+            <i className="fab fa-facebook fa-2x"></i>
+          </a>
+        </li>
+        <li className="col-6">
+          <a
+            href="https://www.instagram.com/gitepiscine/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={localizer("gotoInsta")}
+          >
+            <i className="fab fa-instagram fa-2x"></i>
+          </a>
+        </li>
       </ul>
-      <p>© 2020, Antoine GANNAT</p>
+      <p>© 2021, Antoine GANNAT</p>
     </footer>
   );
 }

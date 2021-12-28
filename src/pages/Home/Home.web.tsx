@@ -2,6 +2,7 @@ import "./Home.styles.css";
 
 import * as React from "react";
 
+import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo.web";
 import Booking from "../../components/Booking/Booking.web";
 import Footer from "../../components/Footer/Footer.web";
 import Gallery from "../../components/Gallery/Gallery.web";
@@ -70,6 +71,7 @@ export default function Home(props: DefaultProps): JSX.Element {
           <Booking />
           <Reviews />
           <Map />
+          <AdditionalInfo />
         </div>
       </main>
       <Footer />

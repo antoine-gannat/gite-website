@@ -26,6 +26,9 @@ export default function Gallery({ webpAvailable }: DefaultProps): JSX.Element {
       <span>{text}</span>
     </div>
   );
+  if (nbPages) {
+    return <></>;
+  }
 
   return (
     <section id="gallery">

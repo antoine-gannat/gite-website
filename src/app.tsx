@@ -46,7 +46,8 @@ export default function App(): JSX.Element {
 
   // on mount
   React.useEffect(() => {
-    isWebpAvailable().then((available) => setWebpAvailable(available));
+    // disable for now
+    isWebpAvailable().then((available) => setWebpAvailable(false));
   }, []);
   return (
     <LocalizationProvider locale={locale}>
