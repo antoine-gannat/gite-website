@@ -1,11 +1,10 @@
-import "./Booking.styles.css";
-
 import * as React from "react";
 
 import { useLocalization } from "../../hooks/useLocalization";
+import { css } from "../../utils";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
-import { cssMerge } from "../Miscs/styles";
 import strings from "./Booking.strings.json";
+import { useStyles } from "./Booking.styles";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 
 const gdfReservationsUrl =
@@ -13,6 +12,7 @@ const gdfReservationsUrl =
 
 export default function Booking(): JSX.Element {
   const localizer = useLocalization(strings);
+  const styles = useStyles();
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
   >(undefined);
@@ -71,28 +71,26 @@ export default function Booking(): JSX.Element {
       .slice(monthsToDisplay - 3, monthsToDisplay)
       .map((month, monthIndex) => (
         <div key={`month-${monthIndex}`}>
-          <h2>
+          <h2 className={styles.monthHeading}>
             {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
           </h2>
           <ul className="row col-12">
             {month.weeks.map((week, weekIndex) => (
               <li
-                className={cssMerge(
-                  "week col-lg-3 col-md-4 col-sm-6 col-12",
-                  week.available ? "available" : "not-available"
+                className={css(
+                  styles.week,
+                  "col-lg-3 col-md-4 col-sm-6 col-12",
+                  week.available ? styles.available : styles.notAvailable
                 )}
                 key={`month-${month.nb}-week-${weekIndex}`}
+                role="button"
+                onClick={() => week.available && window.open(week.url)}
               >
-                <div
-                  role="button"
-                  onClick={() => week.available && window.open(week.url)}
-                >
-                  <h3 className="date">
-                    {formatDateForDisplay(week.from)} -{" "}
-                    {formatDateForDisplay(week.to)}
-                  </h3>
-                  <p className="price">{displayPrice(week)}</p>
-                </div>
+                <h3 className={styles.date}>
+                  {formatDateForDisplay(week.from)} -{" "}
+                  {formatDateForDisplay(week.to)}
+                </h3>
+                <p className={styles.price}>{displayPrice(week)}</p>
               </li>
             ))}
           </ul>
@@ -107,7 +105,7 @@ export default function Booking(): JSX.Element {
     return (
       <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
         <button
-          className={cssMerge(
+          className={css(
             "btn booking-nav-btn col-6",
             monthsToDisplay <= 3 ? "hidden" : ""
           )}
@@ -117,7 +115,7 @@ export default function Booking(): JSX.Element {
           <i className="fas fa-chevron-left"></i> {localizer("prev")}
         </button>
         <button
-          className={cssMerge(
+          className={css(
             "btn booking-nav-btn col-6",
             !bookingMonths || monthsToDisplay >= bookingMonths.length
               ? "hidden"

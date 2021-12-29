@@ -1,23 +1,23 @@
-import "./CategoryTitle.styles.css";
+import "./CategoryTitle.styles.ts";
 
 import * as React from "react";
+import { useStyles } from "./CategoryTitle.styles";
 
 type CategoryTitleProps = {
   title: string;
-  style?: any;
   subTitle?: JSX.Element;
 };
 
 export default function CategoryTitle({
   title,
-  style,
   subTitle,
 }: CategoryTitleProps): JSX.Element {
+  const styles = useStyles();
   return (
-    <div className="category-title" style={style}>
+    <div className={styles.title}>
       <h2>{title}</h2>
       {subTitle}
-      <hr />
+      <hr className={styles.separation} />
     </div>
   );
 }

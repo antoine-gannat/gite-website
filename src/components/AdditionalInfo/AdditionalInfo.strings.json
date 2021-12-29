@@ -6,7 +6,8 @@
     "sheetsIncluded": "Serviettes et draps inclus",
     "peoples": "personnes",
     "beds": "Nombre de lits",
-    "additionalInformation": "Information complémentaire"
+    "additionalInformation": "Information complémentaire",
+    "bedsCountDescription": "2 larges et 2 lits une place"
   },
   "EN": {
     "capacity": "Capacity",
@@ -15,6 +16,7 @@
     "sheetsIncluded": "Bed sheets and towels included",
     "peoples": "peoples",
     "beds": "Number of beds",
-    "additionalInformation": "Additional information"
+    "additionalInformation": "Additional information",
+    "bedsCountDescription": "2 queen size and 2 twin size"
   }
 }

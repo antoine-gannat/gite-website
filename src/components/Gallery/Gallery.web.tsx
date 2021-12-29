@@ -4,8 +4,8 @@ import * as React from "react";
 
 import { useLocalization } from "../../hooks/useLocalization";
 import { DefaultProps } from "../../types/props";
+import { css } from "../../utils";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
-import { cssMerge } from "../Miscs/styles";
 import WebP from "../Miscs/WebP";
 import strings from "./Gallery.strings.json";
 import SlideShow from "./SlideShow/SlideShow.web";
@@ -45,7 +45,7 @@ export default function Gallery({ webpAvailable }: DefaultProps): JSX.Element {
         <div
           key="gallery-page-1"
           aria-hidden={page !== 0}
-          className={cssMerge(
+          className={css(
             "page-container row",
             page !== 0
               ? page >= lastPage
@@ -97,7 +97,7 @@ export default function Gallery({ webpAvailable }: DefaultProps): JSX.Element {
         <div
           key="gallery-page-2"
           aria-hidden={page !== 1}
-          className={cssMerge(
+          className={css(
             "page-container row",
             page !== 1
               ? page > lastPage

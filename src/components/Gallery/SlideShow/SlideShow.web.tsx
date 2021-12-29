@@ -2,9 +2,9 @@ import "./SlideShow.styles.css";
 
 import * as React from "react";
 
-import { cssMerge } from "../../Miscs/styles";
-import strings from "./Slideshow.strings.json";
 import { useLocalization } from "../../../hooks/useLocalization";
+import { css } from "../../../utils";
+import strings from "./Slideshow.strings.json";
 
 type SlideShowProps = {
   imagesUrl: string;
@@ -77,10 +77,7 @@ export default function SlideShow(props: SlideShowProps): JSX.Element {
           <div className="carousel-inner">
             {images.map((image, index) => (
               <div
-                className={cssMerge(
-                  "carousel-item",
-                  index === 0 ? "active" : ""
-                )}
+                className={css("carousel-item", index === 0 ? "active" : "")}
                 key={`slideshow-img-${index}`}
               >
                 <img className="d-block w-100" src={image} alt="First slide" />

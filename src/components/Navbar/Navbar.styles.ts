@@ -3,6 +3,7 @@ import { makeStyles } from "@fluentui/react-make-styles";
 export const useStyles = makeStyles({
   nav: {
     background: "rgba(0, 0, 0, 0.5)",
+    maxHeight: "50px",
   },
   flag: {
     width: "40px",
@@ -18,9 +19,11 @@ export const useStyles = makeStyles({
     opacity: 1,
   },
   link: {
-    opacity: 0.5,
     margin: "auto",
     color: "white",
+    ":hover": {
+      fontWeight: 600,
+    },
   },
   linkWrapper: {
     alignItems: "center",

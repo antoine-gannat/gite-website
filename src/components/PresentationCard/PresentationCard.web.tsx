@@ -1,5 +1,3 @@
-import "./PresentationCard.styles.ts";
-
 import * as React from "react";
 
 import { DefaultProps } from "../../types/props";
