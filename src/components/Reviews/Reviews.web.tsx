@@ -1,4 +1,4 @@
-import "./Reviews.styles.css";
+import "./Reviews.styles.ts";
 
 import * as React from "react";
 
@@ -6,6 +6,8 @@ import { useLocalization } from "../../hooks/useLocalization";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import strings from "./Reviews.strings.json";
 import ReviewParser, { Review } from "./ReviewsParser";
+import { useStyles } from "./Reviews.styles";
+import { css } from "../../utils";
 
 export default function Reviews(): JSX.Element {
   const gdfReviewsUrl =
@@ -13,6 +15,7 @@ export default function Reviews(): JSX.Element {
   const [reviews, setReviews] = React.useState<Review[] | null>([]);
   const [nbDisplayed, setNbDisplayed] = React.useState<number>(5);
   const localizer = useLocalization(strings);
+  const styles = useStyles();
 
   React.useEffect(() => {
     fetch(gdfReviewsUrl)
@@ -38,7 +41,7 @@ export default function Reviews(): JSX.Element {
         );
       }
     }
-    return <div className="rating">{stars}</div>;
+    return <div className={styles.rating}>{stars}</div>;
   }
 
   function displayReviews() {
@@ -46,18 +49,22 @@ export default function Reviews(): JSX.Element {
       return <h4>{localizer("loading")}</h4>;
     }
     return reviews.slice(0, nbDisplayed).map((review, index) => (
-      <div className="review" key={`review-${index}`} id={`review-${index}`}>
-        <p className="review-title">{review.title}</p>
-        <div className="review-info">
+      <div
+        className={styles.review}
+        key={`review-${index}`}
+        id={`review-${index}`}
+      >
+        <p className={styles.reviewTitle}>{review.title}</p>
+        <div className={styles.reviewInfo}>
           <b>{review.reviewer}</b>
           {displayRating(review.rating, review.title)}
-          <small>
+          <small className={styles.date}>
             {localizer("on") + " "}
             {review.date}
           </small>
         </div>
         <cite>{review.text || "-"}</cite>
-        <hr className="w-50" />
+        <hr className={styles.separation} />
       </div>
     ));
   }
@@ -78,7 +85,10 @@ export default function Reviews(): JSX.Element {
       <CategoryTitle title={localizer("reviews")} />
       {displayReviews()}
       <button
-        className="btn more-btn col-lg-4 col-md-6 col-sm-6 offset-lg-4 offset-md-3 offset-sm-3"
+        className={css(
+          styles.moreBtn,
+          "btn col-lg-4 col-md-6 col-sm-6 offset-lg-4 offset-md-3 offset-sm-3"
+        )}
         hidden={!reviews || nbDisplayed >= reviews?.length}
         onClick={() => showMoreReview()}
       >
