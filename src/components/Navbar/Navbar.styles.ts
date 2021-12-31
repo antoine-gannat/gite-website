@@ -28,4 +28,9 @@ export const useStyles = makeStyles({
   linkWrapper: {
     alignItems: "center",
   },
+  toggler: {},
+  popup: {
+    marginTop: "1px",
+    color: "white",
+  },
 });

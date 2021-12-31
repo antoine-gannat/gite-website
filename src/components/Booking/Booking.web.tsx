@@ -70,11 +70,11 @@ export default function Booking(): JSX.Element {
     return bookingMonths
       .slice(monthsToDisplay - 3, monthsToDisplay)
       .map((month, monthIndex) => (
-        <div key={`month-${monthIndex}`}>
+        <div key={`month-${monthIndex}`} className={styles.bookingContainer}>
           <h2 className={styles.monthHeading}>
             {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
           </h2>
-          <ul className="row col-12">
+          <ul className={css(styles.month, "row col-12")}>
             {month.weeks.map((week, weekIndex) => (
               <li
                 className={css(
@@ -103,7 +103,7 @@ export default function Booking(): JSX.Element {
       return null;
     }
     return (
-      <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-4">
+      <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
         <button
           className={css(
             "btn booking-nav-btn col-6",

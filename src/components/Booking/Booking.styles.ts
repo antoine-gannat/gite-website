@@ -1,6 +1,9 @@
 import { makeStyles } from "@fluentui/react-make-styles";
 
 export const useStyles = makeStyles({
+  bookingContainer: {
+    padding: "10px",
+  },
   monthsTabNavBtn: {
     color: "rgb(185, 2, 17)",
     ":hover": {
@@ -19,6 +22,14 @@ export const useStyles = makeStyles({
   },
   hidden: {
     opacity: 0,
+  },
+  month: {
+    "@media screen and (max-width: 940px)": {
+      display: "flex",
+      justifyContent: "center",
+    },
+    padding: "0",
+    paddingInlineStart: "0",
   },
   week: {
     display: "flex",

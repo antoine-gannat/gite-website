@@ -59,8 +59,14 @@ export default function TopNav({ setLocale }: DefaultProps): JSX.Element {
         <Navbar.Brand href="#home">
           <p className={styles.link}>Gîte Kerhéré</p>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          className={styles.toggler}
+        />
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={css(styles.popup, "justify-content-end")}
+        >
           <Nav className={styles.linkWrapper}>
             {links.map((link) => createLinkBtn(link))}
             <Nav.Link>

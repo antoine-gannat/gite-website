@@ -8,6 +8,7 @@ import strings from "./Reviews.strings.json";
 import ReviewParser, { Review } from "./ReviewsParser";
 import { useStyles } from "./Reviews.styles";
 import { css, withUppercase } from "../../utils";
+import Container from "react-bootstrap/Container";
 
 export default function Reviews(): JSX.Element {
   const gdfReviewsUrl =
@@ -81,18 +82,17 @@ export default function Reviews(): JSX.Element {
       id="reviews"
       className="col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1"
     >
-      <CategoryTitle title={localizer("reviews")} />
-      {displayReviews()}
-      <button
-        className={css(
-          styles.moreBtn,
-          "btn col-lg-4 col-md-6 col-sm-6 offset-lg-4 offset-md-3 offset-sm-3"
-        )}
-        hidden={!reviews || nbDisplayed >= reviews?.length}
-        onClick={() => showMoreReview()}
-      >
-        {localizer("more")} ..
-      </button>
+      <Container>
+        <CategoryTitle title={localizer("reviews")} />
+        {displayReviews()}
+        <button
+          className={css(styles.moreBtn, "btn col-4 offset-4 ")}
+          hidden={!reviews || nbDisplayed >= reviews?.length}
+          onClick={() => showMoreReview()}
+        >
+          {localizer("more")} ..
+        </button>
+      </Container>
     </section>
   );
 }

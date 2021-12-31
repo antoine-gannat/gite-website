@@ -9,7 +9,7 @@ import strings from "./AdditionalInfo.strings.json";
 export default function AdditionalInfo(): JSX.Element {
   const localizer = useLocalization(strings);
   return (
-    <section id="additional-info">
+    <section id="additional-info" className="mt-5">
       <Container>
         <CategoryTitle title={localizer("additionalInformation")} />
         <Table

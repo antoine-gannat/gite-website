@@ -1,18 +1,19 @@
-import "./Footer.styles.css";
-
 import * as React from "react";
 
 import { useLocalization } from "../../hooks/useLocalization";
+import { css } from "../../utils";
 import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import strings from "./Footer.strings.json";
+import { useStyles } from "./Footer.styles";
 
 export default function Footer(): JSX.Element {
   const localizer = useLocalization(strings);
+  const styles = useStyles();
 
   return (
-    <footer className="footer" id="contact">
+    <footer className={styles.footer} id="contact">
       <CategoryTitle title={localizer("contact_info")} />
-      <ul className="row col-12">
+      <ul className={css(styles.ul, "row col-12")}>
         <li className="col-lg-6 col-md-6 col-sm-12">
           Jean Claude & Françoise GANNAT
         </li>
@@ -56,7 +57,7 @@ export default function Footer(): JSX.Element {
           </a>
         </li>
       </ul>
-      <p>© 2021, Antoine GANNAT</p>
+      <p className={styles.copyright}>© 2021, Antoine GANNAT</p>
     </footer>
   );
 }
