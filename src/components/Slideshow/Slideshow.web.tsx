@@ -91,6 +91,19 @@ export function Slideshow(props: ISlideshowProps) {
       {images && (
         <div className={styles.slideshow}>
           <img className={styles.slideshowImage} src={images[selectedImage]} />
+          <div className={styles.slideshowPreviewContainer}>
+            {images.map((i, index) => (
+              <img
+                src={i}
+                className={css(
+                  selectedImage === index && styles.selected,
+                  styles.slideshowPreviewImg
+                )}
+                key={`slideshow-preview-${i}`}
+                onClick={() => setSelectedImage(index)}
+              />
+            ))}
+          </div>
           <button
             className={css(styles.navButton, styles.leftNav)}
             onClick={previousImage}

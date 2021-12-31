@@ -4,7 +4,7 @@ export const useStyles = makeStyles({
   slideshowWrapper: {
     position: "fixed",
     zIndex: 1031,
-    background: "rgba(0,0,0,0.7)",
+    background: "rgba(0,0,0,0.9)",
     top: 0,
     left: "0",
     width: "100%",
@@ -19,6 +19,29 @@ export const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "column",
+  },
+  slideshowPreviewImg: {
+    margin: "2px",
+    width: "150px",
+    height: "80px",
+    objectFit: "cover",
+    opacity: 0.7,
+    ":hover": {
+      opacity: 1,
+      cursor: "pointer",
+    },
+  },
+  slideshowPreviewContainer: {
+    background: "black",
+    width: "90%",
+    height: "100px",
+    overflowY: "hidden",
+    display: "flex",
+    flexDirection: "row",
+  },
+  selected: {
+    opacity: "1 !important",
   },
   leaveButton: {
     position: "absolute",
@@ -33,7 +56,8 @@ export const useStyles = makeStyles({
     objectFit: "cover",
     width: "100%",
     padding: "3px",
-    maxHeight: "90%",
+    maxHeight: "80%",
+    aspectRatio: "16 / 10",
   },
   navButton: {
     background: "transparent",
