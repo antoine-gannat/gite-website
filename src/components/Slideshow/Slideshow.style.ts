@@ -27,6 +27,7 @@ export const useStyles = makeStyles({
     height: "80px",
     objectFit: "cover",
     opacity: 0.7,
+    flexShrink: 0,
     ":hover": {
       opacity: 1,
       cursor: "pointer",
