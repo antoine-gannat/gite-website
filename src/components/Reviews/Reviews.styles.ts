@@ -29,10 +29,6 @@ export const useStyles = makeStyles({
   reviewTitle: {
     textAlign: "center",
     fontSize: "22px",
-  },
-  separation: {
-    width: "50%",
-    margin: "auto",
-    marginTop: "5px",
+    textDecoration: "underline",
   },
 });

@@ -7,7 +7,6 @@ export const useStyles = makeStyles({
   },
   separation: {
     width: "100%",
-    minWidth: "400px",
     color: "black",
     borderWidth: "2px",
   },

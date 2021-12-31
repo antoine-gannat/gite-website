@@ -7,7 +7,7 @@ import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 import strings from "./Reviews.strings.json";
 import ReviewParser, { Review } from "./ReviewsParser";
 import { useStyles } from "./Reviews.styles";
-import { css } from "../../utils";
+import { css, withUppercase } from "../../utils";
 
 export default function Reviews(): JSX.Element {
   const gdfReviewsUrl =
@@ -54,7 +54,7 @@ export default function Reviews(): JSX.Element {
         key={`review-${index}`}
         id={`review-${index}`}
       >
-        <p className={styles.reviewTitle}>{review.title}</p>
+        <p className={styles.reviewTitle}>{withUppercase(review.title)}</p>
         <div className={styles.reviewInfo}>
           <b>{review.reviewer}</b>
           {displayRating(review.rating, review.title)}
@@ -64,7 +64,6 @@ export default function Reviews(): JSX.Element {
           </small>
         </div>
         <cite>{review.text || "-"}</cite>
-        <hr className={styles.separation} />
       </div>
     ));
   }

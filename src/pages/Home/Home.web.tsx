@@ -67,7 +67,7 @@ export default function Home(props: DefaultProps): JSX.Element {
         </section>
         <div className="page-content">
           <PresentationCard {...props} />
-          <Gallery {...props} />
+          <Gallery />
           <Booking />
           <Reviews />
           <Map />
