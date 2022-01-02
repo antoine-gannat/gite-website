@@ -10,39 +10,31 @@ import { css } from "../../utils";
 import strings from "./Navbar.strings.json";
 import { useStyles } from "./Navbar.styles";
 
+const links = ["home", "gallery", "booking", "reviews", "directions"];
+
+function scrollTo(id: string): void {
+  // Scroll to the location
+  document.getElementById(id)?.scrollIntoView();
+  window.location.hash = id;
+}
+
 export default function TopNav({ setLocale }: DefaultProps): JSX.Element {
   const locale = useLocale();
   const styles = useStyles();
   const localizer = useLocalization(strings);
+
+  const [expanded, setExpanded] = React.useState(false);
   function onFlagClick(language: TranslateLanguage) {
     localStorage.setItem("translation-language", language);
     setLocale(language);
-    hideExtendedNavbar();
-  }
-
-  function hideExtendedNavbar() {
-    // Close the nav-tray if visible (small screens only)
-    const navbarToggler = document.getElementById("navbar-toggler");
-    if (
-      navbarToggler &&
-      navbarToggler.getAttribute("aria-expanded") === "true"
-    ) {
-      navbarToggler.click();
-    }
-  }
-
-  function scrollTo(id: string): void {
-    // Scroll to the location
-    document.getElementById(id)?.scrollIntoView();
-    window.location.hash = id;
-    hideExtendedNavbar();
+    setExpanded(false);
   }
 
   function createLinkBtn(linkName: string): JSX.Element {
     return (
       <Nav.Link
         aria-label={`${localizer("scrollTo")} ${localizer(linkName)}`}
-        onClick={() => scrollTo(linkName)}
+        onClick={() => (setExpanded(false), scrollTo(linkName))}
         data-scrollto={linkName}
         key={linkName}
       >
@@ -51,48 +43,41 @@ export default function TopNav({ setLocale }: DefaultProps): JSX.Element {
     );
   }
 
-  const links = ["home", "gallery", "booking", "reviews", "directions"];
-
   return (
-    <Navbar expand="lg" className={styles.nav} fixed="top">
+    <Navbar className={styles.nav} fixed="top">
       <Container fluid>
         <Navbar.Brand href="#home">
           <p className={styles.link}>Gîte Kerhéré</p>
         </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          className={styles.toggler}
-        />
-        <Navbar.Collapse
-          id="basic-navbar-nav"
-          className={css(styles.popup, "justify-content-end")}
-        >
-          <Nav className={styles.linkWrapper}>
+        <div className={styles.linkWrapper}>
+          <div className={css(styles.navItems, expanded && styles.expanded)}>
             {links.map((link) => createLinkBtn(link))}
-            <Nav.Link>
-              <img
-                tabIndex={0}
-                role="button"
-                aria-label="Traduire en Français"
-                onClick={() => onFlagClick("FR")}
-                className={css(styles.flag, locale === "FR" && styles.selected)}
-                src="/images/flags/fr_flag.webp"
-                alt={localizer("FRFlagAlt")}
-              />
-            </Nav.Link>
-            <Nav.Link>
-              <img
-                tabIndex={0}
-                role="button"
-                aria-label="Translate to english"
-                onClick={() => onFlagClick("EN")}
-                className={css(styles.flag, locale === "EN" && styles.selected)}
-                src="/images/flags/uk_flag.webp"
-                alt={localizer("ENFlagAlt")}
-              />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+          </div>
+          <img
+            tabIndex={0}
+            role="button"
+            aria-label="Traduire en Français"
+            onClick={() => onFlagClick("FR")}
+            className={css(styles.flag, locale === "FR" && styles.selected)}
+            src="/images/flags/fr_flag.webp"
+            alt={localizer("FRFlagAlt")}
+          />
+          <img
+            tabIndex={0}
+            role="button"
+            aria-label="Translate to english"
+            onClick={() => onFlagClick("EN")}
+            className={css(styles.flag, locale === "EN" && styles.selected)}
+            src="/images/flags/uk_flag.webp"
+            alt={localizer("ENFlagAlt")}
+          />
+          <button
+            className={styles.toggler}
+            onClick={() => setExpanded(!expanded)}
+          >
+            <i className="fas fa-align-justify"></i>
+          </button>
+        </div>
       </Container>
     </Navbar>
   );

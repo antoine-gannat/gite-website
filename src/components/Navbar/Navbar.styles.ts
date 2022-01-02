@@ -5,6 +5,39 @@ export const useStyles = makeStyles({
     background: "rgba(0, 0, 0, 0.5)",
     maxHeight: "50px",
   },
+  toggler: {
+    "@media (min-width: 768px)": {
+      display: "none",
+    },
+    color: "white",
+    background: "transparent",
+    border: "none",
+  },
+  expanded: {
+    display: "initial !important",
+  },
+  linkWrapper: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  navItems: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    "@media (max-width: 768px)": {
+      display: "none",
+      flexDirection: "column",
+      position: "fixed",
+      top: "50px",
+      left: 0,
+      width: "100%",
+      background: "rgba(0, 0, 0, 0.5)",
+      textAlign: "center",
+    },
+    "& a": {
+      padding: ".5rem",
+    },
+  },
   flag: {
     width: "40px",
     height: "40px",
@@ -24,13 +57,5 @@ export const useStyles = makeStyles({
     ":hover": {
       fontWeight: 600,
     },
-  },
-  linkWrapper: {
-    alignItems: "center",
-  },
-  toggler: {},
-  popup: {
-    marginTop: "1px",
-    color: "white",
   },
 });
