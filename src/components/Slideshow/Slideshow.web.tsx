@@ -84,8 +84,8 @@ export function Slideshow(props: ISlideshowProps) {
     if (!images || nbCategoryLoaded.current >= props.categories.length) {
       return;
     }
-    // if we only have 3 images left, load more
-    if (images.length - selectedImage < 3) {
+    // if we only have 5 images left, load more
+    if (images.length - selectedImage < 5) {
       const currentCategoryIndex = props.categories.indexOf(
         currentCategory.current
       );
