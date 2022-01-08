@@ -46,6 +46,7 @@ export function Slideshow(props: ISlideshowProps) {
   const [selectedImage, setSelectedImage] = React.useState<number>(0);
   const currentCategory = React.useRef(props.imageCategory);
   const nbCategoryLoaded = React.useRef(0);
+  const touchStartPos = React.useRef<null | number>(null);
 
   const nextImage = () => {
     if (!images) {
@@ -101,6 +102,8 @@ export function Slideshow(props: ISlideshowProps) {
   }, [selectedImage, images]);
 
   React.useEffect(() => {
+    const slideshow = document.getElementById("slideshow-img");
+
     const slideshowLeaveHandler = (ev: KeyboardEvent) => {
       switch (ev.key) {
         // if escape is pressed, leave
@@ -116,16 +119,54 @@ export function Slideshow(props: ISlideshowProps) {
       }
     };
 
+    const onTouchEnd = (e: TouchEvent) => {
+      // if drag end at left part of screen
+      if (e.changedTouches[0].clientX < window.innerWidth / 2) {
+        nextImage();
+      } else {
+        previousImage();
+      }
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      touchStartPos.current = e.changedTouches[0].clientX;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!slideshow || !touchStartPos.current) {
+        return;
+      }
+      const pos = e.changedTouches[0].clientX;
+      slideshow.style.marginLeft = `${pos - touchStartPos.current}px`;
+    };
+
     document.addEventListener("keydown", slideshowLeaveHandler);
+
+    slideshow?.addEventListener("touchstart", onTouchStart);
+    slideshow?.addEventListener("touchend", onTouchEnd);
+    slideshow?.addEventListener("touchmove", onTouchMove);
+
     // on unmount remove the listener
-    return () => document.removeEventListener("keydown", slideshowLeaveHandler);
+    return () => {
+      document.removeEventListener("keydown", slideshowLeaveHandler);
+      slideshow?.removeEventListener("touchstart", onTouchStart);
+      slideshow?.removeEventListener("touchend", onTouchEnd);
+      slideshow?.removeEventListener("touchmove", onTouchMove);
+      if (slideshow) {
+        slideshow.style.marginLeft = "0px";
+      }
+    };
   }, [images, selectedImage]);
 
   return (
     <div className={styles.slideshowWrapper}>
       {images && (
         <div className={styles.slideshow}>
-          <img className={styles.slideshowImage} src={images[selectedImage]} />
+          <img
+            id="slideshow-img"
+            className={styles.slideshowImage}
+            src={images[selectedImage]}
+          />
           <div
             className={styles.slideshowPreviewContainer}
             id="slideshow-preview-container"
