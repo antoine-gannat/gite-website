@@ -1,10 +1,14 @@
 {
   "FR": {
     "contact_info": "Contactez nous",
-    "click_to_call": "Cliquez pour appeller"
+    "click_to_call": "Cliquez pour appeller",
+    "gotoFb": "Notre page Facebook",
+    "gotoInsta": "Notre compte Instagram"
   },
   "EN": {
     "contact_info": "Contact us",
-    "click_to_call": "Click to call"
+    "click_to_call": "Click to call",
+    "gotoFb": "Our Facebook page",
+    "gotoInsta": "Our Instagram account"
   }
 }

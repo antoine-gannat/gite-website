@@ -1,11 +1,13 @@
 {
   "FR": {
     "slideshow": "Diaporama",
+    "clickForMore": "Clickez sur une photo pour en voir plus.",
     "nextPage": "Photos suivante",
     "prevPage": "Photos précedentes"
   },
   "EN": {
     "slideshow": "Slideshow",
+    "clickForMore": "Click on a picture for more.",
     "nextPage": "Next pictures",
     "prevPage": "Previous pictures"
   }

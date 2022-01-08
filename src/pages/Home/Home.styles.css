@@ -1,7 +1,7 @@
 .home-image-container {
   /* The image used */
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("/images/outdoor/picture_8.jpg");
+    url("/public/images/outdoor/picture_8.jpg");
 
   /* Set a specific height */
   height: 80vh;

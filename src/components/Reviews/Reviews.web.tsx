@@ -1,16 +1,22 @@
-import * as React from "react";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import { translateComponent } from "../Translation/Translator";
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
-import ReviewParser, { Review } from "./ReviewsParser";
-import strings from "./Reviews.strings.json";
-import "./Reviews.styles.css";
+import "./Reviews.styles.ts";
 
-function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
+import * as React from "react";
+
+import { useLocalization } from "../../hooks/useLocalization";
+import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import strings from "./Reviews.strings.json";
+import ReviewParser, { Review } from "./ReviewsParser";
+import { useStyles } from "./Reviews.styles";
+import { css, withUppercase } from "../../utils";
+import Container from "react-bootstrap/Container";
+
+export default function Reviews(): JSX.Element {
   const gdfReviewsUrl =
     "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=avis&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250";
   const [reviews, setReviews] = React.useState<Review[] | null>([]);
   const [nbDisplayed, setNbDisplayed] = React.useState<number>(5);
+  const localizer = useLocalization(strings);
+  const styles = useStyles();
 
   React.useEffect(() => {
     fetch(gdfReviewsUrl)
@@ -36,26 +42,29 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
         );
       }
     }
-    return <div className="rating">{stars}</div>;
+    return <div className={styles.rating}>{stars}</div>;
   }
 
   function displayReviews() {
     if (reviews === null) {
-      return <h4>{translate("loading")}</h4>;
+      return <h4>{localizer("loading")}</h4>;
     }
     return reviews.slice(0, nbDisplayed).map((review, index) => (
-      <div className="review" key={`review-${index}`} id={`review-${index}`}>
-        <p className="review-title">{review.title}</p>
-        <div className="review-info">
+      <div
+        className={styles.review}
+        key={`review-${index}`}
+        id={`review-${index}`}
+      >
+        <p className={styles.reviewTitle}>{withUppercase(review.title)}</p>
+        <div className={styles.reviewInfo}>
           <b>{review.reviewer}</b>
           {displayRating(review.rating, review.title)}
-          <small>
-            {translate("on") + " "}
+          <small className={styles.date}>
+            {localizer("on") + " "}
             {review.date}
           </small>
         </div>
         <cite>{review.text || "-"}</cite>
-        <hr className="w-50" />
       </div>
     ));
   }
@@ -73,17 +82,17 @@ function Reviews({ translate }: DefaultPropsWithTranslation): JSX.Element {
       id="reviews"
       className="col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1"
     >
-      <CategoryTitle title={translate("reviews")} />
-      {displayReviews()}
-      <button
-        className="btn more-btn col-lg-4 col-md-6 col-sm-6 offset-lg-4 offset-md-3 offset-sm-3"
-        hidden={!reviews || nbDisplayed >= reviews?.length}
-        onClick={() => showMoreReview()}
-      >
-        {translate("more")} ..
-      </button>
+      <Container>
+        <CategoryTitle title={localizer("reviews")} />
+        {displayReviews()}
+        <button
+          className={css(styles.moreBtn, "btn col-4 offset-4 ")}
+          hidden={!reviews || nbDisplayed >= reviews?.length}
+          onClick={() => showMoreReview()}
+        >
+          {localizer("more")} ..
+        </button>
+      </Container>
     </section>
   );
 }
-
-export default translateComponent(Reviews, strings);

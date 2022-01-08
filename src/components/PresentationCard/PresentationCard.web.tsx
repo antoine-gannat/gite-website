@@ -1,87 +1,39 @@
 import * as React from "react";
-import "./PresentationCard.styles.css";
-import strings from "./PresentationCard.string.json";
-import { translateComponent } from "../Translation/Translator";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import WebP from "../Miscs/WebP";
 
-function PresentationCard({
-  translate,
+import { DefaultProps } from "../../types/props";
+import WebP from "../Miscs/WebP";
+import strings from "./PresentationCard.string.json";
+import { useLocalization } from "../../hooks/useLocalization";
+import { useStyles } from "./PresentationCard.styles";
+import Container from "react-bootstrap/Container";
+import { Col, Row, Table } from "react-bootstrap";
+
+export default function PresentationCard({
   webpAvailable,
-}: DefaultPropsWithTranslation): JSX.Element {
+}: DefaultProps): JSX.Element {
+  const styles = useStyles();
+  const localizer = useLocalization(strings);
   return (
-    <div className="presentation-card-container col-lg-8 col-md-10 col-sm-12 offset-lg-2 offset-md-1">
-      <div className="row col-12">
-        <img
-          src={WebP("/images/gallery-preview/pool.jpg", webpAvailable)}
-          className="col-lg-6 col-md-6 col-sm-6"
-          alt={translate("poolAlt")}
-        />
-        <div className="col-lg-6 col-md-6 col-sm-6 presentation-card">
-          <h3>{translate("presentationTitle")}</h3>
-          <hr />
-          <p>{translate("presentationText")}</p>
-          <div className="description-table">
-            <ul className="col-12 row">
-              <li className="col-6">
-                <span>
-                  {translate("capacity")} : 6 {translate("peoples")}
-                </span>
-              </li>
-              <li className="col-6">
-                <span>{translate("wifi")} </span>
-              </li>
-              <li className="col-6">
-                <span>{translate("surface")} : 95m² </span>
-              </li>
-              <li className="col-6">
-                <span>{translate("bedrooms")} : 3 </span>
-              </li>
-              <li className="col-6">
-                <a
-                  href="https://www.facebook.com/gitepiscineinterieurebretagne"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={translate("gotoFb")}
-                >
-                  <i className="fab fa-facebook fa-2x"></i>
-                </a>{" "}
-              </li>
-              <li className="col-6">
-                <a
-                  href="https://www.instagram.com/gitepiscine/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={translate("gotoInsta")}
-                >
-                  <i className="fab fa-instagram fa-2x"></i>
-                </a>{" "}
-              </li>
-            </ul>
-          </div>
-          <div className="row">
-            <a
-              href="https://www.gites-de-france.com/fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gdf-link col"
-              title={translate("gotoGdf")}
-            >
-              <img
-                src={WebP("/images/4-epis-gdf.png", webpAvailable)}
-                alt={translate("gite4epis")}
-              />
-            </a>
-            <img
-              className="col meuble-tourisme-img"
-              src={WebP("/images/meuble-de-tourisme.jpg", webpAvailable)}
-              alt={translate("gite4epis")}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+    <Container className={styles.card}>
+      <h3 className={styles.cardTitle}>{localizer("presentationTitle")}</h3>
+      <hr />
+      <p className={styles.cardText}>{localizer("presentationText")}</p>
+      <Row>
+        <Col className={styles.awardWrapper}>
+          <img
+            className={styles.award}
+            src={WebP("/images/4-epis-gdf.png", webpAvailable)}
+            alt={localizer("gite4epis")}
+          />
+        </Col>
+        <Col className={styles.awardWrapper}>
+          <img
+            className={styles.award}
+            src={WebP("/images/meuble-de-tourisme.jpg", webpAvailable)}
+            alt={localizer("gite4epis")}
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 }
-
-export default translateComponent(PresentationCard, strings);
