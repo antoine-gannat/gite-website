@@ -13,10 +13,12 @@ export default function PresentationCard({
 }: DefaultProps): JSX.Element {
   const styles = useStyles();
   const localizer = useLocalization(strings);
+
   return (
     <Container className={styles.card}>
       <h3 className={styles.cardTitle}>{localizer("presentationTitle")}</h3>
       <hr />
+      <img className={styles.image} src="/images/gallery-preview/pool.jpg" />
       <p className={styles.cardText}>{localizer("presentationText")}</p>
       <Row>
         <Col className={styles.awardWrapper}>

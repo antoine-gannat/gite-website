@@ -34,38 +34,11 @@ export const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
-  //  card cardContent hr {
-  //     width: 70%;
-  //     margin-left: 15%;
-  //     border-color: rgb(255, 81, 0);
-  //   },
-
-  //  card cardContent .description-table li {
-  //     text-align: center;
-  //     word-wrap: nowrap;
-  //     list-style-type: none;
-  //   },
-
-  //  card
-  //    presentation-card
-  //    description-table
-  //     li:nth-child(odd) {
-  //     border-right: 1px solid black;
-  //   },
-
-  //  card cardContent .description-table span {
-  //     font-size: 20px;
-  //   },
-
-  //  presentation-card .gdf-link {
-  //     width: 100%;
-  //   },
-
-  //  presentation-card .gdf-link img {
-  //     max-width: 100%;
-  //   },
-
-  //  presentation-card .meuble-tourisme-img {
-  //     height: 100%;
-  //   },
+  image: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    display: "flex",
+    maxHeight: "400px",
+    maxWidth: "100%",
+  },
 });
