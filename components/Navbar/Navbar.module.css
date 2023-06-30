@@ -1,8 +1,10 @@
 .nav {
   background: rgba(0, 0, 0, 0.5);
+  height: 50px;
+  color: white;
 }
 
-.nav .flag {
+.flag {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -10,7 +12,7 @@
   padding: 8px;
 }
 
-.nav .selected {
+.selected {
   opacity: 1;
 }
 
@@ -20,6 +22,6 @@
 }
 
 .nav button:focus,
-.nav .flag:focus {
+.flag:focus {
   outline: none;
 }
