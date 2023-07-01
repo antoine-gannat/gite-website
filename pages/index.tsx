@@ -14,30 +14,6 @@ import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo.web";
 
 export default function Index(props: ILocalizationProps): JSX.Element {
   const { strings } = props;
-  React.useEffect(() => {
-    const sectionsPosition: any = {};
-
-    setTimeout(() => {
-      document.querySelectorAll("section").forEach((section) => {
-        sectionsPosition[section.id] = section.offsetTop;
-      });
-      window.onscroll = function () {
-        const scrollPosition =
-          document.documentElement.scrollTop || document.body.scrollTop;
-
-        for (const key in sectionsPosition) {
-          if (sectionsPosition[key] <= scrollPosition) {
-            document
-              .querySelector(".active")
-              ?.setAttribute("class", "nav-link");
-            document
-              .querySelector("button[data-scrollto*=" + key + "]")
-              ?.setAttribute("class", "nav-link active");
-          }
-        }
-      };
-    }, 1000);
-  });
 
   return (
     <div>

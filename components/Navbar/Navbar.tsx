@@ -15,7 +15,6 @@ import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 function scrollTo(id: string): void {
   // Scroll to the location
   document.getElementById(id)?.scrollIntoView();
-  window.location.hash = id;
 }
 
 export default function TopNav({
