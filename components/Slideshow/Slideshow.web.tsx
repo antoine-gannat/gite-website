@@ -27,7 +27,8 @@ async function getImagesForCategory(category: string): Promise<string[]> {
       img.src = `${baseUrl}${category}/picture_${index}.jpg`;
     });
     if (!allFound) {
-      images.push(img.src);
+      // remove the host name from the url
+      images.push(img.src.replace(window.location.origin, ""));
     }
     index++;
   }
@@ -163,6 +164,7 @@ export function Slideshow(props: ISlideshowProps) {
         <div className={styles.slideshow}>
           <img
             id="slideshow-img"
+            alt="slideshow"
             className={styles.slideshowImage}
             src={images[selectedImage]}
           />
@@ -173,6 +175,7 @@ export function Slideshow(props: ISlideshowProps) {
             {images.map((i, index) => (
               <img
                 src={i}
+                alt="slideshow-preview"
                 className={css(
                   selectedImage === index && "opacity-100",
                   styles.slideshowPreviewImg

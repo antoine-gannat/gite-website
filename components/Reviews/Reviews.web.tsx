@@ -1,12 +1,18 @@
 import * as React from "react";
 
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import ReviewParser, { Review } from "./ReviewsParser";
 import styles from "./Reviews.module.css";
-import { withUppercase } from "../../utils/withUppercase";
 import Container from "react-bootstrap/Container";
 import { css } from "@/utils/css";
 import { ILocalizationProps } from "@/utils/localization";
+
+/**
+ * Add an uppercase to the first letter of the string.
+ */
+function withUppercase(input: string): string {
+  return input.substring(0, 1).toUpperCase() + input.substring(1);
+}
 
 export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
   const gdfReviewsUrl =

@@ -44,6 +44,7 @@ export type Strings =
   | "FRFlagAlt"
   | "ENFlagAlt"
   | "presentationTitle"
+  | "pool"
   | "presentationText"
   | "giteEpis"
   | "on"

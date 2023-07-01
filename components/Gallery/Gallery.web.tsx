@@ -1,10 +1,11 @@
 import * as React from "react";
 
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Gallery.module.css";
 import { Slideshow } from "../Slideshow/Slideshow.web";
 import { ILocalizationProps } from "@/utils/localization";
+import Image from "next/image";
 
 export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
   const [slideshow, setSlideshow] = React.useState<null | string>(null);
@@ -19,7 +20,12 @@ export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
       onClick={() => setSlideshow(name)}
       key={`gallery-${name}`}
     >
-      <img src={`/images/gallery-preview/${name}.jpg`} />
+      <Image
+        width={500}
+        height={333}
+        alt={name}
+        src={`/images/gallery-preview/${name}.jpg`}
+      />
     </Col>
   );
   const categories = [

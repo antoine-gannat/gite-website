@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import { ILocalizationProps } from "@/utils/localization";
 
 export default function AdditionalInfo({

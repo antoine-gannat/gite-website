@@ -73,6 +73,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     presentationText:
       "Gîte indépendant avec piscine intérieure, exposé sud, situé entre Quimper et Châteaulin. Idéal pour une remise en forme dans un cadre verdoyant et vallonné, au pied des Montagnes Noires.",
     giteEpis: "Gîte 4 epis",
+    pool: "Piscine",
 
     // reviews
     reviews: "Avis",
@@ -147,6 +148,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     presentationText:
       "Independant cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
     giteEpis: "4 cob cottage",
+    pool: "Pool",
 
     // reviews
     reviews: "Reviews",

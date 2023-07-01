@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import styles from "./Booking.module.css";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 import { css } from "@/utils/css";

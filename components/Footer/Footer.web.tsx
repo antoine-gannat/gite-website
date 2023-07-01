@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import styles from "./Footer.module.css";
 import { ILocalizationProps } from "@/utils/localization";
 import { css } from "@/utils/css";

@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import { css } from "@/utils/css";
+import Image from "next/image";
 
 function scrollTo(id: string): void {
   // Scroll to the location
@@ -53,19 +54,23 @@ export default function TopNav({
           </div>
           <li className={styles.navItems}>
             <Link href="/fr" locale="fr" aria-label="Traduire en Français">
-              <img
+              <Image
                 className={css(styles.flag, locale === "fr" && "opacity-100")}
                 src="/images/flags/fr_flag.webp"
                 alt={strings.FRFlagAlt}
+                height={40}
+                width={40}
               />
             </Link>
           </li>
           <li className={styles.navItems}>
             <Link href={"/en"} locale="en" aria-label="Translate to english">
-              <img
+              <Image
                 className={css(styles.flag, locale === "en" && "opacity-100")}
                 src="/images/flags/uk_flag.webp"
                 alt={strings.ENFlagAlt}
+                height={40}
+                width={40}
               />
             </Link>
           </li>
