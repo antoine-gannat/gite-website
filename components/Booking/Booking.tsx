@@ -76,9 +76,9 @@ export default function Booking({ strings }: ILocalizationProps): JSX.Element {
           <h2 className="text-center">
             {monthsNames[month.nb]} {month.weeks[0]?.from.getFullYear()}
           </h2>
-          <ul className={css(styles.month, "row col-12")}>
+          <div className={css(styles.month, "row col-12 flex justify-center")}>
             {month.weeks.map((week, weekIndex) => (
-              <li
+              <div
                 className={css(
                   styles.week,
                   "col-lg-3 col-md-4 col-sm-6 col-12",
@@ -93,9 +93,9 @@ export default function Booking({ strings }: ILocalizationProps): JSX.Element {
                   {formatDateForDisplay(week.to)}
                 </h3>
                 <p className="text-center text-2xl">{displayPrice(week)}</p>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       ));
   }

@@ -10,7 +10,7 @@ export default function AdditionalInfo({
 }: ILocalizationProps): JSX.Element {
   return (
     <section id="additional-info" className="mt-5">
-      <Container>
+      <Container className="max-w-5xl">
         <CategoryTitle title={strings.additionalInformation} />
         <Table
           striped
