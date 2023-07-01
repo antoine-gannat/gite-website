@@ -78,6 +78,7 @@ export default function TopNav({
           </div>
           <button
             className={styles.toggler}
+            aria-label={strings.toggleNav}
             onClick={() => setExpanded(!expanded)}
           >
             <FontAwesomeIcon icon={faAlignJustify} />

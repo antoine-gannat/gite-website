@@ -43,6 +43,7 @@ export type Strings =
   | "directionsLink"
   | "FRFlagAlt"
   | "ENFlagAlt"
+  | "toggleNav"
   | "presentationTitle"
   | "pool"
   | "presentationText"

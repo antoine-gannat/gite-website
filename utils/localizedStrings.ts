@@ -10,10 +10,12 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     pageDescription:
       "Location de vacances avec piscine intérieure chauffée en Bretagne. Gîte pouvant accueillir jusqu'a 6 personnes.",
     pageTitle: "Gîte avec Piscine intérieur en Bretagne | Gîte Kerhéré",
+
     // index
     title: "Gîte Kerhéré",
     subtitle: "Entre Terre et Mer",
     booking: "Réserver un sejour",
+
     // navbar
     homeLink: "Accueil",
     bookingLink: "Réservation",
@@ -22,6 +24,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     directionsLink: "Itineraire",
     ENFlagAlt: "Drapeau Français",
     FRFlagAlt: "Drapeau Anglais",
+    toggleNav: "Ouvrir le menu",
 
     // misc
     loading: "Chargement",
@@ -97,6 +100,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     directionsLink: "Directions",
     ENFlagAlt: "England flag",
     FRFlagAlt: "French flag",
+    toggleNav: "Open menu",
 
     // misc
     loading: "Loading",
