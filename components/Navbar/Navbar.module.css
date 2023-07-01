@@ -19,11 +19,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
 }
 
 .navItems a {
-  padding: ".5rem";
+  padding: 0.5rem;
 }
 
 .flag {
