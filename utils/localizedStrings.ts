@@ -4,7 +4,7 @@ export type ILocalizedStrings = Record<Strings, string> &
   Record<string, string>;
 export type Locale = "en" | "fr";
 
-export const localizedStrings: Record<Locale, ILocalizedStrings> = {
+export const localizedStrings: Record<Locale, Record<Strings, string>> = {
   fr: {
     // meta tags
     pageDescription:
@@ -23,18 +23,61 @@ export const localizedStrings: Record<Locale, ILocalizedStrings> = {
     ENFlagAlt: "Drapeau Français",
     FRFlagAlt: "Drapeau Anglais",
 
-    // To remove
-    json: "",
+    // misc
+    loading: "Chargement",
 
-    // poolAlt: "Piscine",
-    // diningRoomAlt: "Séjour",
-    // bedrooms: "Chambres",
-    // bedroomAlt: "Chambre",
-    // outdoorAlt: "Exterieur",
-    // kitchenAlt: "Cuisine",
-    // environmentAlt: "Environnement",
-    // contact_info: "Contactez nous",
-    // loading: "Chargement",
+    // additional information
+    bedrooms: "Chambres",
+    additionalInformation: "Information complémentaire",
+    capacity: "Capacité",
+    peoples: "personnes",
+    included: "Inclus",
+    surface: "Superficie",
+    beds: "Nombre de lits",
+    bedsCountDescription: "2 larges et 2 lits une place",
+
+    // booking
+    unavailable: "Indisponible",
+    fortnightOnly: "Quinzaine uniquement",
+    GDFWebsite: "Site de Gîte de France",
+    next: "Suivant",
+    prev: "Précedent",
+    january: "Janvier",
+    february: "Février",
+    march: "Mars",
+    april: "Avril",
+    may: "Mai",
+    june: "Juin",
+    july: "Juillet",
+    august: "Août",
+    september: "Septembre",
+    october: "Octobre",
+    november: "Novembre",
+    december: "Décembre",
+
+    // footer
+    contactInfo: "Contactez nous",
+    clickToCall: "Cliquez pour nous appeller",
+    gotoFb: "Notre page Facebook",
+    gotoInsta: "Notre compte Instagram",
+
+    // gallery
+    gallery: "Photos",
+    clickForMore: "Clickez sur une photo pour en voir plus.",
+
+    // map
+    directions: "Itinéraire vers le Gîte",
+
+    // presentation card
+    presentationTitle: "Gîte avec piscine intérieure en Bretagne",
+    presentationText:
+      "Gîte indépendant avec piscine intérieure, exposé sud, situé entre Quimper et Châteaulin. Idéal pour une remise en forme dans un cadre verdoyant et vallonné, au pied des Montagnes Noires.",
+    giteEpis: "Gîte 4 epis",
+
+    // reviews
+    reviews: "Avis",
+    more: "Plus",
+    on: "Publié le",
   },
   en: {
     // meta tags
@@ -54,16 +97,60 @@ export const localizedStrings: Record<Locale, ILocalizedStrings> = {
     ENFlagAlt: "England flag",
     FRFlagAlt: "French flag",
 
-    // To remove
-    json: "",
-    // poolAlt: "Swimming Pool",
-    // diningRoomAlt: "Dining room",
-    // bedrooms: "Bedrooms",
-    // bedroomAlt: "Bedroom",
-    // outdoorAlt: "Outdoor",
-    // kitchenAlt: "Kitchen",
-    // environmentAlt: "Environment",
-    // contact_info: "Contact us",
-    // loading: "Loading",
+    // misc
+    loading: "Loading",
+
+    // additional information
+    bedrooms: "Bedrooms",
+    additionalInformation: "Additional information",
+    capacity: "Capacity",
+    peoples: "peoples",
+    included: "Included",
+    surface: "Surface",
+    beds: "Number of beds",
+    bedsCountDescription: "2 queen size and 2 twin size",
+
+    // booking
+    unavailable: "Not available",
+    fortnightOnly: "Fortnight only",
+    GDFWebsite: "On Gîte de France website",
+    next: "Next",
+    prev: "Previous",
+    january: "January",
+    february: "February",
+    march: "March",
+    april: "April",
+    may: "May",
+    june: "June",
+    july: "July",
+    august: "August",
+    september: "September",
+    october: "October",
+    november: "November",
+    december: "December",
+
+    // footer
+    contactInfo: "Contact us",
+    clickToCall: "Click to call",
+    gotoFb: "Our Facebook page",
+    gotoInsta: "Our Instagram account",
+
+    // gallery
+    gallery: "Pictures",
+    clickForMore: "Click on a picture for more.",
+
+    // map
+    directions: "Directions to the Cottage",
+
+    // presentation card
+    presentationTitle: "Cottage with indoor pool in Brittany",
+    presentationText:
+      "Independant cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
+    giteEpis: "4 cob cottage",
+
+    // reviews
+    reviews: "Reviews",
+    more: "More",
+    on: "Published on",
   },
 };

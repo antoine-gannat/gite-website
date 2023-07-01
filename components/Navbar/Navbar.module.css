@@ -1,7 +1,29 @@
 .nav {
   background: rgba(0, 0, 0, 0.5);
-  height: 50px;
+  max-height: 50px;
+}
+
+.toggler {
   color: white;
+  background: transparent;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .toggler {
+    display: none;
+  }
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.navItems a {
+  padding: ".5rem";
 }
 
 .flag {
@@ -24,4 +46,13 @@
 .nav button:focus,
 .flag:focus {
   outline: none;
+}
+
+.link {
+  margin: auto;
+  color: white;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

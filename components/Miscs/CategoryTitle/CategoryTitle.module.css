@@ -1,9 +1,10 @@
-.category-title {
+.title {
   text-align: center;
+  margin-top: 20px;
 }
 
-.category-title hr {
-  width: 50%;
+.separation {
+  width: 100%;
   color: black;
   border-width: 2px;
 }

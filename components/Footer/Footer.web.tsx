@@ -1,20 +1,20 @@
 import * as React from "react";
-import "./Footer.styles.css";
-import { DefaultPropsWithTranslation } from "../../types/props";
-import { translateComponent } from "../Translation/Translator";
-import strings from "./Footer.strings.json";
-import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
 
-function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
+import CategoryTitle from "../Miscs/CategoryTitle/CategoryTitle.web";
+import styles from "./Footer.module.css";
+import { ILocalizationProps } from "@/utils/localization";
+import { css } from "@/utils/css";
+
+export default function Footer({ strings }: ILocalizationProps): JSX.Element {
   return (
-    <footer className="footer" id="contact">
-      <CategoryTitle title={translate("contact_info")} />
-      <ul className="row col-12">
+    <footer className={styles.footer} id="contact">
+      <CategoryTitle title={strings.contactInfo} />
+      <ul className={css(styles.ul, "row col-12")}>
         <li className="col-lg-6 col-md-6 col-sm-12">
           Jean Claude & Françoise GANNAT
         </li>
         <li className="col-lg-6 col-md-6 col-sm-12">
-          <a href="tel:+33 06 65 18 21 97" title={translate("click_to_call")}>
+          <a href="tel:+33 06 65 18 21 97" title={strings.clickToCall}>
             +33 06 65 18 21 97
           </a>
         </li>
@@ -32,10 +32,28 @@ function Footer({ translate }: DefaultPropsWithTranslation): JSX.Element {
             Kerhéré, 29510 BRIEC, FRANCE
           </a>
         </li>
+        <li className="col-6">
+          <a
+            href="https://www.facebook.com/gitepiscineinterieurebretagne"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={strings.gotoFb}
+          >
+            <i className="fab fa-facebook fa-2x"></i>
+          </a>
+        </li>
+        <li className="col-6">
+          <a
+            href="https://www.instagram.com/gitepiscine/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={strings.gotoInsta}
+          >
+            <i className="fab fa-instagram fa-2x"></i>
+          </a>
+        </li>
       </ul>
-      <p>© 2020, Antoine GANNAT</p>
+      <p className={styles.copyright}>© 2021, Antoine GANNAT</p>
     </footer>
   );
 }
-
-export default translateComponent(Footer, strings);

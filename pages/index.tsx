@@ -1,15 +1,16 @@
 import * as React from "react";
-import { Navbar } from "@/components/Navbar/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 import styles from "./index.module.css";
 import PresentationCard from "../components/PresentationCard/PresentationCard.web";
 import Gallery from "../components/Gallery/Gallery.web";
 import Footer from "../components/Footer/Footer.web";
 import Map from "../components/Map/Map.web";
-import Booking from "../components/Booking/Booking.web";
+import Booking from "../components/Booking/Booking";
 import Reviews from "../components/Reviews/Reviews.web";
 import { GetStaticProps } from "next";
 import { ILocalizationProps, getLocalizationProps } from "@/utils/localization";
 import Head from "next/head";
+import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo.web";
 
 export default function Index(props: ILocalizationProps): JSX.Element {
   const { strings } = props;
@@ -56,14 +57,15 @@ export default function Index(props: ILocalizationProps): JSX.Element {
           </div>
         </section>
         <div className={styles.pageContent}>
-          {/* <PresentationCard {...props} />
+          <PresentationCard {...props} />
           <Gallery {...props} />
           <Booking {...props} />
           <Reviews {...props} />
-          <Map {...props} /> */}
+          <Map {...props} />
+          <AdditionalInfo {...props} />
         </div>
-        {/* <Footer {...props} /> */}
       </div>
+      <Footer {...props} />
     </div>
   );
 }
