@@ -48,7 +48,7 @@ export default function Index(props: ILocalizationProps): JSX.Element {
       <div>
         <Navbar {...props} />
         <section className={styles.container} id="home">
-          <div className={styles.titles}>
+          <div className={styles.titleContainer}>
             <h1>{strings.title}</h1>
             <h2 className={styles.fadeIn}>{strings.subtitle}</h2>
             <a data-scrollto="booking" className="btn" href="#booking">

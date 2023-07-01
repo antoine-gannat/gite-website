@@ -13,7 +13,7 @@
   background-size: cover;
 }
 
-.container .titles {
+.titleContainer {
   position: absolute;
   left: 50%;
   top: 40%;
@@ -23,29 +23,29 @@
   text-align: center;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .container .titles h1 {
+/* Small devices (768px and down) */
+@media (max-width: 768px) {
+  .titleContainer h1 {
     font-size: 45px;
   }
 
-  .container .titles h2 {
+  .titleContainer h2 {
     font-size: 30px;
   }
 }
 
-/* Classic devices */
+/* Regular/Large devices */
 @media (min-width: 768px) {
-  .container .titles h1 {
+  .titleContainer h1 {
     font-size: 75px;
   }
 
-  .container .titles h2 {
+  .titleContainer h2 {
     font-size: 40px;
   }
 }
 
-.container .titles a {
+.titleContainer a {
   color: white;
   margin-top: 15px;
   background: rgb(185, 2, 17);

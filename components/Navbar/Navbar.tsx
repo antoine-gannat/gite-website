@@ -54,7 +54,7 @@ export default function TopNav({
           <div className={css(styles.navItems, expanded && styles.expanded)}>
             {links.map(({ name, title }) => createLinkBtn(name, title))}
           </div>
-          <div className={styles.navItems}>
+          <div className={styles.flagWrapper}>
             <Link href="/fr" locale="fr" aria-label="Traduire en Français">
               <Image
                 className={css(styles.flag, locale === "fr" && "opacity-100")}
@@ -65,7 +65,7 @@ export default function TopNav({
               />
             </Link>
           </div>
-          <div className={styles.navItems}>
+          <div className={styles.flagWrapper}>
             <Link href={"/en"} locale="en" aria-label="Translate to english">
               <Image
                 className={css(styles.flag, locale === "en" && "opacity-100")}

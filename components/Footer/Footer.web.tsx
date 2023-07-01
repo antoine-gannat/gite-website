@@ -55,7 +55,7 @@ export default function Footer({ strings }: ILocalizationProps): JSX.Element {
           </a>
         </li>
       </ul>
-      <p className={styles.copyright}>© 2021, Antoine GANNAT</p>
+      <p className={styles.copyright}>© 2023, Antoine GANNAT</p>
     </footer>
   );
 }
