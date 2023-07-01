@@ -4,7 +4,7 @@
 
 html,
 body {
-  font-family: "Roboto", serif;
+  font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
   min-height: 100%;
 }

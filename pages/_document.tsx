@@ -12,8 +12,14 @@ export default function Document() {
         <meta name="author" content="Antoine Gannat" />
         <link rel="icon" href="/favicon.ico" />
 
+        <link
+          rel="sitemap"
+          type="application/xml"
+          title="Sitemap"
+          href="/sitemap.xml"
+        />
         <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto&display=optional"

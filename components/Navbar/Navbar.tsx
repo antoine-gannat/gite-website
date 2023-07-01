@@ -52,7 +52,7 @@ export default function TopNav({
           <div className={css(styles.navItems, expanded && styles.expanded)}>
             {links.map(({ name, title }) => createLinkBtn(name, title))}
           </div>
-          <li className={styles.navItems}>
+          <div className={styles.navItems}>
             <Link href="/fr" locale="fr" aria-label="Traduire en Français">
               <Image
                 className={css(styles.flag, locale === "fr" && "opacity-100")}
@@ -62,8 +62,8 @@ export default function TopNav({
                 width={40}
               />
             </Link>
-          </li>
-          <li className={styles.navItems}>
+          </div>
+          <div className={styles.navItems}>
             <Link href={"/en"} locale="en" aria-label="Translate to english">
               <Image
                 className={css(styles.flag, locale === "en" && "opacity-100")}
@@ -73,7 +73,7 @@ export default function TopNav({
                 width={40}
               />
             </Link>
-          </li>
+          </div>
           <button
             className={styles.toggler}
             onClick={() => setExpanded(!expanded)}

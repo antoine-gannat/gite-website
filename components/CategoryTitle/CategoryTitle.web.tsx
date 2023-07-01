@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./CategoryTitle.module.css";
 
 type CategoryTitleProps = {
   title: string;
@@ -11,10 +10,10 @@ export default function CategoryTitle({
   subTitle,
 }: CategoryTitleProps): JSX.Element {
   return (
-    <div className={styles.title}>
-      <h2>{title}</h2>
+    <div className="text-center mt-5">
+      <h2 className="text-3xl">{title}</h2>
       {subTitle}
-      <hr className={styles.separation} />
+      <hr className="w-full border-2 p-2" />
     </div>
   );
 }

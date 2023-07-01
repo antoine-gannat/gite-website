@@ -11,8 +11,8 @@ export default function PresentationCard({
 }: ILocalizationProps): JSX.Element {
   return (
     <Container className={styles.card}>
-      <h3 className="pt-4 text-center">{strings.presentationTitle}</h3>
-      <hr />
+      <h3 className="pt-4 text-center text-3xl">{strings.presentationTitle}</h3>
+      <hr className="h-4" />
       <Image
         alt={strings.pool}
         className={styles.image}

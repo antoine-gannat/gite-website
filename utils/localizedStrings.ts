@@ -34,12 +34,12 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     included: "Inclus",
     surface: "Superficie",
     beds: "Nombre de lits",
-    bedsCountDescription: "2 larges et 2 lits une place",
+    bedsCountDescription: "Deux lits double et 2 lits simple",
 
     // booking
     unavailable: "Indisponible",
     fortnightOnly: "Quinzaine uniquement",
-    GDFWebsite: "Site de Gîte de France",
+    GDFWebsite: "Voir le site de Gîte de France",
     next: "Suivant",
     prev: "Précedent",
     january: "Janvier",
@@ -114,7 +114,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     // booking
     unavailable: "Not available",
     fortnightOnly: "Fortnight only",
-    GDFWebsite: "On Gîte de France website",
+    GDFWebsite: "See Gîte de France website",
     next: "Next",
     prev: "Previous",
     january: "January",
