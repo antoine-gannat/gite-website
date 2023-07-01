@@ -9,6 +9,8 @@ import Navbar from "react-bootstrap/Navbar";
 
 import { css } from "@/utils/css";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 
 function scrollTo(id: string): void {
   // Scroll to the location
@@ -78,7 +80,7 @@ export default function TopNav({
             className={styles.toggler}
             onClick={() => setExpanded(!expanded)}
           >
-            <i className="fas fa-align-justify"></i>
+            <FontAwesomeIcon icon={faAlignJustify} />
           </button>
         </div>
       </Container>

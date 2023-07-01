@@ -6,6 +6,9 @@ import styles from "./Reviews.module.css";
 import Container from "react-bootstrap/Container";
 import { css } from "@/utils/css";
 import { ILocalizationProps } from "@/utils/localization";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 
 /**
  * Add an uppercase to the first letter of the string.
@@ -36,11 +39,14 @@ export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
     for (let i = 1; i <= 5; i++) {
       if (i <= rating) {
         stars.push(
-          <i key={`review-rating-${title}-${i}`} className="fas fa-star"></i>
+          <FontAwesomeIcon key={`review-rating-${title}-${i}`} icon={faStar} />
         );
       } else {
         stars.push(
-          <i key={`review-rating-${title}-${i}`} className="far fa-star"></i>
+          <FontAwesomeIcon
+            key={`review-rating-${title}-${i}`}
+            icon={faStarRegular}
+          />
         );
       }
     }

@@ -5,6 +5,11 @@ import styles from "./Booking.module.css";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 import { css } from "@/utils/css";
 import { ILocalizationProps } from "@/utils/localization";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 const gdfReservationsUrl =
   "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=prix&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250&codeProd=&iframe=&sansCss=0&ope=&height=&width=&periode=&affichage=&numChambre=&clicsurcalendrier=&nbMois=1&photo=&prix=&text=&affichequenoteglobale=&bureauitea=&avecPrix=&_=1548135152075";
@@ -102,22 +107,20 @@ export default function Booking({ strings }: ILocalizationProps): JSX.Element {
     return (
       <div className="col-lg-6 col-md-8 offset-lg-3 offset-md-2">
         <button
-          className={css("btn col-6", monthsToDisplay <= 3 ? "hidden" : "")}
+          className={"btn col-6 border-none hover:underline"}
           disabled={monthsToDisplay <= 3}
           onClick={() => changeMonthsToDisplay(monthsToDisplay - 3)}
         >
-          <i className="fas fa-chevron-left"></i> {strings.prev}
+          <FontAwesomeIcon className="mr-2" icon={faChevronLeft} />
+          {strings.prev}
         </button>
         <button
-          className={css(
-            "btn col-6",
-            !bookingMonths ||
-              (monthsToDisplay >= bookingMonths.length && "opacity-0")
-          )}
+          className={"btn col-6 border-none hover:underline"}
           disabled={!bookingMonths || monthsToDisplay >= bookingMonths.length}
           onClick={() => changeMonthsToDisplay(monthsToDisplay + 3)}
         >
-          {strings.next} <i className="fas fa-chevron-right"></i>
+          {strings.next}
+          <FontAwesomeIcon className="ml-2" icon={faChevronRight} />
         </button>
       </div>
     );

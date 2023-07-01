@@ -2,6 +2,12 @@ import React from "react";
 
 import styles from "./Slideshow.module.css";
 import { css } from "@/utils/css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowCircleLeft,
+  faArrowCircleRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWindowClose } from "@fortawesome/free-regular-svg-icons";
 
 interface ISlideshowProps {
   imageCategory: string;
@@ -189,18 +195,18 @@ export function Slideshow(props: ISlideshowProps) {
             className={css(styles.navButton, "left-1")}
             onClick={previousImage}
           >
-            <i className="fas fa-arrow-circle-left"></i>
+            <FontAwesomeIcon icon={faArrowCircleLeft} />
           </button>
           <button
             className={css(styles.navButton, "right-1")}
             onClick={nextImage}
           >
-            <i className="fas fa-arrow-circle-right"></i>
+            <FontAwesomeIcon icon={faArrowCircleRight} />
           </button>
         </div>
       )}
       <button onClick={() => props.onLeave()} className={styles.leaveButton}>
-        <i className="far fa-window-close"></i>
+        <FontAwesomeIcon icon={faWindowClose} />
       </button>
     </div>
   );

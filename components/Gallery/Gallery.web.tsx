@@ -21,8 +21,8 @@ export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
       key={`gallery-${name}`}
     >
       <Image
-        width={200}
-        height={125}
+        width={300}
+        height={175}
         alt={name}
         src={`/images/gallery-preview/${name}.jpg`}
       />

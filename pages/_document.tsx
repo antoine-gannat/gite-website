@@ -37,10 +37,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        {/* <script
-          src="https://kit.fontawesome.com/82729a6f94.js"
-          crossOrigin="anonymous"
-        ></script> */}
         {/* <script>
       (function (i, s, o, g, r, a, m) {
         i["GoogleAnalyticsObject"] = r;

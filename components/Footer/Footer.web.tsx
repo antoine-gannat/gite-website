@@ -4,6 +4,8 @@ import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
 import styles from "./Footer.module.css";
 import { ILocalizationProps } from "@/utils/localization";
 import { css } from "@/utils/css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer({ strings }: ILocalizationProps): JSX.Element {
   return (
@@ -39,7 +41,7 @@ export default function Footer({ strings }: ILocalizationProps): JSX.Element {
             rel="noopener noreferrer"
             title={strings.gotoFb}
           >
-            <i className="fab fa-facebook fa-2x"></i>
+            <FontAwesomeIcon size="2x" icon={faFacebook} />
           </a>
         </li>
         <li className="col-6">
@@ -49,7 +51,7 @@ export default function Footer({ strings }: ILocalizationProps): JSX.Element {
             rel="noopener noreferrer"
             title={strings.gotoInsta}
           >
-            <i className="fab fa-instagram fa-2x"></i>
+            <FontAwesomeIcon size="2x" icon={faInstagram} />
           </a>
         </li>
       </ul>
