@@ -5,7 +5,7 @@ import ReviewParser, { Review } from "./ReviewsParser";
 import styles from "./Reviews.module.css";
 import Container from "react-bootstrap/Container";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";

@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 import Link from "next/link";
 
 import * as React from "react";
@@ -11,11 +11,7 @@ import { css } from "@/utils/css";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
-
-function scrollTo(id: string): void {
-  // Scroll to the location
-  document.getElementById(id)?.scrollIntoView();
-}
+import { scrollTo } from "@/utils/scrollTo";
 
 export default function TopNav({
   strings,
@@ -25,11 +21,7 @@ export default function TopNav({
 
   function createLinkBtn(name: string, title: string): JSX.Element {
     return (
-      <Nav.Link
-        onClick={() => (setExpanded(false), scrollTo(name))}
-        data-scrollto={name}
-        key={name}
-      >
+      <Nav.Link onClick={() => (setExpanded(false), scrollTo(name))} key={name}>
         <p className={styles.link}>{title}</p>
       </Nav.Link>
     );
@@ -46,7 +38,10 @@ export default function TopNav({
   return (
     <Navbar className={styles.nav} fixed="top">
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand
+          onClick={() => scrollTo("home")}
+          className="hover:cursor-pointer"
+        >
           <p className={styles.link}>Gîte Kerhéré</p>
         </Navbar.Brand>
         <div className="flex flex-row">

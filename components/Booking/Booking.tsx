@@ -4,7 +4,7 @@ import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Booking.module.css";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,

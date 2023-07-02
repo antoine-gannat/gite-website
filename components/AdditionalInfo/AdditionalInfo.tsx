@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 
 export default function AdditionalInfo({
   strings,

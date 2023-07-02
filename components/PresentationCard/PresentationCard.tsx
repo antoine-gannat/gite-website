@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "./PresentationCard.module.css";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 import Image from "next/image";
 
 export default function PresentationCard({

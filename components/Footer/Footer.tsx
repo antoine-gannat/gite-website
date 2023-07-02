@@ -2,7 +2,7 @@ import * as React from "react";
 
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Footer.module.css";
-import { ILocalizationProps } from "@/utils/localization";
+import { ILocalizationProps } from "@/utils/localization/localization";
 import { css } from "@/utils/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";

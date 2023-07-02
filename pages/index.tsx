@@ -8,10 +8,14 @@ import Map from "../components/Map/Map";
 import Booking from "../components/Booking/Booking";
 import Reviews from "../components/Reviews/Reviews";
 import { GetStaticProps } from "next";
-import { ILocalizationProps, getLocalizationProps } from "@/utils/localization";
+import {
+  ILocalizationProps,
+  getLocalizationProps,
+} from "@/utils/localization/localization";
 import Head from "next/head";
 import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo";
 import ReactGA from "react-ga";
+import { scrollTo } from "@/utils/scrollTo";
 
 let once = false;
 
@@ -39,7 +43,11 @@ export default function Index(props: ILocalizationProps): JSX.Element {
           <div className={styles.titleContainer}>
             <h1>{strings.title}</h1>
             <h2 className={styles.fadeIn}>{strings.subtitle}</h2>
-            <a data-scrollto="booking" className="btn" href="#booking">
+            <a
+              type="button"
+              className="btn"
+              onClick={() => scrollTo("booking")}
+            >
               {strings.booking}
             </a>
           </div>
