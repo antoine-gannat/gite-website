@@ -7,7 +7,7 @@
     "build": "yarn extract-strings && next build",
     "start": "next start",
     "lint": "next lint",
-    "extract-strings": "node .tooling/extractStrings.js && yarn prettier utils/strings.types.generated.ts -w"
+    "extract-strings": "node .tooling/extractStrings.js && yarn prettier utils/localization/strings.types.generated.ts -w"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

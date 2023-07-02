@@ -45,6 +45,12 @@ export type Strings = ${strings.map((string) => `"${string}"`).join(" | ")};
 `;
 
 fs.writeFileSync(
-  path.join(__dirname, "..", "utils", "strings.types.generated.ts"),
+  path.join(
+    __dirname,
+    "..",
+    "utils",
+    "localization",
+    "strings.types.generated.ts"
+  ),
   content
 );
