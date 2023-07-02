@@ -19,7 +19,6 @@ export default function Document() {
           href="/sitemap.xml"
         />
         <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto&display=optional"

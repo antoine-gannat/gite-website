@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Map.module.css";
 import { ILocalizationProps } from "@/utils/localization";
 

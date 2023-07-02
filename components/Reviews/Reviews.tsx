@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import ReviewParser, { Review } from "./ReviewsParser";
 import styles from "./Reviews.module.css";
 import Container from "react-bootstrap/Container";

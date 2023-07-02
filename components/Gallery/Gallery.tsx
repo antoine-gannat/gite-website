@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import CategoryTitle from "../CategoryTitle/CategoryTitle.web";
+import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Gallery.module.css";
-import { Slideshow } from "../Slideshow/Slideshow.web";
+import { Slideshow } from "../Slideshow/Slideshow";
 import { ILocalizationProps } from "@/utils/localization";
 import Image from "next/image";
 

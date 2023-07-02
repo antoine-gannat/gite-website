@@ -1,16 +1,16 @@
 import * as React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import styles from "./index.module.css";
-import PresentationCard from "../components/PresentationCard/PresentationCard.web";
-import Gallery from "../components/Gallery/Gallery.web";
-import Footer from "../components/Footer/Footer.web";
-import Map from "../components/Map/Map.web";
+import PresentationCard from "../components/PresentationCard/PresentationCard";
+import Gallery from "../components/Gallery/Gallery";
+import Footer from "../components/Footer/Footer";
+import Map from "../components/Map/Map";
 import Booking from "../components/Booking/Booking";
-import Reviews from "../components/Reviews/Reviews.web";
+import Reviews from "../components/Reviews/Reviews";
 import { GetStaticProps } from "next";
 import { ILocalizationProps, getLocalizationProps } from "@/utils/localization";
 import Head from "next/head";
-import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo.web";
+import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo";
 import ReactGA from "react-ga";
 
 let once = false;
