@@ -11,9 +11,21 @@ import { GetStaticProps } from "next";
 import { ILocalizationProps, getLocalizationProps } from "@/utils/localization";
 import Head from "next/head";
 import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo.web";
+import ReactGA from "react-ga";
+
+let once = false;
 
 export default function Index(props: ILocalizationProps): JSX.Element {
   const { strings } = props;
+
+  // Google analytics
+  React.useEffect(() => {
+    if (!once && typeof window !== "undefined") {
+      ReactGA.initialize("UA-80843760-1");
+      ReactGA.pageview(window.location.pathname + window.location.search);
+      once = true;
+    }
+  }, []);
 
   return (
     <div>
