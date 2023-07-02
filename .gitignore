@@ -22,4 +22,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /old-site
-react-app-env.d.ts
+
+.next/

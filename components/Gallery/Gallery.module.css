@@ -1,0 +1,16 @@
+.galleryItem {
+  margin-top: 3px;
+  padding: 2px;
+}
+
+.galleryItem:hover {
+  cursor: pointer;
+}
+
+.galleryItem img {
+  width: 100%;
+}
+
+.helper {
+  text-align: center;
+}

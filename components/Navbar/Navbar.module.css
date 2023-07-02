@@ -1,0 +1,81 @@
+.nav {
+  background: rgba(0, 0, 0, 0.5);
+  max-height: 50px;
+}
+
+.toggler {
+  color: white;
+  background: transparent;
+  border: none;
+  margin-left: 7px;
+}
+
+@media (min-width: 768px) {
+  .toggler {
+    display: none;
+  }
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navItems a {
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .navItems {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+}
+
+.expanded {
+  display: initial;
+}
+
+.flagWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flag {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 0.5;
+  padding: 8px;
+}
+
+.selected {
+  opacity: 1;
+}
+
+.nav button {
+  background: none;
+  border: none;
+}
+
+.nav button:focus,
+.flag:focus {
+  outline: none;
+}
+
+.link {
+  margin: auto;
+  color: white;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
