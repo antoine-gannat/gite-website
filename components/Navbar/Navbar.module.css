@@ -1,7 +1,6 @@
 .nav {
   background: rgba(0, 0, 0, 0.5);
   max-height: 50px;
-  z-index: 40;
 }
 
 .toggler {
