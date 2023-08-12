@@ -41,12 +41,13 @@ function getClickPosition(
     | React.MouseEvent<HTMLImageElement, MouseEvent>
     | React.TouchEvent<HTMLImageElement>
 ) {
-  if (ev instanceof MouseEvent) {
+  if ("clientX" in ev) {
     return {
       clientX: ev.clientX,
       clientY: ev.clientY,
     };
   }
+  // for touch events
   return {
     clientX: (ev as React.TouchEvent<HTMLImageElement>).touches?.[0]?.clientX,
     clientY: (ev as React.TouchEvent<HTMLImageElement>).touches?.[0]?.clientY,
@@ -138,6 +139,8 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       | React.MouseEvent<HTMLImageElement, MouseEvent>
       | React.TouchEvent<HTMLImageElement>
   ) => {
+    // prevent default only for mouse events
+    "clientX" in ev && ev.preventDefault();
     if (!dragRef.current) {
       return;
     }
