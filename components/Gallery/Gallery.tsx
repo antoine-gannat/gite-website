@@ -20,9 +20,7 @@ interface IGalleryItemProps {
 
 interface IDragData {
   startX: number;
-  startY: number;
   lastX?: number;
-  lastY?: number;
 }
 
 type Category = keyof typeof categories;
@@ -44,13 +42,11 @@ function getClickPosition(
   if ("clientX" in ev) {
     return {
       clientX: ev.clientX,
-      clientY: ev.clientY,
     };
   }
   // for touch events
   return {
     clientX: (ev as React.TouchEvent<HTMLImageElement>).touches?.[0]?.clientX,
-    clientY: (ev as React.TouchEvent<HTMLImageElement>).touches?.[0]?.clientY,
   };
 }
 
@@ -178,11 +174,10 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       | React.MouseEvent<HTMLImageElement, MouseEvent>
       | React.TouchEvent<HTMLImageElement>
   ) => {
-    const { clientX, clientY } = getClickPosition(ev);
+    const { clientX } = getClickPosition(ev);
     // save the initial click position
     dragRef.current = {
       startX: clientX,
-      startY: clientY,
     };
   };
 
@@ -191,23 +186,22 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       | React.MouseEvent<HTMLImageElement, MouseEvent>
       | React.TouchEvent<HTMLImageElement>
   ) => {
-    // prevent default only for mouse events
-    "clientX" in ev && ev.preventDefault();
     if (!dragRef.current || !carouselRef.current) {
       return;
     }
-    const { startX, startY, lastX, lastY } = dragRef.current;
-    const { clientX, clientY } = getClickPosition(ev);
+    const { startX, lastX } = dragRef.current;
+    const { clientX } = getClickPosition(ev);
     // calculate the delta between the last drag position and the current one
     // In case of first drag, use the initial click position
     const deltaX = (lastX ?? startX) - clientX;
-    const deltaY = (lastY ?? startY) - clientY;
+    // discard small movements
+    if (Math.abs(deltaX) < 5) {
+      return;
+    }
     // apply a scroll offset to the carousel
     carouselRef.current.scrollLeft += deltaX;
-    carouselRef.current.scrollTop += deltaY;
     // save the current drag position
     dragRef.current.lastX = clientX;
-    dragRef.current.lastY = clientY;
   };
 
   const onMouseUp = (

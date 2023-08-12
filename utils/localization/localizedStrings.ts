@@ -66,7 +66,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
 
     // gallery
     gallery: "Photos",
-    clickForMore: "Clickez sur une photo pour en voir plus.",
+    clickForMore: "Cliquez sur une catégorie pour voir d'autre photos.",
 
     // map
     directions: "Itinéraire vers le Gîte",
@@ -86,8 +86,8 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
   en: {
     // meta tags
     pageDescription:
-      "Holliday cottage with and indoor swimming pool in Brittany, France. Perfect for a familly vacation. Can receive up to 6 peoples.",
-    pageTitle: "Cotage with indoor Pool in Brittany | Gîte Kerhéré",
+      "Holiday cottage with and indoor swimming pool in Brittany, France. Perfect for a family vacation. Can receive up to 6 peoples.",
+    pageTitle: "Cottage with indoor Pool in Brittany | Gîte Kerhéré",
     // index page
     title: "Gîte Kerhéré",
     subtitle: "Between Land and Sea",
@@ -150,7 +150,7 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     // presentation card
     presentationTitle: "Cottage with indoor pool in Brittany",
     presentationText:
-      "Independant cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
+      "Independent cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
     giteEpis: "4 cob cottage",
     pool: "Pool",
 
