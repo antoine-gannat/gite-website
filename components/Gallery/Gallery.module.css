@@ -53,6 +53,7 @@
 
 .carouselImage {
   object-fit: cover;
+  touch-action: none;
 }
 
 .carouselImageWrapper {

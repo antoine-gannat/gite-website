@@ -127,8 +127,6 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       `gallery-item-${index}`
     ) as HTMLImageElement;
 
-    const isBackwards = index < activeImage;
-
     /**
      * Find the distance we need to scroll.
      *
@@ -138,11 +136,14 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
      * 4. If scroll is caused by a drag, subtract the drag distance
      */
     const itemsToScroll = Math.abs(index - activeImage);
+    // Calculate how much the user has dragged (if any)
+    const currentDragDistance =
+      (dragRef.current?.startX ?? 0) - (dragRef.current?.lastX ?? 0);
+    // If the new index is before the current image, or if the user is dragging backwards,
+    // we need to scroll backwards
+    const isBackwards = index < activeImage || currentDragDistance < 0;
     const distance =
-      (element.clientWidth * itemsToScroll -
-        Math.abs(
-          (dragRef.current?.startX ?? 0) - (dragRef.current?.lastX ?? 0)
-        )) *
+      (element.clientWidth * itemsToScroll - Math.abs(currentDragDistance)) *
       // apply the direction
       (isBackwards ? -1 : 1);
 
@@ -222,13 +223,16 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
     const distanceTraveled =
       dragRef.current.startX - (clientX ?? dragRef.current.lastX);
     const imageWidth = currentTarget.width;
-    // On end, if the cursor traveled at least 20% of the carousel width, snap to the next image
-    if (Math.abs(distanceTraveled) > imageWidth * 0.2) {
-      const index = distanceTraveled < 0 ? activeImage - 1 : activeImage + 1;
-      scrollTo(index);
-    } else {
-      // otherwise, snap back to the current image
-      scrollTo(activeImage);
+
+    if (distanceTraveled !== 0 && !isNaN(distanceTraveled)) {
+      // On end, if the cursor traveled at least 20% of the carousel width, snap to the next image
+      if (Math.abs(distanceTraveled) > imageWidth * 0.2) {
+        const index = distanceTraveled < 0 ? activeImage - 1 : activeImage + 1;
+        scrollTo(index);
+      } else {
+        // otherwise, snap back to the current image
+        scrollTo(activeImage);
+      }
     }
     dragRef.current = undefined;
   };
