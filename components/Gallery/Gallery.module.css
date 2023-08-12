@@ -112,7 +112,7 @@
   z-index: 2;
 }
 
-.carouselNavBtn[data-disabled="true"] {
+.carouselNavBtn[disabled] {
   opacity: 0.4;
   cursor: not-allowed;
 }

@@ -115,18 +115,60 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
   }, [category]);
 
   const scrollTo = (index: number) => {
-    if (index > categories[category].imgCount || index < 1) {
+    if (
+      index > categories[category].imgCount ||
+      index < 1 ||
+      !carouselRef.current
+    ) {
       return;
     }
+
     const element = document.getElementById(
       `gallery-item-${index}`
-    ) as HTMLElement;
+    ) as HTMLImageElement;
 
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
+    const isBackwards = index < activeImage;
+
+    /**
+     * Find the distance we need to scroll.
+     *
+     * 1. Get the image width
+     * 2. Multiply it by the number of images we need to scroll
+     * 3. Multiply it by -1 if we're scrolling backwards
+     * 4. If scroll is caused by a drag, subtract the drag distance
+     */
+    const itemsToScroll = Math.abs(index - activeImage);
+    const distance =
+      (element.clientWidth * itemsToScroll -
+        Math.abs(
+          (dragRef.current?.startX ?? 0) - (dragRef.current?.lastX ?? 0)
+        )) *
+      // apply the direction
+      (isBackwards ? -1 : 1);
+
+    const steps = 30;
+    const distancePerStep = distance / steps;
+    const target = (index - 1) * element.clientWidth;
+    let rounds = 1;
+
+    /**
+     * Scroll smoothly to the element.
+     * This is a workaround for scrollIntoView, which doesn't work
+     * well with touch events, so mainly for mobile devices.
+     */
+    const interval = setInterval(() => {
+      if (!carouselRef.current) {
+        return;
+      }
+      carouselRef.current.scrollLeft += distancePerStep;
+      rounds++;
+      if (rounds > steps) {
+        clearInterval(interval);
+        carouselRef.current.scrollLeft = target;
+        return;
+      }
+    }, 300 / steps);
+
     setActiveImage(index);
   };
 
@@ -196,7 +238,7 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       <button
         className={css(styles.carouselNavBtn, styles.carouselNavBtnLeft)}
         // using data-disabled instead of disabled, because scrollIntoView doesn't work on disabled elements
-        data-disabled={activeImage === 1}
+        disabled={activeImage === 1}
         onClick={() => scrollTo(activeImage - 1)}
       >
         <FontAwesomeIcon icon={faArrowCircleLeft} size="2x" />
@@ -205,6 +247,7 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
         {Array.from({ length: categories[category].imgCount }, (_, i) => (
           <div key={i} className={styles.carouselImageWrapper}>
             <Image
+              draggable={false}
               onMouseDown={onMouseDown}
               onTouchStart={onMouseDown}
               onMouseMove={onMouseMove}
@@ -223,8 +266,7 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       <button
         className={css(styles.carouselNavBtn, styles.carouselNavBtnRight)}
         onClick={() => scrollTo(activeImage + 1)}
-        // using data-disabled instead of disabled, because scrollIntoView doesn't work on disabled elements
-        data-disabled={activeImage === categories[category].imgCount}
+        disabled={activeImage === categories[category].imgCount}
       >
         <FontAwesomeIcon icon={faArrowCircleRight} size="2x" />
       </button>
