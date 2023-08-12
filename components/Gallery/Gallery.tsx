@@ -26,12 +26,12 @@ interface IDragData {
 type Category = keyof typeof categories;
 
 const categories = {
+  pool: { imgCount: 8 },
   bedroom: { imgCount: 8 },
   "dining-room": { imgCount: 5 },
-  environment: { imgCount: 5 },
   kitchen: { imgCount: 5 },
   outdoor: { imgCount: 14 },
-  pool: { imgCount: 8 },
+  environment: { imgCount: 5 },
 } as const;
 
 function getClickPosition(
