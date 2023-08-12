@@ -105,6 +105,15 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const dragRef = React.useRef<IDragData>();
 
+  // On category change, reset the state and refs
+  React.useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = 0;
+      carouselRef.current.scrollTop = 0;
+    }
+    setActiveImage(1);
+  }, [category]);
+
   const scrollTo = (index: number) => {
     if (index > categories[category].imgCount || index < 1) {
       return;
@@ -141,7 +150,7 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
   ) => {
     // prevent default only for mouse events
     "clientX" in ev && ev.preventDefault();
-    if (!dragRef.current) {
+    if (!dragRef.current || !carouselRef.current) {
       return;
     }
     const { startX, startY, lastX, lastY } = dragRef.current;
@@ -151,8 +160,8 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
     const deltaX = (lastX ?? startX) - clientX;
     const deltaY = (lastY ?? startY) - clientY;
     // apply a scroll offset to the carousel
-    carouselRef.current!.scrollLeft += deltaX;
-    carouselRef.current!.scrollTop += deltaY;
+    carouselRef.current.scrollLeft += deltaX;
+    carouselRef.current.scrollTop += deltaY;
     // save the current drag position
     dragRef.current.lastX = clientX;
     dragRef.current.lastY = clientY;
@@ -163,10 +172,13 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       | React.MouseEvent<HTMLImageElement, MouseEvent>
       | React.TouchEvent<HTMLImageElement>
   ) => {
+    if (!dragRef.current) {
+      return;
+    }
     const { clientX } = getClickPosition(ev);
     const { currentTarget } = ev;
     const distanceTraveled =
-      dragRef.current!.startX - (clientX ?? dragRef.current!.lastX);
+      dragRef.current.startX - (clientX ?? dragRef.current.lastX);
     const imageWidth = currentTarget.width;
     // On end, if the cursor traveled at least 20% of the carousel width, snap to the next image
     if (Math.abs(distanceTraveled) > imageWidth * 0.2) {
@@ -191,21 +203,21 @@ function Carousel({ category }: Pick<IGalleryItemProps, "category">) {
       </button>
       <div className={styles.carousel} ref={carouselRef}>
         {Array.from({ length: categories[category].imgCount }, (_, i) => (
-          <Image
-            key={i}
-            onMouseDown={onMouseDown}
-            onTouchStart={onMouseDown}
-            onMouseMove={onMouseMove}
-            onTouchMove={onMouseMove}
-            onMouseUp={onMouseUp}
-            onTouchEnd={onMouseUp}
-            id={`gallery-item-${i + 1}`}
-            className={styles.carouselImage}
-            width={1152}
-            height={768}
-            alt={category}
-            src={`/images/${category}/picture_${i + 1}.jpg`}
-          />
+          <div key={i} className={styles.carouselImageWrapper}>
+            <Image
+              onMouseDown={onMouseDown}
+              onTouchStart={onMouseDown}
+              onMouseMove={onMouseMove}
+              onTouchMove={onMouseMove}
+              onMouseUp={onMouseUp}
+              onTouchEnd={onMouseUp}
+              id={`gallery-item-${i + 1}`}
+              className={styles.carouselImage}
+              fill
+              alt={category}
+              src={`/images/${category}/picture_${i + 1}.jpg`}
+            />
+          </div>
         ))}
       </div>
       <button
@@ -246,7 +258,11 @@ export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
             <GalleryItem
               key={index}
               category={category as Category}
-              onClick={() => setSelectedCategory(category as Category)}
+              onClick={() =>
+                category === selectedCategory
+                  ? setSelectedCategory(undefined)
+                  : setSelectedCategory(category as Category)
+              }
               selectedCategory={selectedCategory}
             />
           ))}
