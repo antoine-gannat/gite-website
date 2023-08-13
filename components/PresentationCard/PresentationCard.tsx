@@ -14,6 +14,7 @@ export default function PresentationCard({
       <h3 className="pt-4 text-center text-3xl">{strings.presentationTitle}</h3>
       <hr className="h-4" />
       <Image
+        priority={true}
         alt={strings.pool}
         className={styles.image}
         src="/images/gallery-preview/pool.jpg"
