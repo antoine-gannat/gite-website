@@ -2,7 +2,17 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gite-piscine.com</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-08-16</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://gite-piscine.com/fr</loc>
+    <lastmod>2023-08-16</lastmod>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://gite-piscine.com/en</loc>
+    <lastmod>2023-08-16</lastmod>
     <priority>1</priority>
   </url>
 </urlset>
