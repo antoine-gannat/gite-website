@@ -4,4 +4,13 @@ module.exports = {
     locales: ["en", "fr"],
     defaultLocale: "fr",
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/kerhere",
+        permanent: true,
+      },
+    ];
+  },
 };

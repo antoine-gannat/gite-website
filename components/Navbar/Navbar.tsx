@@ -14,7 +14,7 @@ import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 import { scrollTo } from "@/utils/scrollTo";
 
 export default function TopNav({
-  siteName,
+  data: { siteName },
   strings,
   locale,
 }: IComponentBaseProps): JSX.Element {

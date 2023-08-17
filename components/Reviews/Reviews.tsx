@@ -17,9 +17,10 @@ function withUppercase(input: string): string {
   return input.substring(0, 1).toUpperCase() + input.substring(1);
 }
 
-export default function Reviews({ strings }: IComponentBaseProps): JSX.Element {
-  const gdfReviewsUrl =
-    "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=avis&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250";
+export default function Reviews({
+  strings,
+  data: { gdfReviewsUrl },
+}: IComponentBaseProps): JSX.Element {
   const [reviews, setReviews] = React.useState<Review[] | null>([]);
   const [nbDisplayed, setNbDisplayed] = React.useState<number>(5);
 
