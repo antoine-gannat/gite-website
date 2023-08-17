@@ -45,6 +45,7 @@ export const localizedStringsBegMeil: Record<
     unavailable: "Indisponible",
     fortnightOnly: "Quinzaine uniquement",
     GDFWebsite: "Voir le site de Gîte de France",
+    notYetBookable: "Les réservations ne sont pas encore ouvertes.",
     next: "Suivant",
     prev: "Précedent",
     january: "Janvier",
@@ -79,10 +80,12 @@ export const localizedStringsBegMeil: Record<
       "Villa indépendante avec piscine extérieure chauffée, situé à Beg-Meil dans le sud Finistère, au coeur d'un village très actif et à 700m de la plage.",
     giteEpis: "Gîte 5 epis",
     pool: "Piscine",
+
     // reviews
     reviews: "Avis",
     more: "Plus",
     on: "Publié le",
+    noReviewsYet: "Aucun avis pour l'instant.",
   },
   en: {
     // meta tags
@@ -125,6 +128,7 @@ export const localizedStringsBegMeil: Record<
     unavailable: "Not available",
     fortnightOnly: "Fortnight only",
     GDFWebsite: "See Gîte de France website",
+    notYetBookable: "Bookings are not yet opened.",
     next: "Next",
     prev: "Previous",
     january: "January",
@@ -164,5 +168,6 @@ export const localizedStringsBegMeil: Record<
     reviews: "Reviews",
     more: "More",
     on: "Published on",
+    noReviewsYet: "No reviews yet.",
   },
 };

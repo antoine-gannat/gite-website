@@ -16,7 +16,7 @@ import { IComponentBaseProps } from "../types";
 let once = false;
 
 export default function Home(props: IComponentBaseProps): JSX.Element {
-  const { strings } = props;
+  const { strings, images } = props;
 
   // Google analytics
   React.useEffect(() => {
@@ -35,7 +35,13 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
       </Head>
       <div>
         <Navbar {...props} />
-        <section className={styles.container} id="home">
+        <section
+          className={styles.container}
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("${images.homeMainPicture}")`,
+          }}
+          id="home"
+        >
           <div className={styles.titleContainer}>
             <h1>{strings.title}</h1>
             <h2 className={styles.fadeIn}>{strings.subtitle}</h2>

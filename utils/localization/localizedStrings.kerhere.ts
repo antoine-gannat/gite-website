@@ -45,6 +45,7 @@ export const localizedStringsKerhere: Record<
     unavailable: "Indisponible",
     fortnightOnly: "Quinzaine uniquement",
     GDFWebsite: "Voir le site de Gîte de France",
+    notYetBookable: "Les réservations ne sont pas encore ouvertes.",
     next: "Suivant",
     prev: "Précedent",
     january: "Janvier",
@@ -84,6 +85,7 @@ export const localizedStringsKerhere: Record<
     reviews: "Avis",
     more: "Plus",
     on: "Publié le",
+    noReviewsYet: "Aucun avis pour l'instant.",
   },
   en: {
     // meta tags
@@ -126,6 +128,7 @@ export const localizedStringsKerhere: Record<
     unavailable: "Not available",
     fortnightOnly: "Fortnight only",
     GDFWebsite: "See Gîte de France website",
+    notYetBookable: "Bookings are not yet opened.",
     next: "Next",
     prev: "Previous",
     january: "January",
@@ -165,5 +168,6 @@ export const localizedStringsKerhere: Record<
     reviews: "Reviews",
     more: "More",
     on: "Published on",
+    noReviewsYet: "No reviews yet.",
   },
 };

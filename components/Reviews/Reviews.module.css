@@ -11,3 +11,11 @@
 .rating {
   color: rgb(151, 1, 14);
 }
+
+.noReviewsYet {
+  color: black;
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: 600;
+  text-align: center;
+}

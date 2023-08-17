@@ -198,7 +198,7 @@ export function Carousel({ category }: ICarouselProps) {
               className={styles.carouselImage}
               fill
               alt={category}
-              src={`/images/${category}/picture_${i + 1}.jpg`}
+              src={`/images/kerhere/${category}/picture_${i + 1}.jpg`}
             />
           </div>
         ))}

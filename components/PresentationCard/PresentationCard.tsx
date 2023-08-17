@@ -3,11 +3,12 @@ import * as React from "react";
 import styles from "./PresentationCard.module.css";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
-import { IComponentBaseProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import Image from "next/image";
 
 export default function PresentationCard({
   strings,
+  images,
 }: IComponentBaseProps): JSX.Element {
   return (
     <Container className={styles.card}>
@@ -17,7 +18,7 @@ export default function PresentationCard({
         priority={true}
         alt={strings.pool}
         className={styles.image}
-        src="/images/gallery-preview/pool.jpg"
+        src={images.presentationCard}
         width={600}
         height={400}
       />

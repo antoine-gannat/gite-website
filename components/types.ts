@@ -13,4 +13,8 @@ export interface IComponentBaseProps extends ILocalizationProps {
     // url to the gite de france website for manual reservation
     gdfWebsite: string;
   };
+  images: {
+    presentationCard: string;
+    homeMainPicture: string;
+  };
 }

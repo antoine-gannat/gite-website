@@ -36,6 +36,7 @@ export type Strings =
   | "november"
   | "december"
   | "booking"
+  | "notYetBookable"
   | "contactInfo"
   | "clickToCall"
   | "gotoFb"
@@ -62,4 +63,5 @@ export type Strings =
   | "giteEpis"
   | "on"
   | "reviews"
+  | "noReviewsYet"
   | "more";

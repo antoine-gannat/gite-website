@@ -13,7 +13,7 @@ import {
 
 export default function Booking({
   strings,
-  data: { gdfReservationsUrl, gdfWebsite },
+  data: { gdfReservationsUrl, gdfWebsite, siteName },
 }: IComponentBaseProps): JSX.Element {
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
@@ -140,31 +140,46 @@ export default function Booking({
     strings.november,
     strings.december,
   ];
+  const canBeBooked = siteName === "kerhere";
   return (
     <section
       id="booking"
-      className="mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
+      className={css(
+        "mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1",
+        styles.section
+      )}
     >
       <CategoryTitle
         title={strings.booking}
         subTitle={
-          <a
-            style={{
-              color: "rgb(185, 2, 17)",
-            }}
-            className="text-base underline"
-            href={gdfWebsite}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={strings.GDFWebsite}
-          >
-            {strings.GDFWebsite}
-          </a>
+          canBeBooked ? (
+            <a
+              style={{
+                color: "rgb(185, 2, 17)",
+              }}
+              className="text-base underline"
+              href={gdfWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={strings.GDFWebsite}
+            >
+              {strings.GDFWebsite}
+            </a>
+          ) : undefined
         }
       />
-      {navButtons()}
-      {displayBooking()}
-      {navButtons()}
+      {canBeBooked ? (
+        <>
+          {navButtons()}
+          {displayBooking()}
+          {navButtons()}
+        </>
+      ) : (
+        <>
+          <div className={styles.disabled}>{displayBooking()}</div>
+          <div className={styles.notYetBookable}>{strings.notYetBookable}</div>
+        </>
+      )}
     </section>
   );
 }

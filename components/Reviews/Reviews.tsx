@@ -19,7 +19,7 @@ function withUppercase(input: string): string {
 
 export default function Reviews({
   strings,
-  data: { gdfReviewsUrl },
+  data: { gdfReviewsUrl, siteName },
 }: IComponentBaseProps): JSX.Element {
   const [reviews, setReviews] = React.useState<Review[] | null>([]);
   const [nbDisplayed, setNbDisplayed] = React.useState<number>(5);
@@ -84,6 +84,8 @@ export default function Reviews({
     }, 10);
   }
 
+  const hasReviews = siteName === "kerhere";
+
   return (
     <section
       id="reviews"
@@ -91,14 +93,20 @@ export default function Reviews({
     >
       <Container>
         <CategoryTitle title={strings.reviews} />
-        {displayReviews()}
-        <button
-          className={css(styles.moreBtn, "btn col-4 offset-4 ")}
-          hidden={!reviews || nbDisplayed >= reviews?.length}
-          onClick={() => showMoreReview()}
-        >
-          {strings.more} ..
-        </button>
+        {hasReviews ? (
+          displayReviews()
+        ) : (
+          <div className={styles.noReviewsYet}>{strings.noReviewsYet}</div>
+        )}
+        {hasReviews && (
+          <button
+            className={css(styles.moreBtn, "btn col-4 offset-4 ")}
+            hidden={!reviews || nbDisplayed >= reviews?.length}
+            onClick={() => showMoreReview()}
+          >
+            {strings.more} ..
+          </button>
+        )}
       </Container>
     </section>
   );

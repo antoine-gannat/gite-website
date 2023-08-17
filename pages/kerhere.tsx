@@ -26,6 +26,10 @@ export const getStaticProps: GetStaticProps<IComponentBaseProps> = ({
         gdfWebsite:
           "http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190",
       },
+      images: {
+        presentationCard: "/images/gallery-preview/pool.jpg",
+        homeMainPicture: "/images/kerhere/outdoor/picture_8.jpg",
+      },
     },
   };
 };

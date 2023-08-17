@@ -55,7 +55,7 @@ const GalleryItem = ({
         width={300}
         height={175}
         alt={category}
-        src={`/images/gallery-preview/${category}.jpg`}
+        src={`/images/kerhere/gallery-preview/${category}.jpg`}
       />
       <CarouselIcon />
     </Col>
