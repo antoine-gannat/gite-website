@@ -27,3 +27,9 @@
 .helper {
   text-align: center;
 }
+
+.carouselIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
