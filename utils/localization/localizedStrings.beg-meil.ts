@@ -1,22 +1,22 @@
-import { Strings } from "./strings.types.generated";
+import { Strings, Locale } from "./strings.types.generated";
 
-export type ILocalizedStrings = Record<Strings, string> &
-  Record<string, string>;
-export type Locale = "en" | "fr";
-
-export const localizedStrings: Record<Locale, Record<Strings, string>> = {
+export const localizedStringsBegMeil: Record<
+  Locale,
+  Record<Strings, string>
+> = {
   fr: {
     // meta tags
     pageDescription:
-      "Location de vacances avec piscine intérieure chauffée en Bretagne. Gîte pouvant accueillir jusqu'a 6 personnes.",
-    pageTitle: "Gîte avec Piscine intérieur en Bretagne | Gîte Kerhéré",
+      "Location de vacances avec piscine extérieur chauffée en Bretagne. Gîte pouvant accueillir jusqu'à 8 personnes.",
+    pageTitle: "Villa avec Piscine extérieur en sud Finistere | Gîte Beg-Meil",
 
     // index
-    title: "Gîte Kerhéré",
-    subtitle: "Entre Terre et Mer",
+    title: "Gîte Beg-Meil",
+    subtitle: "Villa coté mer",
     booking: "Réserver un sejour",
 
     // navbar
+    siteName: "Villa Beg-Meil",
     homeLink: "Accueil",
     bookingLink: "Réservation",
     galleryLink: "Photos",
@@ -33,11 +33,13 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     bedrooms: "Chambres",
     additionalInformation: "Information complémentaire",
     capacity: "Capacité",
-    peoples: "personnes",
-    included: "Inclus",
+    capacityValue: "8 personnes",
+    wifiValue: "Inclus (ADSL 20mbps)",
     surface: "Superficie",
     beds: "Nombre de lits",
-    bedsCountDescription: "Deux lits double et 2 lits simple",
+    bedsCountDescription: "Quatre lits double 160cm",
+    surfaceValue: "150m²",
+    bedroomsValue: "Quatre chambres",
 
     // booking
     unavailable: "Indisponible",
@@ -72,12 +74,11 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     directions: "Itinéraire vers le Gîte",
 
     // presentation card
-    presentationTitle: "Gîte avec piscine intérieure en Bretagne",
+    presentationTitle: "Villa avec piscine extérieure chauffée en Bretagne",
     presentationText:
-      "Gîte indépendant avec piscine intérieure, exposé sud, situé entre Quimper et Châteaulin. Idéal pour une remise en forme dans un cadre verdoyant et vallonné, au pied des Montagnes Noires.",
-    giteEpis: "Gîte 4 epis",
+      "Villa indépendante avec piscine extérieure chauffée, situé à Beg-Meil dans le sud Finistère, au coeur d'un village très actif et à 700m de la plage.",
+    giteEpis: "Gîte 5 epis",
     pool: "Piscine",
-
     // reviews
     reviews: "Avis",
     more: "Plus",
@@ -86,13 +87,16 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
   en: {
     // meta tags
     pageDescription:
-      "Holiday cottage with and indoor swimming pool in Brittany, France. Perfect for a family vacation. Can receive up to 6 peoples.",
-    pageTitle: "Cottage with indoor Pool in Brittany | Gîte Kerhéré",
+      "Holiday villa with an outdoor heated swimming pool in Brittany, France. Perfect for a family vacation near the sea. Can host up to 8 guests.",
+    pageTitle: "Villa with an outdoor heated Pool in Brittany | Gîte Beg-Meil",
+
     // index page
-    title: "Gîte Kerhéré",
-    subtitle: "Between Land and Sea",
+    title: "Gîte Beg-Meil",
+    subtitle: "Villa by the sea",
     booking: "Book a stay",
+
     // Navbar
+    siteName: "Villa Beg-Meil",
     homeLink: "Home",
     bookingLink: "Booking",
     galleryLink: "Pictures",
@@ -109,11 +113,13 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     bedrooms: "Bedrooms",
     additionalInformation: "Additional information",
     capacity: "Capacity",
-    peoples: "peoples",
-    included: "Included",
+    capacityValue: "8 people",
+    wifiValue: "Included (ADSL 20mbps)",
     surface: "Surface",
     beds: "Number of beds",
-    bedsCountDescription: "2 queen size and 2 twin size",
+    bedsCountDescription: "4 queen size beds",
+    surfaceValue: "150m²",
+    bedroomsValue: "Four bedrooms",
 
     // booking
     unavailable: "Not available",
@@ -145,13 +151,13 @@ export const localizedStrings: Record<Locale, Record<Strings, string>> = {
     clickForMore: "Click on a picture for more.",
 
     // map
-    directions: "Directions to the Cottage",
+    directions: "Directions to the Villa",
 
     // presentation card
-    presentationTitle: "Cottage with indoor pool in Brittany",
+    presentationTitle: "Villa with indoor pool in Brittany",
     presentationText:
-      "Independent cottage with indoor swimming pool, facing south between Quimper and Châteaulin. Ideal for a relaxing stay in the country side surrounded by a peaceful nature.",
-    giteEpis: "4 cob cottage",
+      "Villa with an outdoor heated swimming pool, located in Beg-meil, ideal for a relaxing stay near the sea surrounded by a peaceful but activity-filled village.",
+    giteEpis: "5 cob cottage",
     pool: "Pool",
 
     // reviews

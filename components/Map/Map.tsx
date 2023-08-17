@@ -2,9 +2,9 @@ import * as React from "react";
 
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Map.module.css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 
-export default function Map({ strings }: ILocalizationProps): JSX.Element {
+export default function Map({ strings }: IComponentBaseProps): JSX.Element {
   return (
     <section className={styles.mapContainer} id="directions">
       <CategoryTitle title={strings.directions} />

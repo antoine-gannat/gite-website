@@ -4,7 +4,7 @@ import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Booking.module.css";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -14,7 +14,7 @@ import {
 const gdfReservationsUrl =
   "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=prix&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250&codeProd=&iframe=&sansCss=0&ope=&height=&width=&periode=&affichage=&numChambre=&clicsurcalendrier=&nbMois=1&photo=&prix=&text=&affichequenoteglobale=&bureauitea=&avecPrix=&_=1548135152075";
 
-export default function Booking({ strings }: ILocalizationProps): JSX.Element {
+export default function Booking({ strings }: IComponentBaseProps): JSX.Element {
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
   >(undefined);

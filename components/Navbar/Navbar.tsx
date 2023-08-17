@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import Link from "next/link";
 
 import * as React from "react";
@@ -14,9 +14,10 @@ import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 import { scrollTo } from "@/utils/scrollTo";
 
 export default function TopNav({
+  siteName,
   strings,
   locale,
-}: ILocalizationProps): JSX.Element {
+}: IComponentBaseProps): JSX.Element {
   const [expanded, setExpanded] = React.useState(false);
 
   function createLinkBtn(name: string, title: string): JSX.Element {
@@ -42,14 +43,18 @@ export default function TopNav({
           onClick={() => scrollTo("home")}
           className="hover:cursor-pointer"
         >
-          <p className={styles.link}>Gîte Kerhéré</p>
+          <p className={styles.link}>{strings.siteName}</p>
         </Navbar.Brand>
         <div className="flex flex-row">
           <div className={css(styles.navItems, expanded && styles.expanded)}>
             {links.map(({ name, title }) => createLinkBtn(name, title))}
           </div>
           <div className={styles.flagWrapper}>
-            <Link href="/fr" locale="fr" aria-label="Traduire en Français">
+            <Link
+              href={`/fr/${siteName}`}
+              locale="fr"
+              aria-label="Traduire en Français"
+            >
               <Image
                 className={css(styles.flag, locale === "fr" && "opacity-100")}
                 src="/images/flags/fr_flag.webp"
@@ -60,7 +65,11 @@ export default function TopNav({
             </Link>
           </div>
           <div className={styles.flagWrapper}>
-            <Link href={"/en"} locale="en" aria-label="Translate to english">
+            <Link
+              href={`/en/${siteName}`}
+              locale="en"
+              aria-label="Translate to english"
+            >
               <Image
                 className={css(styles.flag, locale === "en" && "opacity-100")}
                 src="/images/flags/uk_flag.webp"

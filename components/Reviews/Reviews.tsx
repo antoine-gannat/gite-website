@@ -5,7 +5,7 @@ import ReviewParser, { Review } from "./ReviewsParser";
 import styles from "./Reviews.module.css";
 import Container from "react-bootstrap/Container";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
@@ -17,7 +17,7 @@ function withUppercase(input: string): string {
   return input.substring(0, 1).toUpperCase() + input.substring(1);
 }
 
-export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
+export default function Reviews({ strings }: IComponentBaseProps): JSX.Element {
   const gdfReviewsUrl =
     "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=avis&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250";
   const [reviews, setReviews] = React.useState<Review[] | null>([]);

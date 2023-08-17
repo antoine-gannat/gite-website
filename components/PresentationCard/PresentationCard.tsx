@@ -3,12 +3,12 @@ import * as React from "react";
 import styles from "./PresentationCard.module.css";
 import Container from "react-bootstrap/Container";
 import { Col, Row } from "react-bootstrap";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "@/utils/localization/localization";
 import Image from "next/image";
 
 export default function PresentationCard({
   strings,
-}: ILocalizationProps): JSX.Element {
+}: IComponentBaseProps): JSX.Element {
   return (
     <Container className={styles.card}>
       <h3 className="pt-4 text-center text-3xl">{strings.presentationTitle}</h3>

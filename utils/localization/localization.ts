@@ -1,8 +1,4 @@
-import {
-  ILocalizedStrings,
-  Locale,
-  localizedStrings,
-} from "./localizedStrings";
+import { ILocalizedStrings, Locale, Strings } from "./strings.types.generated";
 
 export interface ILocalizationProps {
   strings: ILocalizedStrings;
@@ -12,7 +8,8 @@ export interface ILocalizationProps {
 export type IPropsWithLocalization<T = {}> = T & ILocalizationProps;
 
 export function getLocalizationProps(
-  locale: string | undefined
+  locale: string | undefined,
+  localizedStrings: Record<Locale, Record<Strings, string>>
 ): ILocalizationProps {
   if (!locale) {
     throw new Error("Locale is undefined");

@@ -1,10 +1,10 @@
 import Home from "@/components/Home/Home";
 import { IComponentBaseProps } from "@/components/types";
 import { getLocalizationProps } from "@/utils/localization/localization";
-import { localizedStringsKerhere } from "@/utils/localization/localizedStrings.kerhere";
+import { localizedStringsBegMeil } from "@/utils/localization/localizedStrings.beg-meil";
 import { GetStaticProps } from "next";
 
-export default function Kerhere(props: IComponentBaseProps) {
+export default function BegMeil(props: IComponentBaseProps) {
   return <Home {...props} />;
 }
 
@@ -13,8 +13,8 @@ export const getStaticProps: GetStaticProps<IComponentBaseProps> = ({
 }) => {
   return {
     props: {
-      ...getLocalizationProps(locale, localizedStringsKerhere),
-      siteName: "kerhere",
+      ...getLocalizationProps(locale, localizedStringsBegMeil),
+      siteName: "beg-meil",
     },
   };
 };

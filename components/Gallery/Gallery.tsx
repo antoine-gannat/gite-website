@@ -3,7 +3,7 @@ import * as React from "react";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Gallery.module.css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import Image from "next/image";
 import { css } from "@/utils/css";
 import { Carousel } from "./Carousel";
@@ -62,7 +62,7 @@ const GalleryItem = ({
   );
 };
 
-export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
+export default function Gallery({ strings }: IComponentBaseProps): JSX.Element {
   const [selectedCategory, setSelectedCategory] = React.useState<Category>();
 
   return (
