@@ -13,7 +13,7 @@ import {
 
 export default function Booking({
   strings,
-  data: { gdfReservationsUrl },
+  data: { gdfReservationsUrl, gdfWebsite },
 }: IComponentBaseProps): JSX.Element {
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
@@ -58,7 +58,7 @@ export default function Booking({
       return (
         <h4>
           <a
-            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
+            href={gdfWebsite}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={strings.GDFWebsite}
@@ -153,7 +153,7 @@ export default function Booking({
               color: "rgb(185, 2, 17)",
             }}
             className="text-base underline"
-            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
+            href={gdfWebsite}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={strings.GDFWebsite}
