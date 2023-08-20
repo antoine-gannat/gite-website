@@ -3,16 +3,16 @@ import * as React from "react";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import { Col, Container, Row } from "react-bootstrap";
 import styles from "./Gallery.module.css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps, SiteName } from "../types";
 import Image from "next/image";
 import { css } from "@/utils/css";
 import { Carousel } from "./Carousel";
-import { Category, categories } from "../constants";
 
 interface IGalleryItemProps {
-  category: Category;
-  onClick: () => void;
-  selectedCategory: Category | undefined;
+  readonly category: string;
+  readonly onClick: () => void;
+  readonly selectedCategory: string | undefined;
+  readonly siteName: SiteName;
 }
 
 const CarouselIcon = () => (
@@ -35,6 +35,7 @@ const GalleryItem = ({
   category,
   onClick,
   selectedCategory,
+  siteName,
 }: IGalleryItemProps) => {
   const isSelected = selectedCategory === category;
 
@@ -55,31 +56,42 @@ const GalleryItem = ({
         width={300}
         height={175}
         alt={category}
-        src={`/images/gallery-preview/${category}.jpg`}
+        src={`/images/${siteName}/gallery-preview/${category}.jpg`}
       />
       <CarouselIcon />
     </Col>
   );
 };
 
-export default function Gallery({ strings }: ILocalizationProps): JSX.Element {
-  const [selectedCategory, setSelectedCategory] = React.useState<Category>();
+export default function Gallery({
+  strings,
+  data: { siteName },
+  galleryCategories,
+}: IComponentBaseProps): JSX.Element {
+  const [selectedCategory, setSelectedCategory] = React.useState<string>();
 
   return (
     <section id="gallery">
       <Container className={styles.section}>
         <CategoryTitle title={strings.gallery} />
         <p className={styles.helper}>{strings.clickForMore}</p>
-        {selectedCategory && <Carousel category={selectedCategory} />}
+        {selectedCategory && (
+          <Carousel
+            categories={galleryCategories}
+            siteName={siteName}
+            category={selectedCategory}
+          />
+        )}
         <Row>
-          {Object.keys(categories).map((category, index) => (
+          {Object.keys(galleryCategories).map((category, index) => (
             <GalleryItem
               key={index}
-              category={category as Category}
+              siteName={siteName}
+              category={category}
               onClick={() =>
                 category === selectedCategory
                   ? setSelectedCategory(undefined)
-                  : setSelectedCategory(category as Category)
+                  : setSelectedCategory(category)
               }
               selectedCategory={selectedCategory}
             />

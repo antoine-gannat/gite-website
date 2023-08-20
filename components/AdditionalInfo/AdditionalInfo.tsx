@@ -3,11 +3,11 @@ import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 
 export default function AdditionalInfo({
   strings,
-}: ILocalizationProps): JSX.Element {
+}: IComponentBaseProps): JSX.Element {
   return (
     <section id="additional-info" className="mt-5">
       <Container className="max-w-5xl">
@@ -20,23 +20,23 @@ export default function AdditionalInfo({
           <tbody>
             <tr>
               <td>{strings.capacity}</td>
-              <td>6 {strings.peoples}</td>
+              <td>{strings.capacityValue}</td>
             </tr>
             <tr>
               <td>WIFI</td>
-              <td>{strings.included} (ADSL)</td>
+              <td>{strings.wifiValue}</td>
             </tr>
             <tr>
               <td>{strings.surface}</td>
-              <td>95m²</td>
+              <td>{strings.surfaceValue}</td>
             </tr>
             <tr>
               <td>{strings.bedrooms}</td>
-              <td>3</td>
+              <td>{strings.bedroomsValue}</td>
             </tr>
             <tr>
               <td>{strings.beds}</td>
-              <td>4 ({strings.bedsCountDescription})</td>
+              <td>{strings.bedsCountDescription}</td>
             </tr>
           </tbody>
         </Table>

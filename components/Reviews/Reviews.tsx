@@ -5,7 +5,7 @@ import ReviewParser, { Review } from "./ReviewsParser";
 import styles from "./Reviews.module.css";
 import Container from "react-bootstrap/Container";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
@@ -17,9 +17,10 @@ function withUppercase(input: string): string {
   return input.substring(0, 1).toUpperCase() + input.substring(1);
 }
 
-export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
-  const gdfReviewsUrl =
-    "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=avis&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250";
+export default function Reviews({
+  strings,
+  data: { gdfReviewsUrl, siteName },
+}: IComponentBaseProps): JSX.Element {
   const [reviews, setReviews] = React.useState<Review[] | null>([]);
   const [nbDisplayed, setNbDisplayed] = React.useState<number>(5);
 
@@ -83,6 +84,8 @@ export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
     }, 10);
   }
 
+  const hasReviews = siteName === "kerhere";
+
   return (
     <section
       id="reviews"
@@ -90,14 +93,20 @@ export default function Reviews({ strings }: ILocalizationProps): JSX.Element {
     >
       <Container>
         <CategoryTitle title={strings.reviews} />
-        {displayReviews()}
-        <button
-          className={css(styles.moreBtn, "btn col-4 offset-4 ")}
-          hidden={!reviews || nbDisplayed >= reviews?.length}
-          onClick={() => showMoreReview()}
-        >
-          {strings.more} ..
-        </button>
+        {hasReviews ? (
+          displayReviews()
+        ) : (
+          <div className={styles.noReviewsYet}>{strings.noReviewsYet}</div>
+        )}
+        {hasReviews && (
+          <button
+            className={css(styles.moreBtn, "btn col-4 offset-4 ")}
+            hidden={!reviews || nbDisplayed >= reviews?.length}
+            onClick={() => showMoreReview()}
+          >
+            {strings.more} ..
+          </button>
+        )}
       </Container>
     </section>
   );

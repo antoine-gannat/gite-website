@@ -4,10 +4,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Category, carouselPlaceholderBlur, categories } from "../constants";
+import { carouselPlaceholderBlur } from "../constants";
 import { css } from "@/utils/css";
 import styles from "./Carousel.module.css";
 import Image from "next/image";
+import { GalleryCategoryMap, SiteName } from "../types";
 
 interface IDragData {
   startX: number;
@@ -15,7 +16,9 @@ interface IDragData {
 }
 
 interface ICarouselProps {
-  category: Category;
+  category: string;
+  categories: GalleryCategoryMap;
+  siteName: SiteName;
 }
 
 function getClickPosition(
@@ -34,7 +37,7 @@ function getClickPosition(
   };
 }
 
-export function Carousel({ category }: ICarouselProps) {
+export function Carousel({ category, categories, siteName }: ICarouselProps) {
   const [activeImage, setActiveImage] = React.useState<number>(1);
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const dragRef = React.useRef<IDragData>();
@@ -49,7 +52,7 @@ export function Carousel({ category }: ICarouselProps) {
 
   const scrollTo = (index: number) => {
     if (
-      index > categories[category].imgCount ||
+      index > categories[category].count ||
       index < 1 ||
       !carouselRef.current
     ) {
@@ -179,7 +182,7 @@ export function Carousel({ category }: ICarouselProps) {
         <FontAwesomeIcon icon={faArrowCircleLeft} size="2x" />
       </button>
       <div className={styles.carousel} ref={carouselRef}>
-        {Array.from({ length: categories[category].imgCount }, (_, i) => (
+        {Array.from({ length: categories[category].count }, (_, i) => (
           <div key={i} className={styles.carouselImageWrapper}>
             <Image
               // if next active image is this one, set priority to true (preload)
@@ -198,7 +201,7 @@ export function Carousel({ category }: ICarouselProps) {
               className={styles.carouselImage}
               fill
               alt={category}
-              src={`/images/${category}/picture_${i + 1}.jpg`}
+              src={`/images/${siteName}/${category}/picture_${i + 1}.jpg`}
             />
           </div>
         ))}
@@ -206,12 +209,12 @@ export function Carousel({ category }: ICarouselProps) {
       <button
         className={css(styles.carouselNavBtn, styles.carouselNavBtnRight)}
         onClick={() => scrollTo(activeImage + 1)}
-        disabled={activeImage === categories[category].imgCount}
+        disabled={activeImage === categories[category].count}
       >
         <FontAwesomeIcon icon={faArrowCircleRight} size="2x" />
       </button>
       <div className={styles.carouselNav}>
-        {Array.from({ length: categories[category].imgCount }, (_, i) => (
+        {Array.from({ length: categories[category].count }, (_, i) => (
           <button
             key={i}
             className={css(

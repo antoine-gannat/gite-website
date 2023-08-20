@@ -4,17 +4,17 @@ import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Booking.module.css";
 import BookingParser, { BookingMonth, BookingWeek } from "./BookingParser";
 import { css } from "@/utils/css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-const gdfReservationsUrl =
-  "https://widget.itea.fr/widget.php?callback=jQuery112303482632914327839_1548135152074&widget=prix&key=FNGF-00MV3EXI&dpt=&langue=FR&numGite=29G17250&codeProd=&iframe=&sansCss=0&ope=&height=&width=&periode=&affichage=&numChambre=&clicsurcalendrier=&nbMois=1&photo=&prix=&text=&affichequenoteglobale=&bureauitea=&avecPrix=&_=1548135152075";
-
-export default function Booking({ strings }: ILocalizationProps): JSX.Element {
+export default function Booking({
+  strings,
+  data: { gdfReservationsUrl, gdfWebsite, siteName },
+}: IComponentBaseProps): JSX.Element {
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
   >(undefined);
@@ -58,7 +58,7 @@ export default function Booking({ strings }: ILocalizationProps): JSX.Element {
       return (
         <h4>
           <a
-            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
+            href={gdfWebsite}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={strings.GDFWebsite}
@@ -140,31 +140,46 @@ export default function Booking({ strings }: ILocalizationProps): JSX.Element {
     strings.november,
     strings.december,
   ];
+  const canBeBooked = siteName === "kerhere";
   return (
     <section
       id="booking"
-      className="mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1"
+      className={css(
+        "mt-5 col-lg-10 col-md-10 col-sm-12 offset-lg-1 offset-md-1",
+        styles.section
+      )}
     >
       <CategoryTitle
         title={strings.booking}
         subTitle={
-          <a
-            style={{
-              color: "rgb(185, 2, 17)",
-            }}
-            className="text-base underline"
-            href="http://location.gites-finistere.com/resa/etape1.php?ident=gites29_b2015.1.29G17250.G&ope=WEBBZH&ori=WEBBZH&__utma=1.921609988.1436477365.1436477365.1436477365.1&__utmb=1.1.10.1436477365&__utmc=1&__utmx=-&__utmz=1.1436477365.1.1.utmcsr=google%7cutmccn=(organic)%7cutmcmd=organic%7cutmctr=(not%2520provided)&__utmv=-&__utmk=267154190"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={strings.GDFWebsite}
-          >
-            {strings.GDFWebsite}
-          </a>
+          canBeBooked ? (
+            <a
+              style={{
+                color: "rgb(185, 2, 17)",
+              }}
+              className="text-base underline"
+              href={gdfWebsite}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={strings.GDFWebsite}
+            >
+              {strings.GDFWebsite}
+            </a>
+          ) : undefined
         }
       />
-      {navButtons()}
-      {displayBooking()}
-      {navButtons()}
+      {canBeBooked ? (
+        <>
+          {navButtons()}
+          {displayBooking()}
+          {navButtons()}
+        </>
+      ) : (
+        <>
+          <div className={styles.disabled}>{displayBooking()}</div>
+          <div className={styles.notYetBookable}>{strings.notYetBookable}</div>
+        </>
+      )}
     </section>
   );
 }

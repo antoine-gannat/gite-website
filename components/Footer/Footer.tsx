@@ -2,12 +2,15 @@ import * as React from "react";
 
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import styles from "./Footer.module.css";
-import { ILocalizationProps } from "@/utils/localization/localization";
+import { IComponentBaseProps } from "../types";
 import { css } from "@/utils/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-export default function Footer({ strings }: ILocalizationProps): JSX.Element {
+export default function Footer({
+  strings,
+  data: { address },
+}: IComponentBaseProps): JSX.Element {
   return (
     <footer className={styles.footer} id="contact">
       <CategoryTitle title={strings.contactInfo} />
@@ -31,7 +34,7 @@ export default function Footer({ strings }: ILocalizationProps): JSX.Element {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Kerhéré, 29510 BRIEC, FRANCE
+            {address}
           </a>
         </li>
         <li className="col-6">
