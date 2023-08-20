@@ -4,6 +4,10 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-7JLY9FBTVE"
+        ></script>
         <meta
           name="google-site-verification"
           content="Rxj-KQK_DmWHaxm5nQ2ooRIK_6iqc8EX6tcHc3u2Uic"

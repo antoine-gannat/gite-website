@@ -9,12 +9,23 @@ import Booking from "../Booking/Booking";
 import Reviews from "../Reviews/Reviews";
 import Head from "next/head";
 import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo";
-import ReactGA from "react-ga";
 import { scrollTo } from "@/utils/scrollTo";
 import { IComponentBaseProps } from "../types";
 import { LinkToOtherCottage } from "../LinkToOtherCottage/LinkToOtherCottage";
 
 let once = false;
+
+// Trigger the google analytics once.
+function runAnalytics() {
+  const dataLayer = (window as any).dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  (gtag as any)("js", new Date());
+
+  (gtag as any)("config", "G-7JLY9FBTVE");
+  once = true;
+}
 
 export default function Home(props: IComponentBaseProps): JSX.Element {
   const { strings, images } = props;
@@ -22,9 +33,7 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
   // Google analytics
   React.useEffect(() => {
     if (!once && typeof window !== "undefined") {
-      ReactGA.initialize("UA-80843760-1");
-      ReactGA.pageview(window.location.pathname + window.location.search);
-      once = true;
+      runAnalytics();
     }
   }, []);
 
