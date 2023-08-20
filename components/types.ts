@@ -1,7 +1,11 @@
 import { ILocalizationProps } from "@/utils/localization/localization";
+
+export type SiteName = "beg-meil" | "kerhere";
+
+export type GalleryCategoryMap = Record<string, { count: number }>;
 export interface IComponentBaseProps extends ILocalizationProps {
   data: {
-    siteName: "beg-meil" | "kerhere";
+    siteName: SiteName;
     // google map embedded url
     googleMapUrl: string;
     // address of the cottage
@@ -17,4 +21,5 @@ export interface IComponentBaseProps extends ILocalizationProps {
     presentationCard: string;
     homeMainPicture: string;
   };
+  galleryCategories: GalleryCategoryMap;
 }

@@ -47,6 +47,8 @@ export type Strings =
   | "pageDescription"
   | "title"
   | "subtitle"
+  | "visitKerhere"
+  | "visitBegMeil"
   | "directions"
   | "homeLink"
   | "galleryLink"

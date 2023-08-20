@@ -9,6 +9,7 @@ import Image from "next/image";
 export default function PresentationCard({
   strings,
   images,
+  data: { siteName },
 }: IComponentBaseProps): JSX.Element {
   return (
     <Container className={styles.card}>
@@ -23,26 +24,28 @@ export default function PresentationCard({
         height={400}
       />
       <p className={styles.cardText}>{strings.presentationText}</p>
-      <Row>
-        <Col className={styles.awardWrapper}>
-          <Image
-            className={styles.award}
-            src="/images/4-epis-gdf.png"
-            alt={strings.giteEpis}
-            width={150}
-            height={68}
-          />
-        </Col>
-        <Col className={styles.awardWrapper}>
-          <Image
-            className={styles.award}
-            src="/images/meuble-de-tourisme.jpg"
-            alt={strings.giteEpis}
-            width={150}
-            height={150}
-          />
-        </Col>
-      </Row>
+      {siteName === "kerhere" && (
+        <Row>
+          <Col className={styles.awardWrapper}>
+            <Image
+              className={styles.award}
+              src="/images/4-epis-gdf.png"
+              alt={strings.giteEpis}
+              width={150}
+              height={68}
+            />
+          </Col>
+          <Col className={styles.awardWrapper}>
+            <Image
+              className={styles.award}
+              src="/images/meuble-de-tourisme.jpg"
+              alt={strings.giteEpis}
+              width={150}
+              height={150}
+            />
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 }

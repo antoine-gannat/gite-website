@@ -7,16 +7,17 @@ export const localizedStringsBegMeil: Record<
   fr: {
     // meta tags
     pageDescription:
-      "Location de vacances avec piscine extérieur chauffée en Bretagne. Gîte pouvant accueillir jusqu'à 8 personnes.",
-    pageTitle: "Villa avec Piscine extérieur en sud Finistere | Gîte Beg-Meil",
+      "Location de vacances avec piscine extérieur chauffée en Bretagne. Villa pouvant accueillir jusqu'à 8 personnes.",
+    pageTitle:
+      "Villa avec Piscine extérieur en sud Finistere | Villa Des Dunes",
 
     // index
-    title: "Gîte Beg-Meil",
-    subtitle: "Villa coté mer",
-    booking: "Réserver un sejour",
+    title: "Villa Des Dunes",
+    subtitle: "À 300m de la mer",
+    booking: "Les réservations ouvrent bientôt",
 
     // navbar
-    siteName: "Villa Beg-Meil",
+    siteName: "Villa Des Dunes",
     homeLink: "Accueil",
     bookingLink: "Réservation",
     galleryLink: "Photos",
@@ -37,7 +38,7 @@ export const localizedStringsBegMeil: Record<
     wifiValue: "Inclus (ADSL 20mbps)",
     surface: "Superficie",
     beds: "Nombre de lits",
-    bedsCountDescription: "Quatre lits double 160cm",
+    bedsCountDescription: "Quatre lits 160x200 (Queen size)",
     surfaceValue: "150m²",
     bedroomsValue: "Quatre chambres",
 
@@ -69,16 +70,16 @@ export const localizedStringsBegMeil: Record<
 
     // gallery
     gallery: "Photos",
-    clickForMore: "Cliquez sur une catégorie pour voir d'autre photos.",
+    clickForMore: "Cliquez sur une catégorie pour visualiser d'autres photos.",
 
     // map
-    directions: "Itinéraire vers le Gîte",
+    directions: "Itinéraire vers la villa",
 
     // presentation card
     presentationTitle: "Villa avec piscine extérieure chauffée en Bretagne",
     presentationText:
-      "Villa indépendante avec piscine extérieure chauffée, situé à Beg-Meil dans le sud Finistère, au coeur d'un village très actif et à 700m de la plage.",
-    giteEpis: "Gîte 5 epis",
+      "Villa indépendante pour 8 personnes avec piscine extérieure privée et chauffée, jardin clos. Situé à Beg-Meil dans le sud Finistère, au cœur d'une station balnéaire très active à 300m de la plage et du village. (En cours d'achèvement)",
+    giteEpis: "Gîte 4 epis",
     pool: "Piscine",
 
     // reviews
@@ -86,20 +87,24 @@ export const localizedStringsBegMeil: Record<
     more: "Plus",
     on: "Publié le",
     noReviewsYet: "Aucun avis pour l'instant.",
+    visitBegMeil:
+      "Visitez également notre Villa de Beg-Meil. (En cours d'achèvement)",
+    visitKerhere: "Visitez également notre Gîte de Kerhere",
   },
   en: {
     // meta tags
     pageDescription:
       "Holiday villa with an outdoor heated swimming pool in Brittany, France. Perfect for a family vacation near the sea. Can host up to 8 guests.",
-    pageTitle: "Villa with an outdoor heated Pool in Brittany | Gîte Beg-Meil",
+    pageTitle:
+      "Villa with an outdoor heated Pool in Brittany | Villa Des Dunes",
 
     // index page
-    title: "Gîte Beg-Meil",
-    subtitle: "Villa by the sea",
-    booking: "Book a stay",
+    title: "Villa Des Dunes",
+    subtitle: "Luxury sea-side cottage",
+    booking: "Bookings opening soon",
 
     // Navbar
-    siteName: "Villa Beg-Meil",
+    siteName: "Villa Des Dunes",
     homeLink: "Home",
     bookingLink: "Booking",
     galleryLink: "Pictures",
@@ -120,7 +125,7 @@ export const localizedStringsBegMeil: Record<
     wifiValue: "Included (ADSL 20mbps)",
     surface: "Surface",
     beds: "Number of beds",
-    bedsCountDescription: "4 queen size beds",
+    bedsCountDescription: "4 queen size beds (160x200cm)",
     surfaceValue: "150m²",
     bedroomsValue: "Four bedrooms",
 
@@ -158,10 +163,10 @@ export const localizedStringsBegMeil: Record<
     directions: "Directions to the Villa",
 
     // presentation card
-    presentationTitle: "Villa with indoor pool in Brittany",
+    presentationTitle: "Villa with outdoor heated pool in Brittany",
     presentationText:
-      "Villa with an outdoor heated swimming pool, located in Beg-meil, ideal for a relaxing stay near the sea surrounded by a peaceful but activity-filled village.",
-    giteEpis: "5 cob cottage",
+      "Villa with an outdoor private heated swimming pool, located in Beg-meil, at 300 meters from the sea, ideal for a relaxing stay near the sea surrounded by a peaceful but activity-filled village. (Soon to be completed)",
+    giteEpis: "4 cob cottage",
     pool: "Pool",
 
     // reviews
@@ -169,5 +174,8 @@ export const localizedStringsBegMeil: Record<
     more: "More",
     on: "Published on",
     noReviewsYet: "No reviews yet.",
+
+    visitBegMeil: "Also visit our new Sea-side Villa in Beg-Meil",
+    visitKerhere: "Also visit our Gîte de Kerhere",
   },
 };

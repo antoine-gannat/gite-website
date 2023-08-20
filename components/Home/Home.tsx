@@ -12,6 +12,7 @@ import AdditionalInfo from "@/components/AdditionalInfo/AdditionalInfo";
 import ReactGA from "react-ga";
 import { scrollTo } from "@/utils/scrollTo";
 import { IComponentBaseProps } from "../types";
+import { LinkToOtherCottage } from "../LinkToOtherCottage/LinkToOtherCottage";
 
 let once = false;
 
@@ -38,7 +39,7 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
         <section
           className={styles.container}
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url("${images.homeMainPicture}")`,
+            backgroundImage: `url("${images.homeMainPicture}")`,
           }}
           id="home"
         >
@@ -56,6 +57,7 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
         </section>
         <div className={styles.pageContent}>
           <PresentationCard {...props} />
+          <LinkToOtherCottage {...props} />
           <Gallery {...props} />
           <Booking {...props} />
           <Reviews {...props} />

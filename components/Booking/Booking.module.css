@@ -51,6 +51,8 @@
 
 .disabled {
   filter: blur(10px);
+  max-height: 500px;
+  overflow: hidden;
   pointer-events: none;
 }
 

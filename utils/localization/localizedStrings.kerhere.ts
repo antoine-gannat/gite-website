@@ -69,7 +69,7 @@ export const localizedStringsKerhere: Record<
 
     // gallery
     gallery: "Photos",
-    clickForMore: "Cliquez sur une catégorie pour voir d'autre photos.",
+    clickForMore: "Cliquez sur une catégorie pour visualiser d'autres photos.",
 
     // map
     directions: "Itinéraire vers le Gîte",
@@ -86,6 +86,9 @@ export const localizedStringsKerhere: Record<
     more: "Plus",
     on: "Publié le",
     noReviewsYet: "Aucun avis pour l'instant.",
+
+    visitBegMeil: `Visitez également notre Villa de Beg-Meil. (en cours d'achèvement)`,
+    visitKerhere: "Visitez également notre Gîte de Kerhere",
   },
   en: {
     // meta tags
@@ -169,5 +172,9 @@ export const localizedStringsKerhere: Record<
     more: "More",
     on: "Published on",
     noReviewsYet: "No reviews yet.",
+
+    visitBegMeil:
+      "Also visit our new Sea-side Villa in Beg-Meil (in construction)",
+    visitKerhere: "Also visit our Gîte de Kerhere",
   },
 };
