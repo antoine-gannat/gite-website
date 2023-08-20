@@ -13,8 +13,29 @@ import { scrollTo } from "@/utils/scrollTo";
 import { IComponentBaseProps } from "../types";
 import { LinkToOtherCottage } from "../LinkToOtherCottage/LinkToOtherCottage";
 
+let once = false;
+
+// Trigger the google analytics once.
+function runAnalytics() {
+  const dataLayer = (window as any).dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  (gtag as any)("js", new Date());
+
+  (gtag as any)("config", "G-7JLY9FBTVE");
+  once = true;
+}
+
 export default function Home(props: IComponentBaseProps): JSX.Element {
   const { strings, images } = props;
+
+  // Google analytics
+  React.useEffect(() => {
+    if (!once && typeof window !== "undefined") {
+      runAnalytics();
+    }
+  }, []);
 
   return (
     <div>
