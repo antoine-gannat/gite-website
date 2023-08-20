@@ -14,18 +14,19 @@ export function LinkToOtherCottage({
 
   return (
     <section className={styles.section}>
-      <div
+      <a
         className={styles.container}
+        href={isBegMeil ? "/kerhere" : "/beg-meil"}
         style={{ backgroundImage: `url(${imageUrl})` }}
       >
-        <a href={isBegMeil ? "/kerhere" : "/beg-meil"} className={styles.link}>
+        <div className={styles.link}>
           {isBegMeil ? strings.visitKerhere : strings.visitBegMeil}
           <FontAwesomeIcon
             icon={faArrowUpRightFromSquare}
             className={styles.linkIcon}
           />
-        </a>
-      </div>
+        </div>
+      </a>
     </section>
   );
 }
