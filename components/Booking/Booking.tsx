@@ -29,7 +29,7 @@ export default function Booking({
       .catch(() => {
         setBookingMonths(null);
       });
-  }, []);
+  }, [gdfReservationsUrl]);
 
   function formatDateForDisplay(date: Date): string {
     return `${date.getDate()} ${monthsNames[date.getMonth()].slice(0, 3)}`;

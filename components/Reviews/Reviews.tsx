@@ -33,7 +33,7 @@ export default function Reviews({
       .catch(() => {
         setReviews(null);
       });
-  }, []);
+  }, [gdfReviewsUrl]);
 
   function displayRating(rating: number, title: string): JSX.Element {
     let stars = [];
