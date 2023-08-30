@@ -14,13 +14,14 @@ import { IComponentBaseProps } from "../types";
 import { LinkToOtherCottage } from "../LinkToOtherCottage/LinkToOtherCottage";
 
 export default function Home(props: IComponentBaseProps): JSX.Element {
-  const { strings, images } = props;
+  const { strings, data, locale, images } = props;
 
   return (
     <div>
       <Head>
         <title>{strings.pageTitle}</title>
         <meta name="description" content={strings.pageDescription} />
+        <link rel="canonical" href={`https://gite-piscine.com/${locale}/${data.siteName}`} />
       </Head>
       <div>
         <Navbar {...props} />
