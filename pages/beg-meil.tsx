@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps<IComponentBaseProps> = ({
           count: 3,
         },
         "living-room": { count: 4 },
+        bathrooms: { count: 2 },
       },
     },
   };
