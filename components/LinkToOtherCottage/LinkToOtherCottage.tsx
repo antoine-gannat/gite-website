@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IComponentBaseProps } from "../types";
 import styles from "./LinkToOtherCottage.module.css";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import CategoryTitle from "../CategoryTitle/CategoryTitle";
+import { Container } from "react-bootstrap";
 
 export function LinkToOtherCottage({
   strings,
@@ -13,20 +15,30 @@ export function LinkToOtherCottage({
     : "/images/beg-meil/gallery-preview/outdoor.jpg";
 
   return (
-    <section className={styles.section}>
-      <a
-        className={styles.container}
-        href={isBegMeil ? "/kerhere" : "/beg-meil"}
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      >
-        <div className={styles.link}>
-          {isBegMeil ? strings.visitKerhere : strings.visitBegMeil}
-          <FontAwesomeIcon
-            icon={faArrowUpRightFromSquare}
-            className={styles.linkIcon}
+    <section>
+      <Container className={styles.section}>
+        <div>
+          <CategoryTitle
+            title={
+              siteName === "beg-meil"
+                ? strings.visitKerhere
+                : strings.visitBegMeil
+            }
           />
+          <a
+            className={styles.container}
+            href={isBegMeil ? "/kerhere" : "/beg-meil"}
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          >
+            <div className={styles.link}>
+              <FontAwesomeIcon
+                icon={faArrowUpRightFromSquare}
+                className={styles.linkIcon}
+              />
+            </div>
+          </a>
         </div>
-      </a>
+      </Container>
     </section>
   );
 }

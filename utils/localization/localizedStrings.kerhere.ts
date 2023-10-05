@@ -87,8 +87,8 @@ export const localizedStringsKerhere: Record<
     on: "Publié le",
     noReviewsYet: "Aucun avis pour l'instant.",
 
-    visitBegMeil: `Visitez également notre Villa de Beg-Meil. (en cours d'achèvement)`,
-    visitKerhere: "Visitez également notre Gîte de Kerhere",
+    visitBegMeil: `Visitez également notre Villa de Beg-Meil !`,
+    visitKerhere: "Visitez également notre Gîte de Kerhere !",
   },
   en: {
     // meta tags

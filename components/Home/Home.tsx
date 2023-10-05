@@ -21,7 +21,10 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
       <Head>
         <title>{strings.pageTitle}</title>
         <meta name="description" content={strings.pageDescription} />
-        <link rel="canonical" href={`https://gite-piscine.com/${locale}/${data.siteName}`} />
+        <link
+          rel="canonical"
+          href={`https://gite-piscine.com/${locale}/${data.siteName}`}
+        />
       </Head>
       <div>
         <Navbar {...props} />
@@ -46,8 +49,8 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
         </section>
         <div className={styles.pageContent}>
           <PresentationCard {...props} />
-          <LinkToOtherCottage {...props} />
           <Gallery {...props} />
+          <LinkToOtherCottage {...props} />
           <Booking {...props} />
           <Reviews {...props} />
           <Map {...props} />

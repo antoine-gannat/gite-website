@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps<IComponentBaseProps> = ({
       },
       galleryCategories: {
         outdoor: {
-          count: 3,
+          count: 4,
         },
         "living-room": { count: 4 },
         bathrooms: { count: 2 },
