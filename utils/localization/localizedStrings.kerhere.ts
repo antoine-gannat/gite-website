@@ -173,8 +173,7 @@ export const localizedStringsKerhere: Record<
     on: "Published on",
     noReviewsYet: "No reviews yet.",
 
-    visitBegMeil:
-      "Also visit our new Sea-side Villa in Beg-Meil (soon to be completed)",
-    visitKerhere: "Also visit our Gîte de Kerhere",
+    visitBegMeil: "Also visit our new Sea-side Villa in Beg-Meil !",
+    visitKerhere: "Also visit our Gîte de Kerhere !",
   },
 };

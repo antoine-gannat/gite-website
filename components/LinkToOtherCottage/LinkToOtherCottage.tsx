@@ -17,7 +17,7 @@ export function LinkToOtherCottage({
   return (
     <section>
       <Container className={styles.section}>
-        <div>
+        <div className={styles.wrapper}>
           <CategoryTitle
             title={
               siteName === "beg-meil"
