@@ -37,8 +37,9 @@ export const getStaticProps: GetStaticProps<IComponentBaseProps> = ({
         outdoor: {
           count: 4,
         },
-        "living-room": { count: 4 },
-        bathrooms: { count: 2 },
+        "living-room": { count: 8 },
+        bathrooms: { count: 5 },
+        bedrooms: { count: 8 },
       },
     },
   };
