@@ -18,7 +18,7 @@ const endDate = new Date(0, 10, 13);
 
 export default class BookingParser {
   dataAsElement: Document;
-  constructor(rawData: string) {
+  constructor(rawData: string, private giteId: string) {
     // parse the string to an HTML element
     this.dataAsElement = new DOMParser().parseFromString(
       rawData.replace(/\\"/g, '"'),
@@ -56,7 +56,9 @@ export default class BookingParser {
       parsedStartDate.getDate() + Number(numberOfDays)
     );
     const fortnightOnly = className === "indisponible partiellementDispo";
-    const url = `https://reservation.itea.fr/resa/etape1.php?ident=gites29_b${parsedStartDate.getFullYear()}.1.29G17250.G&exe=${parsedStartDate.getFullYear()}&dep=29&jour=${parsedStartDate.getDate()}&mois=${
+    const url = `https://reservation.itea.fr/resa/etape1.php?ident=gites29_b${parsedStartDate.getFullYear()}.1.${
+      this.giteId
+    }.G&exe=${parsedStartDate.getFullYear()}&dep=29&jour=${parsedStartDate.getDate()}&mois=${
       parsedStartDate.getMonth() + 1
     }&annee=${parsedStartDate.getFullYear()}&duree=${
       fortnightOnly ? Number(numberOfDays) * 2 : numberOfDays

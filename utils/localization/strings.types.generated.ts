@@ -36,7 +36,6 @@ export type Strings =
   | "november"
   | "december"
   | "booking"
-  | "notYetBookable"
   | "contactInfo"
   | "clickToCall"
   | "gotoFb"

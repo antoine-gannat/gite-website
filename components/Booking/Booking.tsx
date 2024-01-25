@@ -13,7 +13,7 @@ import {
 
 export default function Booking({
   strings,
-  data: { gdfReservationsUrl, gdfWebsite, siteName },
+  data: { gdfReservationsUrl, gdfWebsite, giteId },
 }: IComponentBaseProps): JSX.Element {
   const [bookingMonths, setBookingMonths] = React.useState<
     BookingMonth[] | undefined | null
@@ -23,13 +23,13 @@ export default function Booking({
   React.useEffect(() => {
     fetch(gdfReservationsUrl)
       .then(async (data) => {
-        const parser = new BookingParser(await data.text());
+        const parser = new BookingParser(await data.text(), giteId);
         setBookingMonths(parser.getBookings());
       })
       .catch(() => {
         setBookingMonths(null);
       });
-  }, [gdfReservationsUrl]);
+  }, [gdfReservationsUrl, giteId]);
 
   function formatDateForDisplay(date: Date): string {
     return `${date.getDate()} ${monthsNames[date.getMonth()].slice(0, 3)}`;
@@ -140,7 +140,6 @@ export default function Booking({
     strings.november,
     strings.december,
   ];
-  const canBeBooked = siteName === "kerhere";
   return (
     <section
       id="booking"
@@ -152,34 +151,25 @@ export default function Booking({
       <CategoryTitle
         title={strings.booking}
         subTitle={
-          canBeBooked ? (
-            <a
-              style={{
-                color: "rgb(185, 2, 17)",
-              }}
-              className="text-base underline"
-              href={gdfWebsite}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={strings.GDFWebsite}
-            >
-              {strings.GDFWebsite}
-            </a>
-          ) : undefined
+          <a
+            style={{
+              color: "rgb(185, 2, 17)",
+            }}
+            className="text-base underline"
+            href={gdfWebsite}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={strings.GDFWebsite}
+          >
+            {strings.GDFWebsite}
+          </a>
         }
       />
-      {canBeBooked ? (
-        <>
-          {navButtons()}
-          {displayBooking()}
-          {navButtons()}
-        </>
-      ) : (
-        <>
-          <div className={styles.disabled}>{displayBooking()}</div>
-          <div className={styles.notYetBookable}>{strings.notYetBookable}</div>
-        </>
-      )}
+      <>
+        {navButtons()}
+        {displayBooking()}
+        {navButtons()}
+      </>
     </section>
   );
 }

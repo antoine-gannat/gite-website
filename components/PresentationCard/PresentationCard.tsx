@@ -11,6 +11,8 @@ export default function PresentationCard({
   images,
   data: { siteName },
 }: IComponentBaseProps): JSX.Element {
+  const nombreEpis = siteName === "kerhere" ? 4 : 5;
+
   return (
     <Container className={styles.card}>
       <h3 className="pt-4 text-center text-3xl">{strings.presentationTitle}</h3>
@@ -24,28 +26,26 @@ export default function PresentationCard({
         height={400}
       />
       <p className={styles.cardText}>{strings.presentationText}</p>
-      {siteName === "kerhere" && (
-        <Row>
-          <Col className={styles.awardWrapper}>
-            <Image
-              className={styles.award}
-              src="/images/4-epis-gdf.png"
-              alt={strings.giteEpis}
-              width={150}
-              height={68}
-            />
-          </Col>
-          <Col className={styles.awardWrapper}>
-            <Image
-              className={styles.award}
-              src="/images/meuble-de-tourisme.jpg"
-              alt={strings.giteEpis}
-              width={150}
-              height={150}
-            />
-          </Col>
-        </Row>
-      )}
+      <Row>
+        <Col className={styles.awardWrapper}>
+          <Image
+            className={styles.award}
+            src={`/images/${nombreEpis}-epis-gdf.png`}
+            alt={strings.giteEpis}
+            width={150}
+            height={68}
+          />
+        </Col>
+        <Col className={styles.awardWrapper}>
+          <Image
+            className={styles.award}
+            src={`/images/meuble-de-tourisme-${nombreEpis}.jpg`}
+            alt={strings.giteEpis}
+            width={150}
+            height={150}
+          />
+        </Col>
+      </Row>
     </Container>
   );
 }

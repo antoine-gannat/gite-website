@@ -84,7 +84,7 @@ export default function Reviews({
     }, 10);
   }
 
-  const hasReviews = siteName === "kerhere";
+  const hasReviews = reviews && reviews.length > 0;
 
   return (
     <section
