@@ -50,11 +50,11 @@ export default function Home(props: IComponentBaseProps): JSX.Element {
         <div className={styles.pageContent}>
           <PresentationCard {...props} />
           <Gallery {...props} />
-          <LinkToOtherCottage {...props} />
           <Booking {...props} />
           <Reviews {...props} />
           <Map {...props} />
           <AdditionalInfo {...props} />
+          <LinkToOtherCottage {...props} />
         </div>
       </div>
       <Footer {...props} />
